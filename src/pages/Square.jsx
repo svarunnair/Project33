@@ -65,8 +65,7 @@ const OuterContainer=styled(Box)(({theme})=>({
 
   const InnerBox=styled(Box)(({theme})=>({
 
-    background:"grey",
-    border:"1px solid black",
+    
     width:1250,
     height:450,
     
@@ -121,16 +120,19 @@ function Square() {
   return (
     <OuterContainer>
 
-        <InnerBox >
+        <InnerBox sx={{background:"grey",}} >
 <ImageBox width={700} as={'img'} src="https://www.rado.com/media/catalog/category/True_Square_9.png"/>
 <TextBox marginLeft={57} width={400} >At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.</TextBox>
       <TextBox marginTop={5} marginLeft={8}>Read more about the collection</TextBox>
         </InnerBox>
 
-        <InnerBox>
+        <InnerBox  display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
             {mainData.map((item)=>(
-                <BoxData width={350} height={500} border={"1px solid black"} display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
-                <ImageBox width={300} as={"img"} src={item.images[0]}/>
+                <BoxData  width={350} height={500} border={"1px solid black"}>
+                <ImageBox  width={300} as={"img"} src={item.images[0]}/>
+                <TextBox>{item.name}</TextBox>
+                <TextBox>{item.model}</TextBox>
+                <TextBox>{item.price}</TextBox>
                 </BoxData>
             ))}
         </InnerBox>
