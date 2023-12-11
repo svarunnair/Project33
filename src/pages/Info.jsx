@@ -72,13 +72,13 @@ function Info() {
     <OuterContainer >
 
         <TextBox sx={{fontSize:30}}> Please enter your contact details</TextBox>
-        <TextBox sx={{width:530, textAlign:"left",marginLeft:50, marginTop:10}}>Complete your details and one of our associates will contact you about viewing your selected time piece. No prepayment is required for the reservation and there is no obligation to purchase the reserved watch.</TextBox>
+        <TextBox sx={{width:530, textAlign:"left",marginLeft:34, marginTop:10}}>Complete your details and one of our associates will contact you about viewing your selected time piece. No prepayment is required for the reservation and there is no obligation to purchase the reserved watch.</TextBox>
 
 <InnerBox>
 
 </InnerBox>
 
-<InnerBox>
+<InnerBox sx={{padding:10, gap:10, textAlign:'left',marginLeft:23 }} >
 
       <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left" }}>
         <InputLabel id="demo-simple-select-standard-label">Salutation</InputLabel>
@@ -98,8 +98,14 @@ function Info() {
           <MenuItem value={20}>Mrs.</MenuItem>
          
         </Select>
-      </FormControl>
-   
+      </FormControl><br/>
+   <Input sx={{width:300}} placeholder='First Name'/><br/>
+   <Input sx={{width:300}} placeholder='Last Name'/><br/>
+   <Input sx={{width:300}} placeholder='Email'/>
+   <Input sx={{width:300}} placeholder='Telephone'/><br/>
+   <Input sx={{width:600}} placeholder='Address'/><br/>
+   <Input sx={{width:300}} placeholder='Postcode'/>
+   <Input sx={{width:300}} placeholder='City'/><br/>
 </InnerBox>
 
     </OuterContainer>
