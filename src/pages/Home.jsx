@@ -107,6 +107,45 @@ const BoxItem=styled(Box)(({theme})=>({
   }
 }))
 
+const FirstBox=styled(Box)(({theme})=>({
+
+  [theme.breakpoints.down("xl")]:{
+
+  },
+  [theme.breakpoints.down("lg")]:{
+
+  },
+  [theme.breakpoints.down("md")]:{
+      
+  },
+  [theme.breakpoints.down("sm")]:{
+      
+  },
+  [theme.breakpoints.down("xs")]:{
+      
+  }
+}))
+
+
+const ButtonBox=styled(Box)(({theme})=>({
+
+  [theme.breakpoints.down("xl")]:{
+
+  },
+  [theme.breakpoints.down("lg")]:{
+
+  },
+  [theme.breakpoints.down("md")]:{
+      
+  },
+  [theme.breakpoints.down("sm")]:{
+      
+  },
+  [theme.breakpoints.down("xs")]:{
+      
+  }
+}))
+
 
 function Home() {
 
@@ -141,12 +180,25 @@ function Home() {
           const handleWatch=(id)=>{
            navigate(`/detail/${id}`)
           }
+          const handleImage=()=>{
+            navigate(`/detail/6`)
+          }
 
   
   return (
     <OuterBox >
-      <ImageBox as="img" src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
-    <InnerContainer width={300} sx={{color:'white'}}>
+     
+      <ImageBox  as="img" src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
+      
+      <FirstBox sx={{marginTop:-33}}>
+    <Text sx={{color:'white', fontSize:36, marginRight:50}}>CENTRIX AUTOMATIC DIAMONDS</Text>
+    
+    <ButtonBox onClick={handleImage} textAlign={"center"} sx={{cursor:'pointer', color:"white",border:"1px solid white",width:150,height:50, 
+    borderRadius:30}}>Discover more</ButtonBox>
+
+    </FirstBox>
+   
+    <InnerContainer width={300} sx={{color:'white',marginTop:27}}>
      <Text>Explore our latest creations</Text><br/>
      <Text >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
      

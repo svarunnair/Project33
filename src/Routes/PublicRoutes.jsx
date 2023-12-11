@@ -7,6 +7,9 @@ import Square from '../pages/Square'
 import Centrix from '../pages/Centrix'
 import Collections from '../pages/Collections'
 import Detail from '../pages/Detail'
+import Search from '../pages/Search'
+import Info from '../pages/Info'
+
 
 function PublicRoutes() {
   return (
@@ -21,6 +24,10 @@ function PublicRoutes() {
             <Route path='/centrix' element={<Centrix/>}/>
             <Route path='/collections' element={<Collections/>}/>
             <Route path='/detail/:id' element={<Detail/>}/>
+            <Route path='/signin' element={<Signin/>}/>
+            <Route path='/signup' element={<Signup/>}/>
+            <Route path='/search' element={<Search/>}/>
+            <Route path='/info' element={<Info/>}/>
 
 
 

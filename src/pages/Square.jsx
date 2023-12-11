@@ -127,14 +127,18 @@ function Square() {
         </InnerBox>
 
         <InnerBox  display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
+
             {mainData.map((item)=>(
-                <BoxData  width={350} height={500} border={"1px solid black"}>
+
+                <BoxData sx={{cursor:'pointer'}}  width={350} height={500} border={"1px solid black"}>
                 <ImageBox  width={300} as={"img"} src={item.images[0]}/>
                 <TextBox>{item.name}</TextBox>
                 <TextBox>{item.model}</TextBox>
                 <TextBox>{item.price}</TextBox>
                 </BoxData>
+
             ))}
+
         </InnerBox>
 
     </OuterContainer>
