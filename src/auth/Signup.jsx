@@ -1,5 +1,5 @@
 import { CheckBox } from '@mui/icons-material'
-import { Box, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, Select, Typography, styled } from '@mui/material'
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, Select, Typography, styled } from '@mui/material'
 import React, { useState } from 'react'
 
 
@@ -158,9 +158,10 @@ function Signup() {
 </FormGroup>
 </FirstBox>
 <TextBox sx={{marginRight:71}}>Sign-in Information</TextBox>
-<Input placeholder='Email'/>
-<Input placeholder='Password'/>
-<Input placeholder='Confirm Password'/>
+<Input sx={{border:"1px solid black"}} placeholder='Email'/>
+<Input sx={{border:"1px solid black"}} placeholder='Password'/>
+<Input sx={{border:"1px solid black"}} placeholder='Confirm Password'/>
+<Button>Create Account</Button>
     </OuterContainer>
   )
 }
