@@ -230,7 +230,7 @@ const handleSearch=()=>{
     
     
       <PublicRoutes/>
-      {path.pathname!=="/search"&&<Footer/>}
+      {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
      
     </OuterDiv>
     

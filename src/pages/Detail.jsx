@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getData, getDetail } from '../Redux/data/action'
+import { getData, getDetail, postInfo } from '../Redux/data/action'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Box, Button, Typography, styled } from '@mui/material'
 
@@ -160,6 +160,11 @@ const handleNext=()=>{
         }
 
     }
+
+    const handleCall=()=>{
+      dispatch(postInfo(detail))
+      navigate('/info')
+    }
    
 
 
@@ -168,17 +173,24 @@ const handleNext=()=>{
     <OuterContainer>
    <InnerBox height={600} bgcolor={"grey.300"} marginRight={70}>
     <ButtonBox  onClick={handlePrev} sx={{fontSize:"x-large", marginBottom:50}}>{"<"}</ButtonBox>
-    <ImageBox width={400} as={'img'} src={dataImage[count]}/>
+    <ImageBox  width={400} as={'img'} src={dataImage[count]}/>
 
     <ButtonBox onClick={handleNext} sx={{fontSize:"x-large", marginBottom:50}}>{">"}</ButtonBox>
    </InnerBox>
    
-   <TextBox marginLeft={100} marginBottom={100} marginTop={-60}>
-   <TextBox>{detail.name}</TextBox>
-   <TextBox>{detail.model}</TextBox>
-   <TextBox>₹ {detail.price}.00</TextBox>
+   <TextBox marginLeft={100} marginBottom={100} marginTop={-60} sx={{textAlign:"left"}}>
+   <TextBox sx={{textAlign:"center",fontSize:25, fontWeight:900}}>{detail.name}</TextBox>
+   <TextBox sx={{fontSize:13,color:'grey'}}>{detail.model}</TextBox>
+   <TextBox sx={{fontSize:13,color:'grey'}}>{detail.size}</TextBox>
+   <InnerBox sx={{display:'flex'}}>
+   <TextBox sx={{fontSize:14,cursor:'pointer'}}>View full details {">"}</TextBox>
+   <TextBox sx={{fontSize:14,cursor:'pointer'}}> Add to Compare {">"}</TextBox>
+   <TextBox sx={{fontSize:14,cursor:'pointer'}}> Open comparator {">"}</TextBox>
+
+   </InnerBox>
+   <TextBox sx={{fontSize:22}}>₹ {detail.price}.00</TextBox>
    <TextBox>Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextBox>
-   <TextBox>Call me back</TextBox>
+   <TextBox onClick={()=>handleCall()} sx={{cursor:"pointer",textDecoration:"underline",fontSize:17,marginTop:3}}>Call me back</TextBox>
    </TextBox>
 
    <TextBox sx={{textAlign:"center"}}>{detail.description}</TextBox>
