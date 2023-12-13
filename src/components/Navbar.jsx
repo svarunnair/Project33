@@ -60,7 +60,7 @@ const InnerContainer=styled(Box)(({theme})=>({
 
   width:1260,
   height:70,
-  background:"#020205",
+  background:"#1B1B1B",
   display:"flex",
   
    [theme.breakpoints.down("xl")]:{
@@ -203,7 +203,7 @@ const handleSearch=()=>{
     <OuterDiv >
 
        
-
+<OuterConteiner  position={"sticky"} top={0} zIndex="1000" >
     <OuterConteiner  display={"flex"}>
       <BoxData sx={{marginLeft:121, fontSize:12}}>Store Locator<RoomIcon fontSize='small'/></BoxData>
       <Text sx={{ fontSize:12}} >India / English<CurrencyRupeeIcon fontSize='small'/></Text>
@@ -211,7 +211,7 @@ const handleSearch=()=>{
       
       
     </OuterConteiner>
-    <InnerContainer sx={{cursor:'pointer'}} color={"white"}>
+    <InnerContainer  sx={{cursor:'pointer'}} color={"white"}>
       <Text marginLeft={3} marginTop={3}>Men</Text>
       <Text marginTop={3} marginLeft={-18}>Women</Text>
       <Text marginTop={3} marginLeft={-16}>Ceramic Watches</Text>
@@ -226,7 +226,7 @@ const handleSearch=()=>{
 <ButtonAuth sx={{marginLeft:40}} onClick={handleSearch} ><SearchIcon/></ButtonAuth>
     <ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
       </InnerContainer>
-
+      </OuterConteiner>
     
     
       <PublicRoutes/>

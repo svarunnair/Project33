@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom'
 
 
 const OuterBox=styled(Box)(({theme})=>({
-  background:"black",
+  background:"white",
+
+  
 
   [theme.breakpoints.down("xl")]:{
 
@@ -146,6 +148,25 @@ const ButtonBox=styled(Box)(({theme})=>({
   }
 }))
 
+const SecondBox=styled(Box)(({theme})=>({
+
+  [theme.breakpoints.down("xl")]:{
+
+  },
+  [theme.breakpoints.down("lg")]:{
+
+  },
+  [theme.breakpoints.down("md")]:{
+      
+  },
+  [theme.breakpoints.down("sm")]:{
+      
+  },
+  [theme.breakpoints.down("xs")]:{
+      
+  }
+}))
+
 
 function Home() {
 
@@ -183,12 +204,13 @@ function Home() {
           const handleImage=()=>{
             navigate(`/detail/6`)
           }
+          
 
   
   return (
     <OuterBox >
      
-      <ImageBox  as="img" src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
+      <ImageBox sx={{marginTop:8.5}}  as="img" src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
       
       <FirstBox sx={{marginTop:-33}}>
     <Text sx={{color:'white', fontSize:36, marginRight:50}}>CENTRIX AUTOMATIC DIAMONDS</Text>
@@ -197,11 +219,12 @@ function Home() {
     borderRadius:30}}>Discover more</ButtonBox>
 
     </FirstBox>
-   
-    <InnerContainer width={300} sx={{color:'white',marginTop:27}}>
-     <Text>Explore our latest creations</Text><br/>
-     <Text >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
-     
+  
+    <InnerContainer width={300} sx={{color:'white',marginTop:19,bgcolor:'black',width:1260}}>
+   <FirstBox sx={{marginTop:17,width:790,textAlign:'center',marginLeft:30}}>
+     <Text sx={{fontSize:33,marginBottom:-10}}>Explore our latest creations</Text><br/>
+     <Text sx={{fontSize:22,marginTop:10,marginBottom:10}} >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
+     </FirstBox>
     <BoxItem sx={{display:"flex", width:1260, overflow:'auto'}}>
 
       {rado.map((item)=>(
@@ -219,8 +242,110 @@ function Home() {
       
     </BoxItem>
      
+     <FirstBox  sx={{width:1258,height:770,bgcolor:'white',textAlign:"left",display:"flex"}}>
+
+      <SecondBox sx={{color:"black" , width:450,padding:12,marginTop:5}}>
+        <Text sx={{fontSize:36}}> 5-year International Warranty</Text>
+
+        <Text sx={{fontWeight:900,marginTop:4}}> As of 1st November 2023, all new Rado watches benefit from a 5-year International Warranty.</Text>
+      
+       <Text sx={{marginTop:4}}>At Rado we have always made watches that are built to last – not just for a few years, but for a lifetime. We take care to use materials that are proven to resist wear and tear. High-tech ceramic cases and bracelets, Ceramos™, sapphire crystal, stainless steel and titanium all serve to enclose and protect the sophisticated Swiss movements that power our watches. We take great pride in the high quality, reliability and performance of our products, and are pleased to offer our customers additional support in the care and handling of their watches.
+       </Text> 
+       <Text sx={{fontWeight:900}}>_____</Text>
+
+       <Text  sx={{marginTop:3,cursor:'pointer'}}>Discover more {">"}</Text>
+       </SecondBox>
+
+       <SecondBox>
+        <ImageBox sx={{width:700,marginTop:15}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-extension-homepage-block.jpg?im=Resize=(800,657),aspect=fill;Crop=(0,0,800,657),gravity=Center"/>
+       </SecondBox>
+
+     </FirstBox>
+
+     <FirstBox sx={{width:1258,height:500,bgcolor:"#F0F0F0"}}>
+      <FirstBox  >
+      <Text sx={{color:'black',fontSize:33}}>Our gift ideas for you</Text>
+      </FirstBox>
+      <SecondBox maxWidth={1300} sx={{overflow:"auto",display:'flex'}}>
+        {mainData.map((item)=>(
+          <FirstBox sx={{color:'black'}} display={"grid"}>
+          <ImageBox sx={{width:250}} as={"img"} src={item.images[0]}/>
+          <Text>{item.name}</Text>
+          <Text sx={{color:"grey"}}>{item.model}</Text>
+          <Text sx={{color:"grey"}}>{item.size}</Text>
+          <Text>₹ {item.price}.00</Text>
+          </FirstBox>
+        ))}
+      </SecondBox>
+     
+
+     </FirstBox>
+
+<InnerContainer  sx={{bgcolor:"white",color:'black',width:1263,height:290, display:"flex",border:"1px solid White"}}>
+     <FirstBox  >
+      <ImageBox sx={{width:420,border:"1px solid White", }} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+    <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
+    <ButtonBox sx={{color:'white'}}>Discover more</ButtonBox>
+    </FirstBox>
+    <FirstBox>
+    <ImageBox sx={{width:420,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/skeleton-watches.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+    <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
+    <ButtonBox sx={{border:"1px solid white",color:'White'}}>Discover more</ButtonBox>
+    
+    </FirstBox>
+    <FirstBox>
+    <ImageBox sx={{width:420,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-over-pole.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+    <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
+    <ButtonBox sx={{color:'White'}}>Discover more</ButtonBox>
+    </FirstBox>
+
+    
+    
      
      </InnerContainer>
+     <InnerContainer sx={{display:"flex",}}>
+     <FirstBox>
+     <ImageBox sx={{width:630,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+    <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
+    <ButtonBox>Discover more</ButtonBox>
+     </FirstBox>
+     <FirstBox>
+     <ImageBox sx={{width:630,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/women-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+    <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
+    <ButtonBox>Discover more</ButtonBox>
+     </FirstBox>
+     </InnerContainer>
+
+    
+    
+     </InnerContainer>
+    
+<FirstBox sx={{display:'flex',bgcolor:"#E8E8E8"}}>
+     <SecondBox sx={{bgcolor:"white",textAlign:"left",width:300,padding:12,marginTop:23,bgcolor:"#E8E8E8"}}>
+<Text sx={{color:'black',fontWeight:200,fontSize:22}}> Master of materials</Text>
+<Text sx={{color:'black',marginTop:2,fontWeight:300,fontSize:33}}>The unconventional beauty of ceramic</Text>
+<Text sx={{color:'black',marginTop:2,fontWeight:200,fontSize:17}}> Hypoallergenic comfort, lightness and the very special sensation of ceramic against your skin – unmistakable, sensual and unique with Rado high-tech ceramic.</Text>
+    <Text sx={{fontWeight:900}}>____</Text>
+    <Text sx={{cursor:'pointer'}}>Discover the world of ceramics{">"}</Text>
+    
+     </SecondBox>
+
+     <SecondBox>
+      <ImageBox sx={{width:650,height:500,marginTop:30,marginLeft:26}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage-master-of-materials-image-card.jpg?im=Resize=(800,657),aspect=fill;Crop=(0,0,800,657),gravity=Center"/></SecondBox>
+     </FirstBox>
+
+    <InnerContainer sx={{display:'flex',}}>
+      <FirstBox  sx={{width:650,height:500, padding:10}}>
+        <Text sx={{fontSize:32}}>Rado Customer Service</Text>
+        <Text sx={{marginTop:4}}>Access the most exclusive services and discover the wealth of knowledge of our Customer Service Team.</Text>
+        <ButtonBox sx={{border:"1px solid black",width:200, height:42,marginLeft:17,marginTop:10,borderRadius:5,color:'white',bgcolor:"black"}}>Contact Us</ButtonBox>
+      </FirstBox>
+      <FirstBox  sx={{width:650,height:500,padding:10}}>
+        <Text sx={{fontSize:32}}>Rado Store Locator</Text>
+        <Text sx={{marginTop:4}}>Find your nearest store, boutique or service centre.</Text>
+        <ButtonBox sx={{width:160, height:42,marginLeft:17,marginTop:13,borderRadius:5,color:'white',bgcolor:"black"}}>Find a store</ButtonBox>
+      </FirstBox>
+    </InnerContainer>
     </OuterBox>
   )
 }
