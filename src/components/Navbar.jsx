@@ -224,7 +224,7 @@ const handleSearch=()=>{
    
 
 
-    <InnerContainer  >
+    <InnerContainer   >
       <Box sx={{display:"flex", gap:'15px'}}>
       <Text  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} marginLeft={3} marginTop={3}>Men</Text>
       <Text onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} marginTop={3} >Women</Text>

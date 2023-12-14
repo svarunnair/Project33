@@ -29,7 +29,7 @@ const OuterBox=styled(Box)(({theme})=>({
 
 const ImageBox=styled(Box)(({theme})=>({
 
-  width:1260,
+  width:"100%",
 
 
   [theme.breakpoints.down("xl")]:{
@@ -215,16 +215,11 @@ function Home() {
       <ImageBox sx={{}} 
        as="img" 
        src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
-      
-     
     <Text sx={{color:'white', fontSize:36,position:'absolute',top:210,right:550}}>CENTRIX AUTOMATIC DIAMONDS</Text>
     
     <ButtonBox onClick={handleImage} textAlign={"center"} sx={{cursor:'pointer',
     color:"white",width:150,top:290,position:'absolute',left:100,height:50,border:"1px solid white",
     borderRadius:30}}>Discover more</ButtonBox>
-
-  
-  
     {/* <InnerContainer  sx={{color:'white',bgcolor:'black'}}> */}
    <FirstBox sx={{textAlign:'center',bgcolor:"black",color:'white'}}>
      <Text sx={{fontSize:33}}>Explore our latest creations</Text><br/>
@@ -286,7 +281,7 @@ function Home() {
 
      </FirstBox>
 
-<InnerContainer  sx={{bgcolor:"white",color:'black',width:1263,height:290, display:"flex",border:"1px solid White"}}>
+<InnerContainer  sx={{bgcolor:"white",color:'black',width:1263,height:290, display:"flex"}}>
      <FirstBox  >
       <ImageBox sx={{width:420, }} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
     <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
@@ -304,10 +299,9 @@ function Home() {
     <ButtonBox sx={{color:'White'}}>Discover more</ButtonBox>
     </FirstBox>
 
-    
-    
-     
-     {/* </InnerContainer> */}
+     </InnerContainer>
+
+
      <InnerContainer sx={{display:"flex",}}>
      <FirstBox>
      <ImageBox sx={{width:630,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
@@ -319,10 +313,6 @@ function Home() {
     <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
     <ButtonBox>Discover more</ButtonBox>
      </FirstBox>
-     </InnerContainer>
-
-    
-    
      </InnerContainer>
     
 <FirstBox sx={{display:'flex',bgcolor:"#E8E8E8"}}>
