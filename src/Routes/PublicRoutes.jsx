@@ -9,6 +9,7 @@ import Collections from '../pages/Collections'
 import Detail from '../pages/Detail'
 import Search from '../pages/Search'
 import Info from '../pages/Info'
+import Captain from '../pages/Captain'
 
 
 function PublicRoutes() {
@@ -28,6 +29,7 @@ function PublicRoutes() {
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/search' element={<Search/>}/>
             <Route path='/info' element={<Info/>}/>
+            <Route path='/captain' element={<Captain/>}/>
 
 
 

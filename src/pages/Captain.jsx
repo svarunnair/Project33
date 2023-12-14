@@ -1,10 +1,10 @@
-import { Box, Pagination, PaginationItem, styled } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { getData } from '../Redux/data/action'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useNavigate } from 'react-router-dom';
+import { Box, styled } from '@mui/material'
+
+
 const OuterContainer=styled(Box)(({theme})=>({
     
   
@@ -24,7 +24,7 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
-
+  
   const ImageBox=styled(Box)(({theme})=>({
     
   
@@ -44,10 +44,10 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
-
-
+  
+  
   const TextBox=styled(Box)(({theme})=>({
-
+  
     [theme.breakpoints.down("xl")]:{
   
     },
@@ -64,9 +64,9 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
-
+  
   const InnerBox=styled(Box)(({theme})=>({
-
+  
     
     width:1250,
     height:450,
@@ -89,9 +89,9 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
-
+  
   const BoxData=styled(Box)(({theme})=>({
-
+  
     [theme.breakpoints.down("xl")]:{
   
     },
@@ -108,9 +108,9 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
-
+  
   const FirstBox=styled(Box)(({theme})=>({
-
+  
     [theme.breakpoints.down("xl")]:{
   
     },
@@ -127,67 +127,56 @@ const OuterContainer=styled(Box)(({theme})=>({
         
     }
   }))
+  
 
-function Square() {
+function Captain() {
 
     const mainData=useSelector((store)=>store.data.getData)
     const dispatch=useDispatch()
-    const [page, setPage] = useState(1);
-    const [data,setData]=useState([])
     const navigate=useNavigate()
-
-    useEffect(()=>{
-     setData(mainData)
-    },[mainData])
-
-    const handleChange = (event, value) => {
-      setPage(value);
-    };
-    console.log("squareData",mainData)
-
-    useEffect(()=>{
-      dispatch(getData())
-    },[])
 
     const handleProduct=(id)=>{
       navigate(`/detail/${id}`)
     }
 
+    console.log("squareData",mainData)
 
-
+    useEffect(()=>{
+      dispatch(getData())
+    },[])
   return (
+
     <OuterContainer>
 
-        <InnerBox  sx={{background:"#1B1B1B",marginTop:7,width:"100%"}} >
-<ImageBox width={"50%"} as={'img'}  src="https://www.rado.com/media/catalog/category/True_Square_9.png"/>
-<TextBox marginLeft={46} marginTop={4} width={600} color={"white"} >At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.</TextBox>
-      <TextBox color={"white"} sx={{cursor:'pointer'}} marginTop={5} marginLeft={8} marginBottom={5}>Read more about the collection {">"}</TextBox>
-        </InnerBox>
-        <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
+    <InnerBox sx={{background:"#1B1B1B",width:"100%"}} >
+<ImageBox width={"50%"}  sx={{marginTop:10}} as={'img'} src="https://www.rado.com/media/catalog/category/Captain_Cook_9.png"/>
+<TextBox color={"white"} marginLeft={57} width={400} >There is a reason why Centrix is Rado’s most popular watch. Its versatility in a range of different sizes, colour combinations, quartz and automatic movements guarantees there is a model to suit all tastes.</TextBox>
+  <TextBox color={"white"} marginTop={5} marginLeft={8}>Read more about the collection</TextBox>
+    </InnerBox>
 
-        </FirstBox>
+    <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
 
-        <InnerBox sx={{height:3100}} display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
+</FirstBox>
 
-            {mainData.map((item)=>(
+    <InnerBox  display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
 
-                <BoxData onClick={()=>handleProduct(item.id)} sx={{cursor:'pointer',bgcolor:"#F8F8F8"}}  width={350} height={400} border={"1px solid black"}>
-                <ImageBox  width={300} as={"img"} src={item.images[0]}/>
-                <TextBox sx={{color:"grey"}}>{item.name}</TextBox>
-                <TextBox  sx={{color:"grey"}}>{item.model}</TextBox>
-                <TextBox>₹{item.price}.00</TextBox>
-                </BoxData>
+        {mainData.map((item)=>(
 
-            ))}
- <Pagination
- onChange={handleChange}
- count={10} page={page}
-          />
-   
-        </InnerBox>
+            <BoxData onClick={()=>handleProduct(item.id)}  sx={{cursor:'pointer'}}  width={350} height={500} border={"1px solid black"}>
+            <ImageBox  width={300} as={"img"} src={item.images[0]}/>
+            <TextBox>{item.name}</TextBox>
+            <TextBox sx={{color:"grey"}}>{item.model}</TextBox>
+            <TextBox sx={{color:"grey"}}>{item.size}</TextBox>
+            <TextBox >₹ {item.price}.00</TextBox>
+            </BoxData>
 
-    </OuterContainer>
+        ))}
+
+    </InnerBox>
+
+</OuterContainer>
+    
   )
 }
 
-export default Square
+export default Captain

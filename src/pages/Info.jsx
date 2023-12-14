@@ -286,14 +286,14 @@ function Info() {
   ))}
   
 </InnerBox>
-<InnerBox sx={{width:650, textAlign:"left",marginTop:-35,marginLeft:30}}>
+<InnerBox sx={{width:650, textAlign:"left",marginTop:35,marginLeft:30}}>
 
 <FormGroup>
 <FormControlLabel required control={<Checkbox />} label="I consent to my request to being processed by the selected boutique and Rado Watch Co. Ltd for the purpose of contacting me, and I confirm that I have read and understood the privacy policy." />
 <FormControlLabel sx={{marginTop:5}} required  control={<Checkbox />} label="I agree that Rado contacts me about Rado products, services, events or offers and consent that Rado processes my personal data for this purpose. I confirm to have read and understood the Privacy Notice and the Cookie notice. I can always unsubscribe by clicking the opt-out link in the communication message." />
 </FormGroup>
 
-<ButtonBox onClick={handleReserve} sx={{border:"1px solid black",bgcolor:'black',width:180,height:50,borderRadius:8,marginTop:10,color:'white'}}>Reserve Now</ButtonBox>
+<ButtonBox onClick={handleReserve} sx={{marginBottom:10,border:"1px solid black",bgcolor:'black',width:180,height:50,borderRadius:8,marginTop:10,color:'white'}}>Reserve Now</ButtonBox>
 </InnerBox>
 
 

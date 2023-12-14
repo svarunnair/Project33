@@ -1,7 +1,9 @@
 import { Box, Button, Input, Typography, styled } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import AppleIcon from '@mui/icons-material/Apple';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { postAuth } from '../Redux/auth/authAction';
 
 
 const OuterBox=styled(Box)(({theme})=>({
@@ -102,6 +104,26 @@ const ButtonBox=styled(Button)(({theme})=>({
 
 function Signin() {
   const navigate=useNavigate()
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const dispatch=useDispatch()
+
+  const handleEmail=(e)=>{
+    let value=e.target.value 
+    setEmail(value)
+  }
+  const handlePassword=(e)=>{
+    let value=e.target.value 
+    setPassword(value)
+  }
+
+  const handleSignin=()=>{
+    let data={
+      email:email,
+      password:password
+    }
+    dispatch(postAuth(data))
+  }
 
   const handleAccount=()=>{
     navigate('/signup')
@@ -110,7 +132,7 @@ function Signin() {
     <OuterBox sx={{display:"flex"}}>
 
     <InnerBox>
-      <ImageBox sx={{marginRight:70.3}} width={700} height={500} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-login-page.jpg?im=Resize=(1800,1175),aspect=fill;Crop=(0,0,1800,1175),gravity=Center"/>
+      <ImageBox sx={{marginRight:70.3,marginTop:8}} width={700} height={480} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-login-page.jpg?im=Resize=(1800,1175),aspect=fill;Crop=(0,0,1800,1175),gravity=Center"/>
       </InnerBox>
 
       <InnerBox >
@@ -121,14 +143,14 @@ function Signin() {
         </InnerBox>
         <InnerBox sx={{marginLeft:-63,marginTop:1,display:"grid"}}>
 
-          <Input sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Email'/>
-          <Input sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Password'/>
-          <Button  sx={{width:500,marginTop:3,border:"1px solid black",height:50,bgcolor:'black',color:'white'}}>Signin In</Button>
+          <Input onChange={handleEmail} sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Email'/>
+          <Input onChange={handlePassword} sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Password'/>
+          <Button onClick={handleSignin}  sx={{width:500,marginTop:3,border:"1px solid black",height:50,bgcolor:'black',color:'white'}}>Signin In</Button>
           <TextBox sx={{marginLeft:-48,fontSize:11,marginTop:.5,textDecoration:"underline",cursor:'pointer'}}>Forgot Your Password?</TextBox>
         
         <TextBox sx={{fontWeight:900}}>___________  OR  ___________</TextBox>
         <Button onClick={handleAccount} sx={{width:500,marginTop:3,border:"1px solid black",height:50,bgcolor:'black',color:'white'}}>Create my account</Button>
-        <InnerBox sx={{bgcolor:'black',width:717,height:150,marginLeft:-97, marginTop:-9.4}}></InnerBox>
+        <InnerBox sx={{bgcolor:'black',width:717,height:150,marginLeft:-97,marginTop:-4}}></InnerBox>
         </InnerBox>
       </InnerBox>
       

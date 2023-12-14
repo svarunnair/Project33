@@ -93,7 +93,7 @@ function Signup() {
   return (
     <OuterContainer>
 
-      <TextBox sx={{fontSize:39, marginTop:5}}>Create New Customer Account</TextBox>
+      <TextBox  sx={{fontSize:39, marginTop:10}}>Create New Customer Account</TextBox>
       <InnerBox>
         <TextBox sx={{marginRight:70}}>
           Personal Information

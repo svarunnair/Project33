@@ -1,5 +1,6 @@
 import { Box, Button, Typography, styled } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const OuterContainer=styled(Box)(({theme})=>({
@@ -120,10 +121,18 @@ const SecondBox=styled(Box)(({theme})=>({
 }))
 
 function Collections() {
+
+  const navigate=useNavigate()
+
+
+  const handleProduct=()=>{
+    navigate('/captain')
+  }
+  
   return (
 <OuterContainer>
 
-  <InnerContainer sx={{textAlign:'center'}}>
+  <InnerContainer sx={{textAlign:'center',marginTop:10}}>
     <TextBox sx={{fontSize:"40px"}}>Discover our collections</TextBox>
     <InnerContainer marginLeft={10} sx={{display:"flex" ,cursor:"pointer"}}>
      
@@ -159,7 +168,7 @@ function Collections() {
     <InnerContainer sx={{padding:10,textAlign:'left', marginTop:10}}>
     <TextBox sx={{color:'white' ,fontSize:45}}>Captain Cook</TextBox>
     <TextBox sx={{color:'white'}}>Charting new territory in vintage watches, the Rado Captain Cook is a natural choice for modern explorers. Its vintage details, and up-to-date features make it the perfect watch for men and women.</TextBox>
-  <ButtonBox sx={{marginTop:8,borderRadius:40, bgcolor:'white', height:55, border:"1px solid white"}}>
+  <ButtonBox onClick={handleProduct} sx={{marginTop:8,borderRadius:40, bgcolor:'white', height:55, border:"1px solid white"}}>
 Explore Collection
   </ButtonBox>
   </InnerContainer>

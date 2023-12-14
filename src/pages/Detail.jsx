@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Box, Button, Typography, styled } from '@mui/material'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { grey } from '@mui/material/colors'
 
 
 
@@ -215,15 +216,15 @@ const handleNext=()=>{
 
   return (
     <OuterContainer>
-   <InnerBox height={600} bgcolor={"grey.300"} marginRight={70}>
+   <InnerBox sx={{marginTop:8 ,width:"50%"}} height={600} bgcolor={"#F0F0F0"} marginRight={70}>
     <ButtonBox  onClick={handlePrev} sx={{fontSize:"x-large", marginBottom:50}}><ArrowBackIcon/></ButtonBox>
-    <ImageBox  width={400} as={'img'} src={dataImage[count]}/>
+    <ImageBox sx={{marginTop:8}} width={400} as={'img'} src={dataImage[count]}/>
 
     <ButtonBox onClick={handleNext} sx={{fontSize:"x-large", marginBottom:50}}><ArrowForwardIcon/></ButtonBox>
    </InnerBox>
    
-   <TextBox marginLeft={100} marginBottom={100} marginTop={-60} sx={{textAlign:"left"}}>
-   <TextBox sx={{textAlign:"center",fontSize:25, fontWeight:900}}>{detail.name}</TextBox>
+   <TextBox marginLeft={100} marginBottom={100} marginTop={-58} sx={{textAlign:"left",padding:3}}>
+   <TextBox sx={{textAlign:"left",fontSize:35, fontWeight:500}}>{detail.name}</TextBox>
    <TextBox sx={{fontSize:13,color:'grey'}}>{detail.model}</TextBox>
    <TextBox sx={{fontSize:13,color:'grey'}}>{detail.size}</TextBox>
    <InnerBox sx={{display:'flex'}}>
@@ -232,8 +233,8 @@ const handleNext=()=>{
    <TextBox sx={{fontSize:14,cursor:'pointer'}}> Open comparator {">"}</TextBox>
 
    </InnerBox>
-   <TextBox sx={{fontSize:22}}>₹ {detail.price}.00</TextBox>
-   <TextBox>Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextBox>
+   <TextBox sx={{fontSize:22,marginTop:4}}>₹ {detail.price}.00</TextBox>
+   <TextBox sx={{color:"grey",fontSize:15}}>Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextBox>
    <TextBox onClick={()=>handleCall()} sx={{cursor:"pointer",textDecoration:"underline",fontSize:17,marginTop:3}}>Call me back</TextBox>
    </TextBox>
 
@@ -242,38 +243,38 @@ const handleNext=()=>{
 
    <TextBox sx={{color:"grey",marginTop:10,marginLeft:-14}}>__________________________________________________________Specification__________________________________________________________</TextBox>
    
-   <FirstBox sx={{display:"flex",marginLeft:-22}}>
-    <SecondBox sx={{display:"grid",textAlign:"left",padding:5}}>
-      <TextBox sx={{fontSize:22}}>General</TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>Engravable :<TextBox sx={{color:'grey',fontSize:15}}>{detail.Engravable}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>Product Name :<TextBox sx={{color:'grey',fontSize:15}}>{detail.ProductName}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>SKU :<TextBox sx={{color:'grey',fontSize:15}}>{detail.SKU}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>Gender:<TextBox sx={{color:'grey',fontSize:15}}>{detail.Gender}</TextBox></TextBox>
+   <FirstBox sx={{display:"flex",marginLeft:-22,width:"100%"}}>
+    <SecondBox sx={{display:"grid",textAlign:"left",padding:5,}}>
+      <TextBox sx={{fontSize:17}}>General</TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>Engravable:<TextBox sx={{color:'grey',fontSize:13}}>{detail.Engravable}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>Product Name:<TextBox sx={{color:'grey',fontSize:13}}>{detail.ProductName}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>SKU:<TextBox sx={{color:'grey',fontSize:13}}>{detail.SKU}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>Gende:<TextBox sx={{color:'grey',fontSize:13}}>{detail.Gender}</TextBox></TextBox>
     </SecondBox>
-    <SecondBox sx={{display:"grid",textAlign:"left",padding:5}}>
-      <TextBox sx={{fontSize:22}}>Movement</TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>Movement.Type:<TextBox sx={{color:'grey',fontSize:15}}>{detail.MovementType}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>Movement Reference:<TextBox sx={{color:'grey',fontSize:15}}>{detail.MovementReference}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}> CaseMaterials :<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseMaterials}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>CaseThickness :<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseThickness}</TextBox></TextBox>
+    <SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
+      <TextBox sx={{fontSize:17}}>Movement</TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>Movement Type:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MovementType}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>Movement Reference:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MovementReference}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}> CaseMaterials:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseMaterials}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>CaseThickness:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseThickness}</TextBox></TextBox>
     </SecondBox>
-    <SecondBox sx={{display:"grid",textAlign:"left",padding:5}}>
-      <TextBox sx={{fontSize:22}}>Case</TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>CaseWaterResistance:<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseWaterResistance}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>CaseColour :<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseColour}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>CaseDimension :<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseDimension}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>CaseCrystal :<TextBox sx={{color:'grey',fontSize:15}}>{detail.CaseCrystal}</TextBox></TextBox>
+    <SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
+      <TextBox sx={{fontSize:17}}>Case</TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>CaseWaterResistance:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseWaterResistance}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>CaseColour:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseColour}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>CaseDimension:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseDimension}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>CaseCrystal:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseCrystal}</TextBox></TextBox>
     </SecondBox>
-    <SecondBox sx={{display:"grid",textAlign:"left",padding:5}}>
-      <TextBox sx={{fontSize:22}}>Dial</TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>DialColour :<TextBox sx={{color:'grey',fontSize:15}}>{detail.DialColour}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>DialHasDate :<TextBox sx={{color:'grey',fontSize:15}}>{detail.DialHasDate}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>DialHasJewels:<TextBox sx={{color:'grey',fontSize:15}}>{detail.DialHasJewels}</TextBox></TextBox>
-      <TextBox sx={{fontSize:15,display:'flex'}}>MotherOfPearl:<TextBox sx={{color:'grey',fontSize:15}}>{detail.MotherOfPearl}</TextBox></TextBox>
+    <SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
+      <TextBox sx={{fontSize:17}}>Dial</TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>DialColour:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialColour}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>DialHasDate:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialHasDate}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>DialHasJewels:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialHasJewels}</TextBox></TextBox>
+      <TextBox sx={{fontSize:13,display:'flex'}}>MotherOfPearl:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MotherOfPearl}</TextBox></TextBox>
     </SecondBox>
-    <SecondBox sx={{display:"grid",textAlign:"left",padding:5}}>
-      <TextBox sx={{fontSize:22}}>Bracelet</TextBox>
-      <TextBox sx={{fontSize:15,display:'flex' ,marginTop:-12}}>JewelDetails :<TextBox sx={{color:'grey',fontSize:15}}>{detail.JewelDetails}</TextBox></TextBox>
+    <SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
+      <TextBox sx={{fontSize:17}}>Bracelet</TextBox>
+      <TextBox sx={{fontSize:13,display:"flex" ,marginTop:-12}}>JewelDetails:<TextBox sx={{color:'grey',fontSize:13}}>{detail.JewelDetails}</TextBox></TextBox>
       </SecondBox>
    </FirstBox>
    </FirstBox>

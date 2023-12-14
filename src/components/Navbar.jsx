@@ -1,10 +1,10 @@
 import { Box, Button, Input, Typography, styled } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from './Footer'
 import PublicRoutes from '../Routes/PublicRoutes'
 import { useLocation, useNavigate } from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
+import { AccessAlarm, Balcony, ThreeDRotation } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import RoomIcon from '@mui/icons-material/Room';
@@ -33,9 +33,10 @@ const OuterDiv=styled(Box)(({theme})=>({
 }))
 
 const OuterConteiner=styled(Box)(({theme})=>({
-
-   width:1260,
-   height:35,
+  
+   width:"100%",
+   display:'flex',
+   flexDirection:'column',
    background:"black",
    color:"white",
  
@@ -58,11 +59,11 @@ const OuterConteiner=styled(Box)(({theme})=>({
 
 const InnerContainer=styled(Box)(({theme})=>({
 
-  width:1260,
-  height:70,
-  background:"#1B1B1B",
-  display:"flex",
+
   
+  background:"black",
+  display:"flex",
+  justifyContent:'space-between',
    [theme.breakpoints.down("xl")]:{
 
    },
@@ -104,7 +105,7 @@ const ImageBox=styled(Box)(({theme})=>({
 
 const Text=styled(Typography)(({theme})=>({
   textAlign:"left",
-  width:200,
+  
  
    [theme.breakpoints.down("xl")]:{
 
@@ -163,6 +164,25 @@ const ButtonAuth=styled(Button)(({theme})=>({
   }
 }))
 
+const MenuBox=styled(Box)(({theme})=>({
+ 
+ 
+  [theme.breakpoints.down("xl")]:{
+
+  },
+  [theme.breakpoints.down("lg")]:{
+
+  },
+  [theme.breakpoints.down("md")]:{
+      
+  },
+  [theme.breakpoints.down("sm")]:{
+      
+  },
+  [theme.breakpoints.down("xs")]:{
+      
+  }
+}))
 
 
 
@@ -175,17 +195,8 @@ const ButtonAuth=styled(Button)(({theme})=>({
 function Navbar() {
   const navigate=useNavigate()
   const path=useLocation()
-
-
-
-
-//   const SearchButton = () => {
-//   return (
-//     <IconButton color="inherit" aria-label="search">
-//       <SearchIcon />
-//     </IconButton>
-//   );
-// };
+  const [hover,setHover]=useState(false)
+  const [women,setWomen]=useState(false)
 
 
 
@@ -203,35 +214,90 @@ const handleSearch=()=>{
     <OuterDiv >
 
        
-<OuterConteiner  position={"sticky"} top={0} zIndex="1000" >
-    <OuterConteiner  display={"flex"}>
-      <BoxData sx={{marginLeft:121, fontSize:12}}>Store Locator<RoomIcon fontSize='small'/></BoxData>
-      <Text sx={{ fontSize:12}} >India / English<CurrencyRupeeIcon fontSize='small'/></Text>
-    
-      
-      
-    </OuterConteiner>
-    <InnerContainer  sx={{cursor:'pointer'}} color={"white"}>
-      <Text marginLeft={3} marginTop={3}>Men</Text>
-      <Text marginTop={3} marginLeft={-18}>Women</Text>
-      <Text marginTop={3} marginLeft={-16}>Ceramic Watches</Text>
-      <Text marginTop={3} marginLeft={-8}>Feel Rado</Text>
-      <Text marginTop={3} marginLeft={-12}>Services</Text>
-      
-      
+<OuterConteiner  position={"sticky"}  top={0} zIndex="1000" >
+    <Box sx={{display:"flex",justifyContent:"end",gap:"10px"}} >
+     <Box sx={{display:'flex',width:"110px"}}> <Text >Store Locator</Text><RoomIcon fontSize='small'/></Box>
+      <Box sx={{display:'flex',width:"120px"}}><Text  >India / English</Text><CurrencyRupeeIcon fontSize='small'/></Box>
+    </Box>
+
+
+   
+
+
+    <InnerContainer  >
+      <Box sx={{display:"flex", gap:'15px'}}>
+      <Text  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} marginLeft={3} marginTop={3}>Men</Text>
+      <Text onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} marginTop={3} >Women</Text>
+      <Text marginTop={3}>Ceramic Watches</Text>
+      <Text marginTop={3} >Feel Rado</Text>
+      <Text marginTop={3} >Services</Text>
+      </Box>  
         
     <ImageBox  onClick={handleImage} sx={{cursor:'pointer',marginTop:0,marginRight:15,height:65}} as="img" src="https://timeandtidewatches.com/wp-content/uploads/logos/Rado-Partner.jpg" />
-    {/* <svg data-testid="SearchIcon"></svg> */}
-{/* <Input sx={{border:"1px solid white",height:30 ,width:200,color:"white", marginRight:30}} placeholder='search'/> */}
-<ButtonAuth sx={{marginLeft:40}} onClick={handleSearch} ><SearchIcon/></ButtonAuth>
-    <ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
+ <Box >
+<ButtonAuth onClick={handleSearch} ><SearchIcon/></ButtonAuth>
+<ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
+</Box>
       </InnerContainer>
+
+
+
+
+
       </OuterConteiner>
     
+    {hover?<MenuBox onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} sx={{width:"100%",height:500,position:"sticky",marginTop:8,display:'flex',color:'white',bgcolor:'black'}}> 
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
+    </Text>
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
+    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      </Text>
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
+    <MenuBox >New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+    </Text>
+    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
+    </MenuBox>:""}
+
+
+
+   {women?<MenuBox onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} sx={{width:"100%",height:500,position:"sticky",marginTop:8,display:'flex',color:'white',bgcolor:'grey'}}> 
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
+    </Text>
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
+    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      </Text>
+    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
+    <MenuBox >New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
+    </Text>
+    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
+    </MenuBox>:""}
+
+
+  
     
       <PublicRoutes/>
       {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
-     
+     <Footer/>
     </OuterDiv>
     
   )

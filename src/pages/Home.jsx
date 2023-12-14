@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Button, Typography, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../Redux/data/action'
@@ -129,7 +129,7 @@ const FirstBox=styled(Box)(({theme})=>({
 }))
 
 
-const ButtonBox=styled(Box)(({theme})=>({
+const ButtonBox=styled(Button)(({theme})=>({
 
   [theme.breakpoints.down("xl")]:{
 
@@ -204,28 +204,33 @@ function Home() {
           const handleImage=()=>{
             navigate(`/detail/6`)
           }
+
+          
           
 
   
   return (
     <OuterBox >
      
-      <ImageBox sx={{marginTop:8.5}}  as="img" src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
+      <ImageBox sx={{}} 
+       as="img" 
+       src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
       
-      <FirstBox sx={{marginTop:-33}}>
-    <Text sx={{color:'white', fontSize:36, marginRight:50}}>CENTRIX AUTOMATIC DIAMONDS</Text>
+     
+    <Text sx={{color:'white', fontSize:36,position:'absolute',top:210,right:550}}>CENTRIX AUTOMATIC DIAMONDS</Text>
     
-    <ButtonBox onClick={handleImage} textAlign={"center"} sx={{cursor:'pointer', color:"white",border:"1px solid white",width:150,height:50, 
+    <ButtonBox onClick={handleImage} textAlign={"center"} sx={{cursor:'pointer',
+    color:"white",width:150,top:290,position:'absolute',left:100,height:50,border:"1px solid white",
     borderRadius:30}}>Discover more</ButtonBox>
 
-    </FirstBox>
   
-    <InnerContainer width={300} sx={{color:'white',marginTop:19,bgcolor:'black',width:1260}}>
-   <FirstBox sx={{marginTop:17,width:790,textAlign:'center',marginLeft:30}}>
-     <Text sx={{fontSize:33,marginBottom:-10}}>Explore our latest creations</Text><br/>
-     <Text sx={{fontSize:22,marginTop:10,marginBottom:10}} >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
+  
+    {/* <InnerContainer  sx={{color:'white',bgcolor:'black'}}> */}
+   <FirstBox sx={{textAlign:'center',bgcolor:"black",color:'white'}}>
+     <Text sx={{fontSize:33}}>Explore our latest creations</Text><br/>
+     <Text sx={{fontSize:22}} >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
      </FirstBox>
-    <BoxItem sx={{display:"flex", width:1260, overflow:'auto'}}>
+    <BoxItem sx={{display:"flex", overflow:'auto'}}>
 
       {rado.map((item)=>(
         <>
@@ -269,7 +274,7 @@ function Home() {
       <SecondBox maxWidth={1300} sx={{overflow:"auto",display:'flex'}}>
         {mainData.map((item)=>(
           <FirstBox sx={{color:'black'}} display={"grid"}>
-          <ImageBox sx={{width:250}} as={"img"} src={item.images[0]}/>
+          <ImageBox onClick={()=>handleWatch(item.id)}  sx={{width:250,cursor:'pointer'}} as={"img"} src={item.images[0]}/>
           <Text>{item.name}</Text>
           <Text sx={{color:"grey"}}>{item.model}</Text>
           <Text sx={{color:"grey"}}>{item.size}</Text>
@@ -283,9 +288,9 @@ function Home() {
 
 <InnerContainer  sx={{bgcolor:"white",color:'black',width:1263,height:290, display:"flex",border:"1px solid White"}}>
      <FirstBox  >
-      <ImageBox sx={{width:420,border:"1px solid White", }} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+      <ImageBox sx={{width:420, }} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
     <Text sx={{marginTop:-20,color:'white',fontWeight:900}}>Chronography watches</Text>
-    <ButtonBox sx={{color:'white'}}>Discover more</ButtonBox>
+    <ButtonBox sx={{color:'white', }}>Discover more</ButtonBox>
     </FirstBox>
     <FirstBox>
     <ImageBox sx={{width:420,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/skeleton-watches.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
@@ -302,7 +307,7 @@ function Home() {
     
     
      
-     </InnerContainer>
+     {/* </InnerContainer> */}
      <InnerContainer sx={{display:"flex",}}>
      <FirstBox>
      <ImageBox sx={{width:630,border:"1px solid White"}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
