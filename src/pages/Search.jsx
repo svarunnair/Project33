@@ -1,12 +1,15 @@
-import { Box, Grid, Input, styled } from '@mui/material'
+import { Box, Button, Grid, Input, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getData } from '../Redux/data/action'
+import { getData, postSearch } from '../Redux/data/action'
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const OuterContainer=styled(Box)(({theme})=>({
     
-    height:900,
+  border:"3px solid red",
+   
         [theme.breakpoints.down("xl")]:{
       
         },
@@ -24,8 +27,32 @@ const OuterContainer=styled(Box)(({theme})=>({
         }
       }))
 
+      const InnerDiv=styled(Box)(({theme})=>({
+    
+        border:"3px solid red",
+         
+              [theme.breakpoints.down("xl")]:{
+            
+              },
+              [theme.breakpoints.down("lg")]:{
+            
+              },
+              [theme.breakpoints.down("md")]:{
+                  
+              },
+              [theme.breakpoints.down("sm")]:{
+                  
+              },
+              [theme.breakpoints.down("xs")]:{
+                  
+              }
+            }))
+
       const ImageBox=styled(Box)(({theme})=>({
     
+       
+        width:200,
+        height:200,
         
             [theme.breakpoints.down("xl")]:{
           
@@ -46,6 +73,11 @@ const OuterContainer=styled(Box)(({theme})=>({
 
 
           const InnerBox=styled(Box)(({theme})=>({
+
+            border:"2px solid blue",
+            display:"grid",
+            gridTemplateColumns:"(repeat(3,1fr))",
+            
     
             
                 [theme.breakpoints.down("xl")]:{
@@ -67,7 +99,7 @@ const OuterContainer=styled(Box)(({theme})=>({
 
               const TextBox=styled(Box)(({theme})=>({
     
-                height:900,
+                fontSize:16,
                     [theme.breakpoints.down("xl")]:{
                   
                     },
@@ -85,12 +117,36 @@ const OuterContainer=styled(Box)(({theme})=>({
                     }
                   }))
 
+                  const ButtonBox=styled(Button)(({theme})=>({
+    
+                    background:"black",
+                    color:"white",
+                        [theme.breakpoints.down("xl")]:{
+                      
+                        },
+                        [theme.breakpoints.down("lg")]:{
+                      
+                        },
+                        [theme.breakpoints.down("md")]:{
+                            
+                        },
+                        [theme.breakpoints.down("sm")]:{
+                            
+                        },
+                        [theme.breakpoints.down("xs")]:{
+                            
+                        }
+                      }))
+
 function Search() {
 
     const navigate=useNavigate()
     const mainData=useSelector((store)=>store.data.getData)
     const dispatch=useDispatch()
     const [search,setSearch]=useState([])
+    const [show,setShow]=useState(false)
+
+
 
 
     const handleSearch=(e)=>{
@@ -100,6 +156,7 @@ function Search() {
     }
     console.log("sortData")
 
+    console.log("search",search)
     useEffect(()=>{
       dispatch(getData())
     },[])
@@ -108,23 +165,30 @@ function Search() {
     //  setSearch(mainData)
     // },[mainData])
     
+const handleView=()=>{
+  dispatch(postSearch(...search))
+  navigate("/result")
+}
+
 
    
 
   return (
     <OuterContainer>
 
-  <Input onChange={handleSearch}  sx={{marginTop:13 ,width:600, height:85, border:"1px solid black"}} placeholder='What are you lookig for'/>
-
+  <Input  onChange={handleSearch}  sx={{marginTop:13 ,width:600, height:85, border:"1px solid black"}}  placeholder='What are you lookig for'/>
+ 
 <InnerBox>
     {search.map((item)=>(
-        <>
-        <TextBox sx={{fontSize:16}}>{item.name}</TextBox>
-        <ImageBox sx={{height:200, marginTop:-300}} as={"img"} src={item.images[0]} />
-        </>
+        <InnerDiv>
+        <ImageBox  as={"img"} src={item.images[0]} />
+        <TextBox sx={{}}>{item.name}</TextBox>
+        </InnerDiv>
     ))}
 
 </InnerBox>
+
+<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>
     </OuterContainer>
   )
 }

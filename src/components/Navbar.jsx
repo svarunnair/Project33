@@ -246,7 +246,7 @@ const handleSearch=()=>{
 
       </OuterConteiner>
     
-    {hover?<MenuBox onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} sx={{width:"100%",height:500,position:"sticky",marginTop:8,display:'flex',color:'white',bgcolor:'black'}}> 
+    {hover?<MenuBox onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} sx={{width:"100%",height:500,position:"absolute",marginTop:8,display:'flex',color:'white',bgcolor:'black'}}> 
     <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
       <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
       <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
@@ -297,6 +297,7 @@ const handleSearch=()=>{
     
       <PublicRoutes/>
       {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
+     {path.pathname!=="/search"&&<Footer/>}
      <Footer/>
     </OuterDiv>
     

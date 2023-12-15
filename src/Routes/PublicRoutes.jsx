@@ -10,6 +10,8 @@ import Detail from '../pages/Detail'
 import Search from '../pages/Search'
 import Info from '../pages/Info'
 import Captain from '../pages/Captain'
+import Welcome from '../pages/Welcome'
+import Result from '../pages/Result'
 
 
 function PublicRoutes() {
@@ -17,7 +19,8 @@ function PublicRoutes() {
     <div>
         <Routes>
 
-            <Route path='/' element={<Home/>}/>
+            <Route path='/' element={<Welcome/>}/>
+            <Route path='/welcome' element={<Welcome/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/signin' element={<Signin/>}/>
             <Route path='/signup' element={<Signup/>}/>
@@ -30,8 +33,8 @@ function PublicRoutes() {
             <Route path='/search' element={<Search/>}/>
             <Route path='/info' element={<Info/>}/>
             <Route path='/captain' element={<Captain/>}/>
-
-
+            <Route path='/result' element={<Result/>}/>
+            
 
         </Routes>
     </div>

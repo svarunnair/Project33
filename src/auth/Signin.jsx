@@ -1,160 +1,225 @@
-import { Box, Button, Input, Typography, styled } from '@mui/material'
-import React, { useState } from 'react'
-import AppleIcon from '@mui/icons-material/Apple';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { postAuth } from '../Redux/auth/authAction';
+import { Box, Button, Input, styled } from '@mui/material'
+import React from 'react'
 
+const OuterContainer=styled(Box)(({theme})=>({
 
-const OuterBox=styled(Box)(({theme})=>({
+  display:"flex",
+    
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
 
-  [theme.breakpoints.down("xl")]:{
+    const ImageBox=styled(Box)(({theme})=>({
 
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
+      width:"55%",
       
-  },
-  [theme.breakpoints.down("sm")]:{
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
+
+    const InnerContainer=styled(Box)(({theme})=>({
+    
+      border:"2px solid blue",
+      width:"100%",
+      textAlign:"center",
+      justifyContent:"center",
+      justifyItems:"center",
       
-  },
-  [theme.breakpoints.down("xs")]:{
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
+
+    const TextBox=styled(Box)(({theme})=>({
+    
+     
+      fontWeight:400,
       
-  }
-}))
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
 
-const ImageBox=styled(Box)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
+    const FirstBox=styled(Box)(({theme})=>({
+    
+      border:"1px solid black",
+      display:"flex",
+      justifyItems:"center",
+      justifyContent:"center",
+      padding:10,
+   
       
-  },
-  [theme.breakpoints.down("sm")]:{
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
+
+
+    const ButtonBox=styled(Button)(({theme})=>({
+    
+      border:"1px solid red",
+      padding:10,
       
-  },
-  [theme.breakpoints.down("xs")]:{
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
+
+    const SecondBox=styled(Box)(({theme})=>({
+    
+      border:"1px solid yellow",
+      display:"grid",
+      padding:10,
       
-  }
-}))
-
-const InnerBox=styled(Box)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
+     
+      justifyItems:"center",
       
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const TextBox=styled(Typography)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const ButtonBox=styled(Button)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
+  
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
 
 
+    const InitialDiv=styled(Box)(({theme})=>({
+    
+    
+      [theme.breakpoints.down("xl")]:{
+    
+      },
+      [theme.breakpoints.down("lg")]:{
+    
+      },
+      [theme.breakpoints.down("md")]:{
+          
+      },
+      [theme.breakpoints.down("sm")]:{
+          
+      },
+      [theme.breakpoints.down("xs")]:{
+          
+      }
+    }))
 function Signin() {
-  const navigate=useNavigate()
-  const [email,setEmail]=useState('')
-  const [password,setPassword]=useState('')
-  const dispatch=useDispatch()
-
-  const handleEmail=(e)=>{
-    let value=e.target.value 
-    setEmail(value)
-  }
-  const handlePassword=(e)=>{
-    let value=e.target.value 
-    setPassword(value)
-  }
-
-  const handleSignin=()=>{
-    let data={
-      email:email,
-      password:password
-    }
-    dispatch(postAuth(data))
-  }
-
-  const handleAccount=()=>{
-    navigate('/signup')
-  }
   return (
-    <OuterBox sx={{display:"flex"}}>
+    <OuterContainer>
 
-    <InnerBox>
-      <ImageBox sx={{marginRight:70.3,marginTop:8}} width={700} height={480} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-login-page.jpg?im=Resize=(1800,1175),aspect=fill;Crop=(0,0,1800,1175),gravity=Center"/>
-      </InnerBox>
+     
+      <ImageBox as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-login-page.jpg?im=Resize=(1800,1175),aspect=fill;Crop=(0,0,1800,1175),gravity=Center"/>
+ 
+    
+<InnerContainer>
 
-      <InnerBox >
-        <TextBox sx={{marginLeft:-100,marginTop:10,fontSize:32}}>Customer Login</TextBox>
-        <InnerBox sx={{display:'flex',marginLeft:-63,gap:2,marginTop:6}}>
-        <ButtonBox sx={{bgcolor:'black',color:'white',border:"1px solid black",height:50,width:230,borderRadius:"0px"}}>Sign in with Google</ButtonBox>
-        <ButtonBox sx={{bgcolor:'black',color:'white',border:"1px solid black",height:50,width:230,borderRadius:"0px"}}><AppleIcon fontSize='12'/>Sign in with Apple</ButtonBox>
-        </InnerBox>
-        <InnerBox sx={{marginLeft:-63,marginTop:1,display:"grid"}}>
+  <TextBox>Customer Login</TextBox>
+  <FirstBox>
+  <ButtonBox sx={{bgcolor:'black',color:'white'}}>Sign in with Google</ButtonBox>
+  <ButtonBox  sx={{bgcolor:'black',color:'white'}}>Sign in with Apple</ButtonBox>
+  </FirstBox>
+  <SecondBox>
+    <Input sx={{border:"1px solid black",width:"75%"}} placeholder='Email'/>
+    <Input sx={{border:"1px solid black",width:"75%"}} placeholder='Password'/>
+    <Button sx={{border:"1px solid black",width:"75%"}}>Signin</Button>
+    <TextBox >___________________OR___________________</TextBox>
+    <Button sx={{border:"1px solid black",width:"75%"}}>Create my account</Button>
+  </SecondBox>
 
-          <Input onChange={handleEmail} sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Email'/>
-          <Input onChange={handlePassword} sx={{width:500,marginTop:3,border:"1px solid black",height:50,borderRadius:"8px"}} placeholder='Password'/>
-          <Button onClick={handleSignin}  sx={{width:500,marginTop:3,border:"1px solid black",height:50,bgcolor:'black',color:'white'}}>Signin In</Button>
-          <TextBox sx={{marginLeft:-48,fontSize:11,marginTop:.5,textDecoration:"underline",cursor:'pointer'}}>Forgot Your Password?</TextBox>
-        
-        <TextBox sx={{fontWeight:900}}>___________  OR  ___________</TextBox>
-        <Button onClick={handleAccount} sx={{width:500,marginTop:3,border:"1px solid black",height:50,bgcolor:'black',color:'white'}}>Create my account</Button>
-        <InnerBox sx={{bgcolor:'black',width:717,height:150,marginLeft:-97,marginTop:-4}}></InnerBox>
-        </InnerBox>
-      </InnerBox>
-      
-    </OuterBox>
+
+</InnerContainer>
+
+
+    </OuterContainer>
   )
 }
 

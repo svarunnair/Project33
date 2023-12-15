@@ -26,6 +26,15 @@ export const POST_BOOKING_REQUIEST="POST_BOOKING_REQUIEST"
 export const POST_BOOKING_SUCCESS="POST_BOOKING_SUCCESS"
 export const POST_BOOKING_FAILURE="POST_BOOKING_FAILURE"
 
+export const POST_SEARCH_REQUIEST="POST_SEARCH_REQUIEST"
+export const POST_SEARCH_SUCCESS="POST_SEARCH_SUCCESS"
+export const POST_SEARCH_FAILURE="POST_SEARCH_FAILURE"
+
+
+export const GET_SEARCH_REQUIEST="GET_SEARCH_REQUIEST"
+export const GET_SEARCH_SUCCESS="GET_SEARCH_SUCCESS"
+export const GET_SEARCH_FAILURE="GET_SEARCH_FAILURE"
+
 
 const getDataRequiest=()=>{
     return({
@@ -128,6 +137,41 @@ const postBookingFailure=()=>{
     })
 }
 
+const postSearchRequiest=()=>{
+    return({
+        type:POST_SEARCH_REQUIEST
+    })
+}
+const postSearchSuccess=(data)=>{
+    return({
+        type:POST_SEARCH_SUCCESS,
+        payload:data
+    })
+}
+const postSearchFailure=()=>{
+    return({
+        type:POST_SEARCH_FAILURE
+    })
+}
+
+const getSearchRequiest=()=>{
+    return({
+        type:GET_SEARCH_REQUIEST
+    })
+}
+const getSearchSuccess=(data)=>{
+    return({
+        type:GET_SEARCH_SUCCESS,
+        payload:data
+    })
+}
+const getSearchFailure=()=>{
+    return({
+        type:GET_SEARCH_FAILURE
+    })
+}
+
+
 
 
 export const getData=()=>(dispatch)=>{
@@ -220,5 +264,36 @@ export const postBooking=(data)=>(dispatch)=>{
     })
     .catch((error)=>{
         dispatch(postBookingFailure())
+    })
+}
+
+export const postSearch=(data)=>(dispatch)=>{
+    dispatch(postSearchRequiest())
+    return axios({
+        url:"http://localhost:8000/search",
+        method:"POST",
+        data
+    })
+    .then((res)=>{
+        dispatch(postSearchSuccess(res.data))
+        console.log("postSearch",res.data)
+    })
+    .catch((error)=>{
+        dispatch(postSearchFailure())
+    })
+}
+
+export const getSearch=()=>(dispatch)=>{
+    dispatch(getSearchRequiest())
+    return axios({
+        url:"http://localhost:8000/search",
+        method:"GET"
+    })
+    .then((res)=>{
+        dispatch(getSearchSuccess(res.data))
+        console.log("getSearch",res.data)
+    })
+    .catch((error)=>{
+        dispatch(getSearchFailure())
     })
 }

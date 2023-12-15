@@ -13,6 +13,7 @@ function App() {
       
       {path.pathname!=="/info"&&<Navbar/>}
       {path.pathname==='/info'&&<Info/>}
+     
     
      
     </div>

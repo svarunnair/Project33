@@ -220,11 +220,13 @@ function Home() {
     <ButtonBox onClick={handleImage} textAlign={"center"} sx={{cursor:'pointer',
     color:"white",width:150,top:290,position:'absolute',left:100,height:50,border:"1px solid white",
     borderRadius:30}}>Discover more</ButtonBox>
-    {/* <InnerContainer  sx={{color:'white',bgcolor:'black'}}> */}
+    {/* <InnerContainer  sx={{color:'white',bgcolor:'black'}}> */}  
+   
    <FirstBox sx={{textAlign:'center',bgcolor:"black",color:'white'}}>
      <Text sx={{fontSize:33}}>Explore our latest creations</Text><br/>
-     <Text sx={{fontSize:22}} >Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
+     <Text sx={{fontSize:22}}>Rado is known as the Master of Materials: from high-tech ceramic to sapphire crystal and diamonds to stainless steel, our innovative watches have no boundaries when it comes to design. Feel and discover the Rado difference!</Text>
      </FirstBox>
+   
     <BoxItem sx={{display:"flex", overflow:'auto'}}>
 
       {rado.map((item)=>(

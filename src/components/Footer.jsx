@@ -5,8 +5,8 @@ import React from 'react'
 const OuterBox=styled(Box)(({theme})=>({
 border:"1px solid black",
 background:"black",
-width:1260,
-height:400,
+
+
 color:"white",
 display:"flex",
     [theme.breakpoints.down("xl")]:{
