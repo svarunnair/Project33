@@ -133,13 +133,14 @@ const OuterContainer=styled(Box)(({theme})=>({
 
   const FirstBox=styled(Box)(({theme})=>({
 
-   
+   border:"2px solid red",
     background:"black",
     color:"white",
     paddingBottom:120,
     top:200,
-   
- 
+   justifyContent:"center",
+   justifyItems:"center",
+ textAlign:"center",
     [theme.breakpoints.down("xl")]:{
   
     },
@@ -157,8 +158,10 @@ const OuterContainer=styled(Box)(({theme})=>({
     }
   }))
 
-  const DetailBox=styled(Box)(({theme})=>({
-
+  const DetailBox=styled(Typography)(({theme})=>({
+ 
+    justifyContent:"center",
+    justifyItems:"center",
     
 
     [theme.breakpoints.down("xl")]:{
@@ -207,6 +210,8 @@ const OuterContainer=styled(Box)(({theme})=>({
     justifyItems:"center",
     justifyContent:"center",
     left:140,
+    border:"2px solid red",
+    textAlign:"center",
    
     
 

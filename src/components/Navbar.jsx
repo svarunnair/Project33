@@ -202,7 +202,7 @@ function Navbar() {
 
 
   const handleImage=()=>{
-    navigate('/home')
+    navigate('/welcome')
   }
   const handleAuth=()=>{
     navigate('/signin')

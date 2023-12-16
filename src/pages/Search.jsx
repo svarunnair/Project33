@@ -8,7 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const OuterContainer=styled(Box)(({theme})=>({
     
-  border:"3px solid red",
+  
    
         [theme.breakpoints.down("xl")]:{
       
@@ -74,7 +74,7 @@ const OuterContainer=styled(Box)(({theme})=>({
 
           const InnerBox=styled(Box)(({theme})=>({
 
-            border:"2px solid blue",
+            border:"2px solid green",
             display:"grid",
             gridTemplateColumns:"(repeat(3,1fr))",
             
@@ -145,16 +145,29 @@ function Search() {
     const dispatch=useDispatch()
     const [search,setSearch]=useState([])
     const [show,setShow]=useState(false)
+    const [result,setResult]=useState(false)
 
 
+    const handleProduct=(id)=>{
+      navigate(`/detail/${id}`)
+    }
 
+    
 
     const handleSearch=(e)=>{
         let value=e.target.value 
         let sortData=mainData.filter(item=>item.name.toLowerCase().includes(value))
         setSearch(sortData)
+        setShow(true)
     }
     console.log("sortData")
+
+    if(search===""){
+      setResult(true)
+    }
+
+    console.log("result",result)
+
 
     console.log("search",search)
     useEffect(()=>{
@@ -162,14 +175,27 @@ function Search() {
     },[])
 
     // useEffect(()=>{
-    //  setSearch(mainData)
-    // },[mainData])
+    //   Object.keys(search.length>0){
+    //     setShow(true)
+    //   }
+    // },[show])
+
+    
+   
+    console.log("show",show)
+
     
 const handleView=()=>{
   dispatch(postSearch(...search))
   navigate("/result")
 }
 
+// if(search.length===0){
+//   setShow(false)
+// }
+// if(search.length!==0){
+//   setShow(true)
+// }
 
    
 
@@ -180,7 +206,7 @@ const handleView=()=>{
  
 <InnerBox>
     {search.map((item)=>(
-        <InnerDiv>
+        <InnerDiv sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)}>
         <ImageBox  as={"img"} src={item.images[0]} />
         <TextBox sx={{}}>{item.name}</TextBox>
         </InnerDiv>
@@ -188,7 +214,7 @@ const handleView=()=>{
 
 </InnerBox>
 
-<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>
+{show?<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>:""}
     </OuterContainer>
   )
 }

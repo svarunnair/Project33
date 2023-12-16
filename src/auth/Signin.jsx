@@ -53,6 +53,7 @@ const SecondBox=styled(Box)(({theme})=>({
 
   border:"1px solid green",
   width:"50%",
+  marginTop:100,
 
   [theme.breakpoints.down("xl")]:{
 
@@ -167,12 +168,67 @@ const InnerBox=styled(Box)(({theme})=>({
 const InputBox=styled(Box)(({theme})=>({
 
   
-  border:"2px solid red",
+ 
   display:"grid",
   justifyContent:"center",
   gap:10,
-  marginTop:20,
+  marginTop:90,
   textAlign:"left",
+  
+  
+ 
+   [theme.breakpoints.down("xl")]:{
+ 
+   },
+   [theme.breakpoints.down("lg")]:{
+ 
+   },
+   [theme.breakpoints.down("md")]:{
+       
+   },
+   [theme.breakpoints.down("sm")]:{
+       
+   },
+   [theme.breakpoints.down("xs")]:{
+       
+   }
+ }))
+
+
+ const OuterDiv=styled(Box)(({theme})=>({
+
+  
+  border:"2px solid pink",
+  
+  
+  
+ 
+   [theme.breakpoints.down("xl")]:{
+ 
+   },
+   [theme.breakpoints.down("lg")]:{
+ 
+   },
+   [theme.breakpoints.down("md")]:{
+       
+   },
+   [theme.breakpoints.down("sm")]:{
+       
+   },
+   [theme.breakpoints.down("xs")]:{
+       
+   }
+ }))
+
+
+ const ThirdContainer=styled(Box)(({theme})=>({
+
+  
+  border:"1px solid red",
+  width:"50%",
+  height:"200px",
+  background:"black",
+  
   
   
  
@@ -195,6 +251,7 @@ const InputBox=styled(Box)(({theme})=>({
 
 function Signin() {
   return (
+    <OuterDiv>
     <OuterContainer>
 
       
@@ -227,6 +284,12 @@ function Signin() {
 
       
     </OuterContainer>
+
+<ThirdContainer>
+
+</ThirdContainer>
+
+    </OuterDiv>
   )
 }
 
