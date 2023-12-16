@@ -233,7 +233,7 @@ const handleSearch=()=>{
       <Text marginTop={3} >Services</Text>
       </Box>  
         
-    <ImageBox  onClick={handleImage} sx={{cursor:'pointer',marginTop:0,marginRight:15,height:65}} as="img" src="https://timeandtidewatches.com/wp-content/uploads/logos/Rado-Partner.jpg" />
+    <ImageBox  onClick={handleImage} sx={{cursor:'pointer',marginTop:0,paddingRight:35,height:65}} as="img" src="https://timeandtidewatches.com/wp-content/uploads/logos/Rado-Partner.jpg" />
  <Box >
 <ButtonAuth onClick={handleSearch} ><SearchIcon/></ButtonAuth>
 <ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
@@ -298,7 +298,7 @@ const handleSearch=()=>{
       <PublicRoutes/>
       {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
      {path.pathname!=="/search"&&<Footer/>}
-     <Footer/>
+     
     </OuterDiv>
     
   )

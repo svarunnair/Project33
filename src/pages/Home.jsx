@@ -212,7 +212,7 @@ function Home() {
   return (
     <OuterBox >
      
-      <ImageBox sx={{}} 
+      <ImageBox 
        as="img" 
        src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill" />
     <Text sx={{color:'white', fontSize:36,position:'absolute',top:210,right:550}}>CENTRIX AUTOMATIC DIAMONDS</Text>
