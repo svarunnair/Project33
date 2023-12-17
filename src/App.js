@@ -5,14 +5,16 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import Info from './pages/Info';
+import Welcome from './pages/Welcome';
 
 function App() {
   const path=useLocation()
   return (
     <div className="App">
-      
+{/*       
       {path.pathname!=="/info"&&<Navbar/>}
-      {path.pathname==='/info'&&<Info/>}
+      {path.pathname==='/info'&&<Info/>} */}
+      <Welcome/>
      
     
      

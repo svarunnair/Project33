@@ -29,10 +29,14 @@ const FirstBox = styled(Box)(({ theme }) => ({
   // border:"2px solid blue",
   width: "100%",
   background: "black",
+  height:"100%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+   
+
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -66,12 +70,23 @@ const ThirdBox = styled(Box)(({ theme }) => ({
 
 const TextBox = styled(Typography)(({ theme }) => ({
    fontSize:'20px',
+   position: "absolute", 
+   bottom: 300, 
+   left: 100, 
+   color:"white",  
+   fontWeight:900, 
+   
   [theme.breakpoints.down("xl")]: {
     fontSize:'18px',
   },
-  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("lg")]: {
+
+  },
   [theme.breakpoints.down("md")]: {
     fontSize:'16px',
+    bottom: 600, 
+    fontWeight:900, 
+   
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -80,11 +95,16 @@ const TextBox = styled(Typography)(({ theme }) => ({
 const ImageBox = styled(Box)(({ theme }) => ({
   // border:"2px solid green",
   width: "100%",
-  height: 400,
+  height:"100%",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    height: 400,
+    resizeMode: 'stretch',
+  
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -103,11 +123,20 @@ const SubBox = styled(Box)(({ theme }) => ({
 }));
 
 const ButtonBox = styled(Box)(({ theme }) => ({
-  // border:"2px solid yellow",
+  border:"2px solid yellow",
+  position: "absolute",
+              bottom: 200,
+              left: 200,
+              color: "white",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    position: "absolute",
+              bottom: 550,
+              left: 200,
+              color: "white",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -158,19 +187,17 @@ function Welcome() {
           <ImageBox
             as={"img"}
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill"
+      
           />
           <TextBox
-            sx={{ position: "absolute", bottom: 300, left: 200, fontSize: 33 }}
+            sx={{ }}
           >
             {" "}
             CENTRIX AUTOMATIC DIAMONDS
           </TextBox>
           <ButtonBox
             sx={{
-              position: "absolute",
-              bottom: 200,
-              left: 200,
-              color: "white",
+              
             }}
           >
             Dicover more
