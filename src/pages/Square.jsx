@@ -5,6 +5,7 @@ import { getData } from '../Redux/data/action'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate } from 'react-router-dom';
+import { hover } from '@testing-library/user-event/dist/hover';
 const OuterContainer=styled(Box)(({theme})=>({
     
   
@@ -161,7 +162,14 @@ function Square() {
         <InnerBox  sx={{background:"#1B1B1B",marginTop:7,width:"100%"}} >
 <ImageBox width={"50%"} as={'img'}  src="https://www.rado.com/media/catalog/category/True_Square_9.png"/>
 <TextBox marginLeft={46} marginTop={4} width={600} color={"white"} >At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.</TextBox>
-      <TextBox color={"white"} sx={{cursor:'pointer'}} marginTop={5} marginLeft={8} marginBottom={5}>Read more about the collection {">"}</TextBox>
+      <TextBox color={"white"} sx={{cursor:'pointer',
+      ':hover': {
+    textDecoration: 'underline',
+    color:'white'
+  },
+  
+  }} marginTop={5} marginLeft={8} marginBottom={5} >
+        Read more about the collection {">"}</TextBox>
         </InnerBox>
         <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
 

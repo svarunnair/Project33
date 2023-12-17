@@ -30,6 +30,8 @@ const OuterContainer=styled(Box)(({theme})=>({
       const InnerDiv=styled(Box)(({theme})=>({
     
         border:"3px solid red",
+        width:"250px",
+       
          
               [theme.breakpoints.down("xl")]:{
             
@@ -75,8 +77,9 @@ const OuterContainer=styled(Box)(({theme})=>({
           const InnerBox=styled(Box)(({theme})=>({
 
             border:"2px solid green",
-            display:"grid",
-            gridTemplateColumns:"(repeat(3,1fr))",
+            // display:"grid",
+            // gridTemplateColumns:"repeat(3,1fr)",
+            display:"flex",
             
     
             
@@ -159,6 +162,7 @@ function Search() {
         let sortData=mainData.filter(item=>item.name.toLowerCase().includes(value))
         setSearch(sortData)
         setShow(true)
+       
     }
     console.log("sortData")
 
@@ -205,7 +209,9 @@ const handleView=()=>{
   <Input  onChange={handleSearch}  sx={{marginTop:13 ,width:600, height:85, border:"1px solid black"}}  placeholder='What are you lookig for'/>
  
 <InnerBox>
-    {search.map((item)=>(
+
+    {search?.slice(0, 5)
+    .map((item)=>(
         <InnerDiv sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)}>
         <ImageBox  as={"img"} src={item.images[0]} />
         <TextBox sx={{}}>{item.name}</TextBox>
@@ -214,7 +220,7 @@ const handleView=()=>{
 
 </InnerBox>
 
-{show?<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>:""}
+{search.length!==0&&<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>}
     </OuterContainer>
   )
 }

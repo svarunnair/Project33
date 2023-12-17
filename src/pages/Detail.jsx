@@ -11,6 +11,9 @@ import { grey } from '@mui/material/colors'
 
 
 const OuterContainer=styled(Box)(({theme})=>({
+
+  border:"2px solid red",
+
     
   
     [theme.breakpoints.down("xl")]:{
@@ -154,6 +157,135 @@ const OuterContainer=styled(Box)(({theme})=>({
     }
   }))
 
+
+  const DetailBox=styled(Box)(({theme})=>({
+
+    paddingLeft:40,
+    paddingRight:100,
+   
+    
+  
+    [theme.breakpoints.down("xl")]:{
+  
+    },
+    [theme.breakpoints.down("lg")]:{
+  
+    },
+    [theme.breakpoints.down("md")]:{
+        
+    },
+    [theme.breakpoints.down("sm")]:{
+        
+    },
+    [theme.breakpoints.down("xs")]:{
+        
+    }
+  }))
+
+
+  const TextDetails=styled(Box)(({theme})=>({
+
+    
+    
+  
+    [theme.breakpoints.down("xl")]:{
+  
+    },
+    [theme.breakpoints.down("lg")]:{
+  
+    },
+    [theme.breakpoints.down("md")]:{
+        
+    },
+    [theme.breakpoints.down("sm")]:{
+        
+    },
+    [theme.breakpoints.down("xs")]:{
+        
+    }
+  }))
+
+  const OuterBox=styled(Box)(({theme})=>({
+
+
+    border:"3px solid green",
+    display:"flex",
+
+    
+    
+  
+    [theme.breakpoints.down("xl")]:{
+  
+    },
+    [theme.breakpoints.down("lg")]:{
+  
+    },
+    [theme.breakpoints.down("md")]:{
+        
+    },
+    [theme.breakpoints.down("sm")]:{
+        
+    },
+    [theme.breakpoints.down("xs")]:{
+        
+    }
+  }))
+
+
+  const DiscriptionBox=styled(Box)(({theme})=>({
+
+
+    border:"3px solid green",
+    
+   
+
+    
+    
+  
+    [theme.breakpoints.down("xl")]:{
+  
+    },
+    [theme.breakpoints.down("lg")]:{
+  
+    },
+    [theme.breakpoints.down("md")]:{
+        
+    },
+    [theme.breakpoints.down("sm")]:{
+        
+    },
+    [theme.breakpoints.down("xs")]:{
+        
+    }
+  }))
+
+
+  const SpecificationBox=styled(Box)(({theme})=>({
+
+
+    border:"3px solid blue",
+   
+
+    
+    
+  
+    [theme.breakpoints.down("xl")]:{
+  
+    },
+    [theme.breakpoints.down("lg")]:{
+  
+    },
+    [theme.breakpoints.down("md")]:{
+        
+    },
+    [theme.breakpoints.down("sm")]:{
+        
+    },
+    [theme.breakpoints.down("xs")]:{
+        
+    }
+  }))
+
 function Detail() {
 
     // const mainData=useSelector((store)=>store.data.getData)
@@ -216,30 +348,42 @@ const handleNext=()=>{
 
   return (
     <OuterContainer>
-   <InnerBox sx={{marginTop:8 ,width:"50%"}} height={600} bgcolor={"#F0F0F0"} marginRight={70}>
+
+      <OuterBox>
+      
+   <InnerBox sx={{width:"50%",border:"2px solid red"}} height={600} bgcolor={"#F0F0F0"} marginRight={70}>
     <ButtonBox  onClick={handlePrev} sx={{fontSize:"x-large", marginBottom:50}}><ArrowBackIcon/></ButtonBox>
     <ImageBox sx={{marginTop:8}} width={400} as={'img'} src={dataImage[count]}/>
 
     <ButtonBox onClick={handleNext} sx={{fontSize:"x-large", marginBottom:50}}><ArrowForwardIcon/></ButtonBox>
    </InnerBox>
    
-   <TextBox marginLeft={100} marginBottom={100} marginTop={-58} sx={{textAlign:"left",padding:3}}>
+   <DetailBox sx={{textAlign:"left",padding:3,border:"2px solid red",width:"30%"}}>
    <TextBox sx={{textAlign:"left",fontSize:35, fontWeight:500}}>{detail.name}</TextBox>
    <TextBox sx={{fontSize:13,color:'grey'}}>{detail.model}</TextBox>
    <TextBox sx={{fontSize:13,color:'grey'}}>{detail.size}</TextBox>
-   <InnerBox sx={{display:'flex'}}>
+   <TextDetails sx={{display:'flex'}}>
    <TextBox sx={{fontSize:14,cursor:'pointer'}}>View full details {">"}</TextBox>
    <TextBox sx={{fontSize:14,cursor:'pointer'}}> Add to Compare {">"}</TextBox>
    <TextBox sx={{fontSize:14,cursor:'pointer'}}> Open comparator {">"}</TextBox>
 
-   </InnerBox>
+   </TextDetails>
+
+   
    <TextBox sx={{fontSize:22,marginTop:4}}>₹ {detail.price}.00</TextBox>
    <TextBox sx={{color:"grey",fontSize:15}}>Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextBox>
    <TextBox onClick={()=>handleCall()} sx={{cursor:"pointer",textDecoration:"underline",fontSize:17,marginTop:3}}>Call me back</TextBox>
-   </TextBox>
+   </DetailBox>
+   </OuterBox>
 
-<FirstBox sx={{width:900,marginTop:-65,marginLeft:23}}>
+<DiscriptionBox>
+
    <TextBox sx={{textAlign:"center",fontSize:22}}>{detail.description}</TextBox>
+
+   </DiscriptionBox>
+
+
+   {/* <SpecificationBox>
 
    <TextBox sx={{color:"grey",marginTop:10,marginLeft:-14}}>__________________________________________________________Specification__________________________________________________________</TextBox>
    
@@ -277,7 +421,9 @@ const handleNext=()=>{
       <TextBox sx={{fontSize:13,display:"flex" ,marginTop:-12}}>JewelDetails:<TextBox sx={{color:'grey',fontSize:13}}>{detail.JewelDetails}</TextBox></TextBox>
       </SecondBox>
    </FirstBox>
-   </FirstBox>
+
+   </SpecificationBox> */}
+ 
     </OuterContainer>
   )
 }
