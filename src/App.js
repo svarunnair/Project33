@@ -6,19 +6,20 @@ import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import Info from './pages/Info';
 import Welcome from './pages/Welcome';
+import { Box } from '@mui/material';
 
 function App() {
   const path=useLocation()
   return (
-    <div className="App">
-{/*       
+    <Box >
+      
       {path.pathname!=="/info"&&<Navbar/>}
-      {path.pathname==='/info'&&<Info/>} */}
-      <Welcome/>
+      {path.pathname==='/info'&&<Info/>}
+      {/* <Welcome/> */}
      
     
      
-    </div>
+    </Box>
   );
 }
 

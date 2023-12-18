@@ -1,307 +1,176 @@
-import { Box, Button, Input, Typography, styled } from '@mui/material'
-import React, { useState } from 'react'
-import Footer from './Footer'
-import PublicRoutes from '../Routes/PublicRoutes'
-import { useLocation, useNavigate } from 'react-router-dom'
-import SearchIcon from '@mui/icons-material/Search';
-import { AccessAlarm, Balcony, ThreeDRotation } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import RoomIcon from '@mui/icons-material/Room';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import { Box, Typography, styled } from "@mui/material";
+import React from "react";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import Welcome from "../pages/Welcome";
 
+const OuterBox = styled(Box)(({ theme }) => ({
+  border:"1px solid red", 
+  width: "100%",
 
-const OuterDiv=styled(Box)(({theme})=>({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const FirstBox = styled(Box)(({ theme }) => ({
+  border:"1px solid green", 
+  width:'100%',
+  height: 30,
+  background: "black",
+  display: "flex",
+  justifyContent: "end",
+  gap: 10,
  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const SecondBox = styled(Box)(({ theme }) => ({
+  border:"2px solid yellow", 
+  width:'100%',
+  height: 70,
+  background: "#181818",
+  display: "flex",
   
 
-  [theme.breakpoints.down("xl")]:{
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const OuterConteiner=styled(Box)(({theme})=>({
+const TextBox = styled(Typography)(({ theme }) => ({
+  color: "white",
+  fontSize: 15,
+  border:"1px solid red",
   
-   width:"100%",
-   display:'flex',
-   flexDirection:'column',
-   background:"black",
-   color:"white",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const SecondText = styled(Typography)(({ theme }) => ({
+  color: "white",
+  fontSize: 15,
+  border:"1px solid red",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const CategoryBox = styled(Box)(({ theme }) => ({
  
-    [theme.breakpoints.down("xl")]:{
-
-    },
-    [theme.breakpoints.down("lg")]:{
-
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-}))
-
-const InnerContainer=styled(Box)(({theme})=>({
-
-
+  border:"2px solid white",
+  fontSize: 15,
+  display: "flex",
+  gap:30,
+  paddingLeft:15,
+  paddingTop:20,
   
-  background:"black",
-  display:"flex",
-  justifyContent:'space-between',
-   [theme.breakpoints.down("xl")]:{
 
-   },
-   [theme.breakpoints.down("lg")]:{
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
+const EmblomBox = styled(Box)(({ theme }) => ({
+ border:"2px solid green",
 
-const ImageBox=styled(Box)(({theme})=>({
+  display: "flex",
+  justifyContent:"center",
+ 
 
-  width:130,
-  height:50,
-  background:"black",
-   [theme.breakpoints.down("xl")]:{
 
-   },
-   [theme.breakpoints.down("lg")]:{
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
+const SearchBox = styled(Box)(({ theme }) => ({
+  border:"1px solid red",
+  color:"white",
 
-const Text=styled(Typography)(({theme})=>({
-  textAlign:"left",
+  display: "flex",
+ 
+  gap:20,
+  paddingTop:20,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageEmblom = styled(Box)(({ theme }) => ({
+  width:120,
+  border:"1px solid red",
   
- 
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const BoxData=styled(Box)(({theme})=>({
- 
- 
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const ButtonAuth=styled(Button)(({theme})=>({
- 
- 
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const MenuBox=styled(Box)(({theme})=>({
- 
- 
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-
-
-
-
-
-
-
-
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 function Navbar() {
-  const navigate=useNavigate()
-  const path=useLocation()
-  const [hover,setHover]=useState(false)
-  const [women,setWomen]=useState(false)
-
-
-
-
-  const handleImage=()=>{
-    navigate('/welcome')
-  }
-  const handleAuth=()=>{
-    navigate('/signin')
-  }
-const handleSearch=()=>{
-  navigate('/search')
-}
   return (
-    <OuterDiv >
+    <OuterBox>
+      <FirstBox>
+        <TextBox>
+          Store location
+          <LocationOnIcon />
+        </TextBox>
+        <TextBox>
+          India/English
+          <CurrencyRupeeIcon />
+        </TextBox>
+      </FirstBox>
+      <SecondBox>
+         <CategoryBox>
+          <SecondText>Men</SecondText>
+          <SecondText>Women</SecondText>
+          <SecondText>Ceramic Watches</SecondText>
+          <SecondText>Feel Rado</SecondText>
+          <SecondText>Services</SecondText>
+        </CategoryBox>
 
-       
-<OuterConteiner  position={"sticky"}  top={0} zIndex="1000" >
-    <Box sx={{display:"flex",justifyContent:"end",gap:"10px"}} >
-     <Box sx={{display:'flex',width:"110px"}}> <Text >Store Locator</Text><RoomIcon fontSize='small'/></Box>
-      <Box sx={{display:'flex',width:"120px"}}><Text  >India / English</Text><CurrencyRupeeIcon fontSize='small'/></Box>
-    </Box>
+        <EmblomBox>
+          <ImageEmblom
+            as={"img"}
+            src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg"/>
+        </EmblomBox>
 
+        <SearchBox>
+<SearchOutlinedIcon/>
+<PersonOutlineOutlinedIcon/>
 
-   
-
-
-    <InnerContainer   >
-      <Box sx={{display:"flex", gap:'15px'}}>
-      <Text  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} marginLeft={3} marginTop={3}>Men</Text>
-      <Text onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} marginTop={3} >Women</Text>
-      <Text marginTop={3}>Ceramic Watches</Text>
-      <Text marginTop={3} >Feel Rado</Text>
-      <Text marginTop={3} >Services</Text>
-      </Box>  
-        
-    <ImageBox  onClick={handleImage} sx={{cursor:'pointer',marginTop:0,paddingRight:35,height:65}} as="img" src="https://timeandtidewatches.com/wp-content/uploads/logos/Rado-Partner.jpg" />
- <Box >
-<ButtonAuth onClick={handleSearch} ><SearchIcon/></ButtonAuth>
-<ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
-</Box>
-      </InnerContainer>
-
-
-
-
-
-      </OuterConteiner>
-    
-    {hover?<MenuBox onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} sx={{width:"100%",height:500,position:"absolute",marginTop:8,display:'flex',color:'white',bgcolor:'black'}}> 
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
-    </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
-    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
-    <MenuBox >New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-    </Text>
-    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
-    </MenuBox>:""}
+        </SearchBox> 
+      </SecondBox>
 
 
-
-   {women?<MenuBox onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} sx={{width:"100%",height:500,position:"sticky",marginTop:8,display:'flex',color:'white',bgcolor:'grey'}}> 
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
-    </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
-    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
-    <MenuBox >New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-    </Text>
-    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
-    </MenuBox>:""}
-
-
-  
-    
-      <PublicRoutes/>
-      {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
-     {path.pathname!=="/search"&&<Footer/>}
-     
-    </OuterDiv>
-    
-  )
+{/* <Welcome/> */}
+    </OuterBox>
+  );
 }
 
-export default Navbar
+export default Navbar;
