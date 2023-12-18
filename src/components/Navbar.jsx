@@ -8,7 +8,7 @@ import Welcome from "../pages/Welcome";
 
 const OuterBox = styled(Box)(({ theme }) => ({
   border:"1px solid red", 
-  width: "100%",
+width:"100px",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -18,8 +18,7 @@ const OuterBox = styled(Box)(({ theme }) => ({
 }));
 
 const FirstBox = styled(Box)(({ theme }) => ({
-  border:"1px solid green", 
-  width:'100%',
+  border:"3px solid green",
   height: 30,
   background: "black",
   display: "flex",
@@ -44,7 +43,9 @@ const SecondBox = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:900,
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));

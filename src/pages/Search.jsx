@@ -110,6 +110,7 @@ const OuterContainer=styled(Box)(({theme})=>({
                   
                     },
                     [theme.breakpoints.down("md")]:{
+                      fontSize:14,
                         
                     },
                     [theme.breakpoints.down("sm")]:{
