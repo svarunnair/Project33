@@ -1,229 +1,292 @@
-import { Box, Button, Grid, Input, styled } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getData, postSearch } from '../Redux/data/action'
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, Button, Grid, Input, Typography, styled } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getData, postSearch } from "../Redux/data/action";
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from '@mui/icons-material/Close';
+import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 
-const OuterContainer=styled(Box)(({theme})=>({
-    
+const OuterContainer = styled(Box)(({ theme }) => ({
   
-   
-        [theme.breakpoints.down("xl")]:{
-      
-        },
-        [theme.breakpoints.down("lg")]:{
-      
-        },
-        [theme.breakpoints.down("md")]:{
-            
-        },
-        [theme.breakpoints.down("sm")]:{
-            
-        },
-        [theme.breakpoints.down("xs")]:{
-            
-        }
-      }))
+  display:"flex",
+  flexDirection:"column",
+  // background: "rgba(0, 0, 0, 0.3)",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-      const InnerDiv=styled(Box)(({theme})=>({
+const InnerDiv = styled(Box)(({ theme }) => ({
+  border: "3px solid red",
+  width: "250px",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageBox = styled(Box)(({ theme }) => ({
+  width: 200,
+  height: 200,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const InnerBox = styled(Box)(({ theme }) => ({
+  // border: "2px solid yellow",
+  display: "flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextBox = styled(Box)(({ theme }) => ({
+  fontSize: 16,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    fontSize: 14,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ButtonBox = styled(Button)(({ theme }) => ({
+  background: "black",
+  color: "white",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const ButtonTheme = styled(Button)(({ theme }) => ({
+
+  border:"1px solid red",
+    justifyContent:"left",
+    display:"flex",
+    color:"green",
     
-        border:"3px solid red",
-        width:"250px",
-       
-         
-              [theme.breakpoints.down("xl")]:{
-            
-              },
-              [theme.breakpoints.down("lg")]:{
-            
-              },
-              [theme.breakpoints.down("md")]:{
-                  
-              },
-              [theme.breakpoints.down("sm")]:{
-                  
-              },
-              [theme.breakpoints.down("xs")]:{
-                  
-              }
-            }))
+    position:"sticky",
+    top:0,
+    zIndex:1000,
+  
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+  
+  
+  const MenuBox = styled(Box)(({ theme }) => ({
+    border:"3px solid green",
+    position:"absolute",
+    width:"40%",
+    background:"white",
+    height:600,
+    justifyContent:"right",
+    right:0,
+  
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
 
-      const ImageBox=styled(Box)(({theme})=>({
-    
-       
-        width:200,
-        height:200,
-        
-            [theme.breakpoints.down("xl")]:{
-          
-            },
-            [theme.breakpoints.down("lg")]:{
-          
-            },
-            [theme.breakpoints.down("md")]:{
-                
-            },
-            [theme.breakpoints.down("sm")]:{
-                
-            },
-            [theme.breakpoints.down("xs")]:{
-                
-            }
-          }))
+const EmblomBox = styled(Box)(({ theme }) => ({
+  border:"3px solid blue",
+width:100,
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextDetail = styled(Typography)(({ theme }) => ({
+  border:"1px solid blue",
+  
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 
-          const InnerBox=styled(Box)(({theme})=>({
+const AllowButton = styled(Button)(({ theme }) => ({
+  border:"1px solid blue",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-            border:"2px solid green",
-            // display:"grid",
-            // gridTemplateColumns:"repeat(3,1fr)",
-            display:"flex",
-            
-    
-            
-                [theme.breakpoints.down("xl")]:{
-              
-                },
-                [theme.breakpoints.down("lg")]:{
-              
-                },
-                [theme.breakpoints.down("md")]:{
-                    
-                },
-                [theme.breakpoints.down("sm")]:{
-                    
-                },
-                [theme.breakpoints.down("xs")]:{
-                    
-                }
-              }))
 
-              const TextBox=styled(Box)(({theme})=>({
-    
-                fontSize:16,
-                    [theme.breakpoints.down("xl")]:{
-                  
-                    },
-                    [theme.breakpoints.down("lg")]:{
-                  
-                    },
-                    [theme.breakpoints.down("md")]:{
-                      fontSize:14,
-                        
-                    },
-                    [theme.breakpoints.down("sm")]:{
-                        
-                    },
-                    [theme.breakpoints.down("xs")]:{
-                        
-                    }
-                  }))
+const FirstBox = styled(Box)(({ theme }) => ({
 
-                  const ButtonBox=styled(Button)(({theme})=>({
-    
-                    background:"black",
-                    color:"white",
-                        [theme.breakpoints.down("xl")]:{
-                      
-                        },
-                        [theme.breakpoints.down("lg")]:{
-                      
-                        },
-                        [theme.breakpoints.down("md")]:{
-                            
-                        },
-                        [theme.breakpoints.down("sm")]:{
-                            
-                        },
-                        [theme.breakpoints.down("xs")]:{
-                            
-                        }
-                      }))
+  display:"flex",
+ 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const TopBox = styled(Box)(({ theme }) => ({
+  border:"4px solid red",
+height:600,
+ 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const IconBox = styled(Box)(({ theme }) => ({
+  border:"1px solid blue",
+  display:"flex",
+ justifyContent:"end",
+ 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 function Search() {
+  const navigate = useNavigate();
+  const mainData = useSelector((store) => store.data.getData);
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState([]);
+  const [show, setShow] = useState(false);
+  const [result, setResult] = useState(false);
 
-    const navigate=useNavigate()
-    const mainData=useSelector((store)=>store.data.getData)
-    const dispatch=useDispatch()
-    const [search,setSearch]=useState([])
-    const [show,setShow]=useState(false)
-    const [result,setResult]=useState(false)
+  const handleProduct = (id) => {
+    navigate(`/detail/${id}`);
+  };
 
+  const handleSearch = (e) => {
+    let value = e.target.value;
+    let sortData = mainData.filter((item) =>
+      item.name.toLowerCase().includes(value)
+    );
+    setSearch(sortData);
+  };
+  console.log("sortData");
 
-    const handleProduct=(id)=>{
-      navigate(`/detail/${id}`)
+  if (search === "") {
+    setResult(true);
+  }
+
+  console.log("result", result);
+
+  console.log("search", search);
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
+
+  // useEffect(()=>{
+  //   Object.keys(search.length>0){
+  //     setShow(true)
+  //   }
+  // },[show])
+
+  console.log("show", show);
+
+  const handleView = () => {
+    dispatch(postSearch(...search));
+    navigate("/result");
+  };
+
+  const handleTheme=()=>{
+    if(show===false){
+      setShow(true)
     }
-
-    
-
-    const handleSearch=(e)=>{
-        let value=e.target.value 
-        let sortData=mainData.filter(item=>item.name.toLowerCase().includes(value))
-        setSearch(sortData)
-        setShow(true)
-       
+    if(show===true){
+      setShow(false)
     }
-    console.log("sortData")
-
-    if(search===""){
-      setResult(true)
-    }
-
-    console.log("result",result)
-
-
-    console.log("search",search)
-    useEffect(()=>{
-      dispatch(getData())
-    },[])
-
-    // useEffect(()=>{
-    //   Object.keys(search.length>0){
-    //     setShow(true)
-    //   }
-    // },[show])
-
     
-   
-    console.log("show",show)
+  }
+  const handleClose=()=>{
+    setShow(false)
+  }
 
-    
-const handleView=()=>{
-  dispatch(postSearch(...search))
-  navigate("/result")
-}
-
-// if(search.length===0){
-//   setShow(false)
-// }
-// if(search.length!==0){
-//   setShow(true)
-// }
-
-   
+  // if(search.length===0){
+  //   setShow(false)
+  // }
+  // if(search.length!==0){
+  //   setShow(true)
+  // }
 
   return (
     <OuterContainer>
 
-  <Input  onChange={handleSearch}  sx={{marginTop:13 ,width:600, height:85, border:"1px solid black"}}  placeholder='What are you lookig for'/>
- 
-<InnerBox>
+      <TopBox>
+      <Input
+        onChange={handleSearch}
+        sx={{
+          marginTop: 13,
+          width: 600,
+          height: 85,
+          border: "1px solid black",
+        }}
+        placeholder="What are you lookig for"
+      />
 
-    {search?.slice(0, 5)
-    .map((item)=>(
-        <InnerDiv sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)}>
-        <ImageBox  as={"img"} src={item.images[0]} />
-        <TextBox sx={{}}>{item.name}</TextBox>
-        </InnerDiv>
-    ))}
+      <InnerBox>
+        {search?.slice(0, 5).map((item) => (
+          <InnerDiv
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleProduct(item.id)}
+          >
+            <ImageBox as={"img"} src={item.images[0]} />
+            <TextBox sx={{}}>{item.name}</TextBox>
+          </InnerDiv>
+        ))}
+      </InnerBox>
 
-</InnerBox>
+      {search.length !== 0 && (
+        <ButtonBox onClick={handleView}>
+          View all {search.length} products
+        </ButtonBox>
+      )}
 
-{search.length!==0&&<ButtonBox onClick={handleView}>View all {search.length} products</ButtonBox>}
+      
+      </TopBox>
+
     </OuterContainer>
-  )
+  );
 }
 
-export default Search
+export default Search;

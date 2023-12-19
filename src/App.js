@@ -8,18 +8,23 @@ import Info from './pages/Info';
 import Welcome from './pages/Welcome';
 import { Box } from '@mui/material';
 
+import Cookies from './components/Cookies';
+import Permision from './components/Permision';
+
 function App() {
   const path=useLocation()
   return (
-    <Box >
-      
+    <div className='App'>
+{/*       
       {path.pathname!=="/info"&&<Navbar/>}
       {path.pathname==='/info'&&<Info/>}
       {/* <Welcome/> */}
+      {/* <PublicRoutes/>  */}
+     <Permision/>
      
     
      
-    </Box>
+    </div>
   );
 }
 

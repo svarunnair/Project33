@@ -1,15 +1,13 @@
-import { Box, Typography, styled } from "@mui/material";
-import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import { Box, Typography, styled } from '@mui/material';
+import React from 'react'
+import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import Welcome from "../pages/Welcome";
 
-const OuterBox = styled(Box)(({ theme }) => ({
-  border:"1px solid red", 
-width:"100px",
-
+const OuterContainer = styled(Box)(({ theme }) => ({
+  border:"2px solid blue",
+  width: "100%",
+  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -18,14 +16,12 @@ width:"100px",
 }));
 
 const FirstBox = styled(Box)(({ theme }) => ({
-  border:"3px solid green",
-  height: 30,
-  background: "black",
-  display: "flex",
-  justifyContent: "end",
-  gap: 10,
- 
-
+  border:"2px solid red",
+  width: "100%",
+  display:"flex",
+  justifyContent:"end",
+ background:"black",
+  height:30,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -34,57 +30,69 @@ const FirstBox = styled(Box)(({ theme }) => ({
 }));
 
 const SecondBox = styled(Box)(({ theme }) => ({
-  border:"2px solid yellow", 
-  width:'100%',
-  height: 70,
-  background: "#181818",
-  display: "flex",
-  
-
+  border:"2px solid green",
+  width: "100%",
+  height:70,
+  display:"flex",
+  background:"#28282B",
+  color:"white",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {
-    width:900,
-  },
+  [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const TextBox = styled(Typography)(({ theme }) => ({
-  color: "white",
-  fontSize: 15,
-  border:"1px solid red",
-  
-
+  border:"2px solid yellow",
+  fontSize:15,
+  color:"white", 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    fontSize:10,
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
-
-const SecondText = styled(Typography)(({ theme }) => ({
-  color: "white",
-  fontSize: 15,
-  border:"1px solid red",
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const CategoryBox = styled(Box)(({ theme }) => ({
+const BoxOne = styled(Box)(({ theme }) => ({
+  border:"2px solid red",
+  display:"flex",
  
-  border:"2px solid white",
-  fontSize: 15,
-  display: "flex",
-  gap:30,
-  paddingLeft:15,
-  paddingTop:20,
-  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const TextMenu = styled(Typography)(({ theme }) => ({
+  border:"2px solid yellow",
+  fontSize:15,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    fontSize:10,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
+const BoxTwo = styled(Box)(({ theme }) => ({
+  border:"2px solid yellow",
+  display:"flex",
+justifyContent:"center",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxThree = styled(Box)(({ theme }) => ({
+  border:"2px solid green",
+  display:"flex",
+  justifyContent:"end",
+  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -93,85 +101,51 @@ const CategoryBox = styled(Box)(({ theme }) => ({
 }));
 
 const EmblomBox = styled(Box)(({ theme }) => ({
- border:"2px solid green",
-
-  display: "flex",
-  justifyContent:"center",
- 
-
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const SearchBox = styled(Box)(({ theme }) => ({
-  border:"1px solid red",
-  color:"white",
-
-  display: "flex",
- 
-  gap:20,
-  paddingTop:20,
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const ImageEmblom = styled(Box)(({ theme }) => ({
+  border:"2px solid black",
+  display:"flex",
   width:120,
-  border:"1px solid red",
-  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+
 function Navbar() {
   return (
-    <OuterBox>
-      <FirstBox>
-        <TextBox>
-          Store location
-          <LocationOnIcon />
-        </TextBox>
-        <TextBox>
-          India/English
-          <CurrencyRupeeIcon />
-        </TextBox>
-      </FirstBox>
-      <SecondBox>
-         <CategoryBox>
-          <SecondText>Men</SecondText>
-          <SecondText>Women</SecondText>
-          <SecondText>Ceramic Watches</SecondText>
-          <SecondText>Feel Rado</SecondText>
-          <SecondText>Services</SecondText>
-        </CategoryBox>
+    <OuterContainer>
 
-        <EmblomBox>
-          <ImageEmblom
-            as={"img"}
-            src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg"/>
-        </EmblomBox>
+<FirstBox>
 
-        <SearchBox>
-<SearchOutlinedIcon/>
-<PersonOutlineOutlinedIcon/>
+<TextBox>Store location<FmdGoodOutlinedIcon/></TextBox>
+<TextBox>India/English₹</TextBox>
 
-        </SearchBox> 
-      </SecondBox>
+</FirstBox>
 
+<SecondBox>
+  <BoxOne>
+    <TextMenu>Men</TextMenu>
+    <TextMenu>Women</TextMenu>
+    <TextMenu>Ceramic watches</TextMenu>
+    <TextMenu>Feel Rado</TextMenu>
+    <TextMenu>Services</TextMenu>
+  </BoxOne>
 
-{/* <Welcome/> */}
-    </OuterBox>
-  );
+  <BoxTwo>
+    <EmblomBox  as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
+
+  </BoxTwo>
+{/* 
+  <BoxThree>
+    <SearchOutlinedIcon/>
+    <PersonOutlineOutlinedIcon/>
+
+  </BoxThree> */}
+
+</SecondBox>
+
+    </OuterContainer>
+  )
 }
 
-export default Navbar;
+export default Navbar
