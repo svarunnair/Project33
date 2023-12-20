@@ -10,11 +10,13 @@ const OuterContainer = styled(Box)(({ theme }) => ({
     display:"flex",
     height:550,
 
-    
+ 
     
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -29,8 +31,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
   }));
   const MenuBox = styled(Box)(({ theme }) => ({
     border: "2px solid red",
-   
-    justifyContent:"end",
+    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},

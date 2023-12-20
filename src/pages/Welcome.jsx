@@ -2,6 +2,8 @@ import { Box, Button, Typography, styled } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../Redux/data/action";
+import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Main = styled(Box)(({ theme }) => ({
   // border:"2px solid red",
@@ -31,14 +33,11 @@ const FirstBox = styled(Box)(({ theme }) => ({
   // border:"2px solid blue",
   width: "100%",
   background: "black",
-  height:"100%",
+  height: "100%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {
-   
-
-  },
+  [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -47,16 +46,14 @@ const SecondBox = styled(Box)(({ theme }) => ({
   // border:"5px solid pink",
   width: "100%",
   justifyContent: "center",
-  display:"flex",
+  display: "flex",
   background: "black",
   justifyItems: "center",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    height:190,
-
-   
+    height: 190,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -78,24 +75,21 @@ const ThirdBox = styled(Box)(({ theme }) => ({
 }));
 
 const TextBox = styled(Typography)(({ theme }) => ({
-   fontSize:'20px',
-   position: "absolute", 
-   bottom: 300, 
-   left: 100, 
-   color:"white",  
-   fontWeight:900, 
-   
-  [theme.breakpoints.down("xl")]: {
-    fontSize:'18px',
-  },
-  [theme.breakpoints.down("lg")]: {
+  fontSize: "20px",
+  position: "absolute",
+  bottom: 300,
+  left: 100,
+  color: "white",
+  fontWeight: 900,
 
+  [theme.breakpoints.down("xl")]: {
+    fontSize: "18px",
   },
+  [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    fontSize:'16px',
-    bottom: 600, 
-    fontWeight:900, 
-   
+    fontSize: "16px",
+    bottom: 600,
+    fontWeight: 900,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -104,15 +98,13 @@ const TextBox = styled(Typography)(({ theme }) => ({
 const ImageBox = styled(Box)(({ theme }) => ({
   // border:"2px solid green",
   width: "100%",
-  height:"100%",
-  
+  height: "100%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     height: 400,
-    resizeMode: 'stretch',
-  
+    resizeMode: "stretch",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -124,31 +116,30 @@ const SubBox = styled(Box)(({ theme }) => ({
   width: 700,
   height: 150,
 
-
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     width: 300,
-  height: 50,
+    height: 50,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const ButtonBox = styled(Box)(({ theme }) => ({
-  border:"2px solid yellow",
+  border: "2px solid yellow",
   position: "absolute",
-              bottom: 200,
-              left: 200,
-              color: "white",
+  bottom: 200,
+  left: 200,
+  color: "white",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     position: "absolute",
-              bottom: 550,
-              left: 200,
-              color: "white",
+    bottom: 550,
+    left: 200,
+    color: "white",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -171,16 +162,13 @@ const SliderBox = styled(Box)(({ theme }) => ({
 
 const FourthBox = styled(Box)(({ theme }) => ({
   border: "2px solid yellow",
-  display: 'flex',
-  
+  display: "flex",
+
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     display: "flex",
-    flexDirection:"column-reverse",
-    
-    
-
+    flexDirection: "column-reverse",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -188,12 +176,11 @@ const FourthBox = styled(Box)(({ theme }) => ({
 const SubContainer = styled(Box)(({ theme }) => ({
   border: "2px solid green",
   width: "50%",
- 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    width:"100%",
+    width: "100%",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -201,8 +188,6 @@ const SubContainer = styled(Box)(({ theme }) => ({
 
 const TextData = styled(Box)(({ theme }) => ({
   border: "2px solid green",
-  
- 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -213,44 +198,208 @@ const TextData = styled(Box)(({ theme }) => ({
 
 const ImageSlide = styled(Box)(({ theme }) => ({
   border: "2px solid green",
-  width:"100%",
-  height:"100%",
+  width: "100%",
+  height: "100%",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    width:"80%",
-    height:"80%",
+    width: "80%",
+    height: "80%",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
-
 const InnerBox = styled(Box)(({ theme }) => ({
- 
-  display:"flex",
- 
-  maxWidth:"100%",
-  overflow:"auto",
-  height:300,
+  display: "flex",
 
-  border:"4px solid green",
+  maxWidth: "100%",
+  overflow: "auto",
+  height: 300,
+
+  border: "4px solid green",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {
-  
-  },
+  [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const FivethBox = styled(Box)(({ theme }) => ({
-  
-  width:"100%",
-  background:"#F0F0F0",
-  height:350,
-  border:"2px solid red",
+  width: "100%",
+  background: "#F0F0F0",
+  height: 350,
+  border: "2px solid red",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const SecondText = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageShow = styled(Box)(({ theme }) => ({
+  width: 150,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const FivethText = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextMap = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const MapBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const SixthBox = styled(Box)(({ theme }) => ({
+  border: "2px solid blue",
+  display: "flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxOne = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "33%",
+  height: 280,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxTwo = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "33%",
+  height:280,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxThree = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "33%",
+  height: 280,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const SeventhBox = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "100%",
+  display: "flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxFour = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "50%",
+  height: 400,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: 200,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxFive = styled(Box)(({ theme }) => ({
+  border: "2px solid black",
+  width: "50%",
+  height: 400,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: 200,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const EighthBox = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width: "100%",
+
+  display: "flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    flexDirection: "column-reverse",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const Detailtext = styled(Typography)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -261,281 +410,143 @@ const FivethBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
-
-const SecondText = styled(Typography)(({ theme }) => ({
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const ImageShow = styled(Box)(({ theme }) => ({
-
-  width:150,
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const FivethText = styled(Typography)(({ theme }) => ({
-
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const TextMap = styled(Typography)(({ theme }) => ({
-
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const MapBox = styled(Box)(({ theme }) => ({
-
-  
-  display:"flex",
-  flexDirection:"column",
+const ImageDetail = styled(Box)(({ theme }) => ({
  
-  
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-
-const SixthBox = styled(Box)(({ theme }) => ({
-border:"2px solid blue",
-  display:"flex",
-
+  width: "50%",
+  height: 500,
 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    flexDirection:"column",
-    
+    width: "100%",
+    height: 200,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
-const BoxOne = styled(Box)(({ theme }) => ({
-  border:"2px solid black",
-  width:"33%",
-  height:200,
+const NinethBox = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width: "100%",
+  height: 500,
+  display: "flex",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    flexDirection: "column",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxSix = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width: "50%",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: 200,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxSeven = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width: "50%",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: 200,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextImage = styled(Typography)(({ theme }) => ({
+  border: "2px solid red",
+  position:"absolute",
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
   
-    [theme.breakpoints.down("xl")]: {},
-    [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {
-      width:"100%",
-    },
-    [theme.breakpoints.down("sm")]: {},
-    [theme.breakpoints.down("xs")]: {},
-  }));
-
-  const BoxTwo = styled(Box)(({ theme }) => ({
-    border:"2px solid black",
-    width:"33%",
-    height:200,
-    
-      [theme.breakpoints.down("xl")]: {},
-      [theme.breakpoints.down("lg")]: {},
-      [theme.breakpoints.down("md")]: {
-        width:"100%",
-      },
-      [theme.breakpoints.down("sm")]: {},
-      [theme.breakpoints.down("xs")]: {},
-    }));
-
-    const BoxThree = styled(Box)(({ theme }) => ({
-      border:"2px solid black",
-      width:"33%",
-      height:200,
-      
-        [theme.breakpoints.down("xl")]: {},
-        [theme.breakpoints.down("lg")]: {},
-        [theme.breakpoints.down("md")]: {
-          width:"100%",
-        },
-        [theme.breakpoints.down("sm")]: {},
-        [theme.breakpoints.down("xs")]: {},
-      }));
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 
-      const SeventhBox = styled(Box)(({ theme }) => ({
-        border:"2px solid black",
-        width:"100%",
-        display:"flex",
-       
-        
-          [theme.breakpoints.down("xl")]: {},
-          [theme.breakpoints.down("lg")]: {},
-          [theme.breakpoints.down("md")]: {
-            flexDirection:"column",
-           
-          },
-          [theme.breakpoints.down("sm")]: {},
-          [theme.breakpoints.down("xs")]: {},
-        }));
+const ButtonImage = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  position:"absolute",
 
-        const BoxFour = styled(Box)(({ theme }) => ({
-          border:"2px solid black",
-          width:"50%",
-          height:300,
-          
-            [theme.breakpoints.down("xl")]: {},
-            [theme.breakpoints.down("lg")]: {},
-            [theme.breakpoints.down("md")]: {
-              width:"100%",
-              height:200,
-            },
-            [theme.breakpoints.down("sm")]: {},
-            [theme.breakpoints.down("xs")]: {},
-          }));
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const ImageIcon = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width:"100%",
+  height:"100%",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: 200,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextAllign = styled(Box)(({ theme }) => ({
+  border: "2px solid red",
+  width:"50%",
+background:"#F5F5F5",
+textAllign:"left",
   
-
-          const BoxFive = styled(Box)(({ theme }) => ({
-            border:"2px solid black",
-            width:"50%",
-            height:300,
-            
-              [theme.breakpoints.down("xl")]: {},
-              [theme.breakpoints.down("lg")]: {},
-              [theme.breakpoints.down("md")]: {
-                width:"100%",
-                height:200,
-              },
-              [theme.breakpoints.down("sm")]: {},
-              [theme.breakpoints.down("xs")]: {},
-            }))
-
-
-            const EighthBox = styled(Box)(({ theme }) => ({
-              border:"2px solid red",
-              width:"100%",
-            
-              display:"flex",
-              
-                [theme.breakpoints.down("xl")]: {},
-                [theme.breakpoints.down("lg")]: {},
-                [theme.breakpoints.down("md")]: {
-                  width:"100%",
-                  
-                  flexDirection:"column-reverse",
-                },
-                [theme.breakpoints.down("sm")]: {},
-                [theme.breakpoints.down("xs")]: {},
-              }))
-
-              const Detailtext = styled(Typography)(({ theme }) => ({
-                border:"2px solid blue",
-                width:"50%",
-                height:500,
-                
-                  [theme.breakpoints.down("xl")]: {},
-                  [theme.breakpoints.down("lg")]: {},
-                  [theme.breakpoints.down("md")]: {
-                    width:"100%",
-                    height:200,
-                  },
-                  [theme.breakpoints.down("sm")]: {},
-                  [theme.breakpoints.down("xs")]: {},
-                }))
-
-
-                const ImageDetail = styled(Box)(({ theme }) => ({
-                  border:"2px solid red",
-                  width:"50%",
-                  height:500,
-                  
-                    [theme.breakpoints.down("xl")]: {},
-                    [theme.breakpoints.down("lg")]: {},
-                    [theme.breakpoints.down("md")]: {
-                      width:"100%",
-                      height:200,
-                    },
-                    [theme.breakpoints.down("sm")]: {},
-                    [theme.breakpoints.down("xs")]: {},
-                  }))
-
-
-                  const NinethBox = styled(Box)(({ theme }) => ({
-                    border:"2px solid red",
-                    width:"100%",
-                    height:500,
-                    display:"flex",
-                    
-                      [theme.breakpoints.down("xl")]: {},
-                      [theme.breakpoints.down("lg")]: {},
-                      [theme.breakpoints.down("md")]: {
-                        width:"100%",
-                        flexDirection:"column",
-
-                      },
-                      [theme.breakpoints.down("sm")]: {},
-                      [theme.breakpoints.down("xs")]: {},
-                    }))
-
-
-                    const BoxSix = styled(Box)(({ theme }) => ({
-                      border:"2px solid red",
-                      width:"50%",
-                     
-                      
-                        [theme.breakpoints.down("xl")]: {},
-                        [theme.breakpoints.down("lg")]: {},
-                        [theme.breakpoints.down("md")]: {
-                          width:"100%",
-                          height:200,
-                        },
-                        [theme.breakpoints.down("sm")]: {},
-                        [theme.breakpoints.down("xs")]: {},
-                      }))
-
-                      const BoxSeven = styled(Box)(({ theme }) => ({
-                        border:"2px solid red",
-                        width:"50%",
-                       
-                        
-                          [theme.breakpoints.down("xl")]: {},
-                          [theme.breakpoints.down("lg")]: {},
-                          [theme.breakpoints.down("md")]: {
-                            width:"100%",
-                            height:200,
-                          },
-                          [theme.breakpoints.down("sm")]: {},
-                          [theme.breakpoints.down("xs")]: {},
-                        }))
   
-
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 function Welcome() {
-  const mainData=useSelector((store)=>store.data.getData)
-  const dispatch=useDispatch()
+  const mainData = useSelector((store) => store.data.getData);
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
 
-  console.log("mainData",mainData)
+  const handleCentrix=()=>{
+    navigate('/centrix')
+  }
+ const handleCollection=()=>{
+  navigate('/collections')
+ }
+const handleCook=()=>{
+  navigate(`/detail/${1}`)
+}
+  const handleSquare=()=>{
+    navigate('/square')
+  }
+  console.log("mainData", mainData);
 
-  useEffect(()=>{
-    dispatch(getData())
-  },[])
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
   return (
     <Main>
       <InnerDiv>
@@ -543,14 +554,9 @@ function Welcome() {
           <ImageBox
             as={"img"}
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill"
-      
           />
-          <TextBox>
-            CENTRIX AUTOMATIC DIAMONDS
-          </TextBox>
-          <ButtonBox>
-            Dicover more
-          </ButtonBox>
+          <TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>
+          <ButtonBox>Dicover more</ButtonBox>
         </FirstBox>
 
         <SecondBox>
@@ -568,23 +574,23 @@ function Welcome() {
         </SecondBox>
 
         <ThirdBox>
-          <SliderBox>
-            <ImageSlide
+          <SliderBox sx={{cursor:"pointer"}}>
+            <ImageSlide onClick={handleCook}
               sx={{ width: 500, height: 400 }}
               as={"img"}
               src="https://www.rado.com/media/sgecom_contentsystem/PDP_Images/Carousel_5000x3756_2.jpg?im=Resize=(1800,1352),aspect=fill;Crop=(0,0,1800,1352),gravity=Center"
             />
-            <ImageSlide
+            <ImageSlide onClick={handleSquare}
               sx={{ width: 500, height: 400 }}
               as={"img"}
               src="https://www.rado.com/media/sgecom_contentsystem/homepage/true-square-skeleton-all-carousel.jpg?im=Resize=(1800,1352),aspect=fill;Crop=(0,0,1800,1352),gravity=Center"
             />
-            <ImageSlide
+            <ImageSlide onClick={handleCentrix}
               sx={{ width: 500, height: 400 }}
               as={"img"}
               src="https://www.rado.com/media/sgecom_contentsystem/homepage/new-centrix-carousel.jpg?im=Resize=(1800,1352),aspect=fill;Crop=(0,0,1800,1352),gravity=Center"
             />
-            <ImageSlide
+            <ImageSlide onClick={handleCollection}
               sx={{ width: 500, height: 400 }}
               as={"img"}
               src="https://www.rado.com/media/sgecom_contentsystem/homepage/view-all-collections.jpg?im=Resize=(1800,1352),aspect=fill;Crop=(0,0,1800,1352),gravity=Center"
@@ -595,84 +601,98 @@ function Welcome() {
         <FourthBox>
           <SubContainer>
             <TextData>5-year International Warranty</TextData>
-            <TextData>As of 1st November 2023, all new Rado watches benefit from a 5-year International Warranty.
-</TextData>
-            <TextData>At Rado we have always made watches that are built to last – not just for a few years, but for a lifetime. We take care to use materials that are proven to resist wear and tear. High-tech ceramic cases and bracelets, Ceramos™, sapphire crystal, stainless steel and titanium all serve to enclose and protect the sophisticated Swiss movements that power our watches. We take great pride in the high quality, reliability and performance of our products, and are pleased to offer our customers additional support in the care and handling of their watches.</TextData>
+            <TextData>
+              As of 1st November 2023, all new Rado watches benefit from a
+              5-year International Warranty.
+            </TextData>
+            <TextData>
+              At Rado we have always made watches that are built to last – not
+              just for a few years, but for a lifetime. We take care to use
+              materials that are proven to resist wear and tear. High-tech
+              ceramic cases and bracelets, Ceramos™, sapphire crystal, stainless
+              steel and titanium all serve to enclose and protect the
+              sophisticated Swiss movements that power our watches. We take
+              great pride in the high quality, reliability and performance of
+              our products, and are pleased to offer our customers additional
+              support in the care and handling of their watches.
+            </TextData>
           </SubContainer>
           <SubContainer>
-
-            <ImageBox  as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-extension-homepage-block.jpg?im=Resize=(800,657),aspect=fill;Crop=(0,0,800,657),gravity=Center"/>
+            <ImageBox
+              as={"img"}
+              src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-extension-homepage-block.jpg?im=Resize=(800,657),aspect=fill;Crop=(0,0,800,657),gravity=Center"
+            />
           </SubContainer>
         </FourthBox>
-      
 
-      <FivethBox>
-      <FivethText>Our gift ideas for you</FivethText>
-<InnerBox>
-  
- 
+        <FivethBox>
+          <FivethText>Our gift ideas for you</FivethText>
+          <InnerBox>
+            {mainData?.map((item) => (
+              <MapBox>
+                <ImageShow as={"img"} src={item.images[0]} />
+                <TextMap>{item.name}</TextMap>
+              </MapBox>
+            ))}
+          </InnerBox>
+        </FivethBox>
 
-  {mainData?.map((item)=>(
-    <MapBox>
-    <ImageShow as={"img"} src={item.images[0]}/>
-    <TextMap>{item.name}</TextMap>
-    </MapBox>
-  ))}
+        <SixthBox>
+          <BoxOne>
+            <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage>Chronography watches</TextImage>
+          <ButtonImage>Discover more</ButtonImage>
 
-</InnerBox>
-      </FivethBox>
+          </BoxOne>
+          <BoxTwo>
+          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/skeleton-watches.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage>Chronography watches</TextImage>
+          <ButtonImage>Discover more</ButtonImage>
 
+          </BoxTwo>
+          <BoxThree>
+          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-over-pole.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage>Chronography watches</TextImage>
+          <ButtonImage>Discover more</ButtonImage>
 
-      <SixthBox>
-      
-      <BoxOne>
-        
-      </BoxOne>
-      <BoxTwo>
-        
-      </BoxTwo>
-      <BoxThree>
-        
-      </BoxThree>
+          </BoxThree>
+        </SixthBox>
 
+        <SeventhBox>
+          <BoxFour>
+          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage>Chronography watches</TextImage>
+          <ButtonImage>Discover more</ButtonImage>
 
-      </SixthBox>
+          </BoxFour>
+          <BoxFive>
+          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/women-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage>Chronography watches</TextImage>
+          <ButtonImage>Discover more</ButtonImage>
 
+          </BoxFive>
+        </SeventhBox>
 
-      <SeventhBox>
+        <EighthBox>
+          <TextAllign>
+        <Detailtext>Master of materials</Detailtext>
+        <Detailtext>The unconventional beauty of ceramic</Detailtext>
+        <Detailtext>Hypoallergenic comfort, lightness and the very special sensation of ceramic against your skin – unmistakable, sensual and unique with Rado high-tech ceramic.</Detailtext>
+        </TextAllign>
+          <ImageDetail
+            as={"img"}
+            src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage-master-of-materials-image-card.jpg?im=Resize=(1300,1068),aspect=fill;Crop=(0,0,1300,1068),gravity=Center"
+          />
+        </EighthBox>
 
-        <BoxFour></BoxFour>
-        <BoxFive></BoxFive>
+        <NinethBox>
+          <BoxSix></BoxSix>
 
-
-      </SeventhBox>
-      
-      <EighthBox>
-
-<Detailtext>
-
-</Detailtext>
-
-<ImageDetail as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage-master-of-materials-image-card.jpg?im=Resize=(1300,1068),aspect=fill;Crop=(0,0,1300,1068),gravity=Center"/>
-
-
-
-      </EighthBox>
-      
-
-      <NinethBox>
-
-<BoxSix>
-
-</BoxSix>
-
-<BoxSeven>
-
-</BoxSeven>
-
-      </NinethBox>
-      
+          <BoxSeven></BoxSeven>
+        </NinethBox>
       </InnerDiv>
+
+      
     </Main>
   );
 }

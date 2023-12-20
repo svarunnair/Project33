@@ -5,7 +5,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
-  border:"2px solid blue",
+  // border:"2px solid blue",
   width: "100%",
   
   [theme.breakpoints.down("xl")]: {},
@@ -16,7 +16,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 }));
 
 const FirstBox = styled(Box)(({ theme }) => ({
-  border:"2px solid red",
+  // border:"2px solid red",
   width: "100%",
   display:"flex",
   justifyContent:"end",
@@ -30,21 +30,24 @@ const FirstBox = styled(Box)(({ theme }) => ({
 }));
 
 const SecondBox = styled(Box)(({ theme }) => ({
-  border:"2px solid green",
+  // border:"2px solid green",
   width: "100%",
   height:70,
   display:"flex",
+  justifyContent:'space-between',
   background:"#28282B",
   color:"white",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+   
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const TextBox = styled(Typography)(({ theme }) => ({
-  border:"2px solid yellow",
+  // border:"2px solid yellow",
   fontSize:15,
   color:"white", 
   [theme.breakpoints.down("xl")]: {},
@@ -56,7 +59,7 @@ const TextBox = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const BoxOne = styled(Box)(({ theme }) => ({
-  border:"2px solid red",
+  // border:"2px solid red",
   display:"flex",
  
   [theme.breakpoints.down("xl")]: {},
@@ -66,7 +69,7 @@ const BoxOne = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const TextMenu = styled(Typography)(({ theme }) => ({
-  border:"2px solid yellow",
+  // border:"2px solid yellow",
   fontSize:15,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -78,9 +81,10 @@ const TextMenu = styled(Typography)(({ theme }) => ({
 }));
 
 const BoxTwo = styled(Box)(({ theme }) => ({
-  border:"2px solid yellow",
+  // border:"5px solid green",
   display:"flex",
 justifyContent:"center",
+width:"90%",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -89,9 +93,10 @@ justifyContent:"center",
 }));
 
 const BoxThree = styled(Box)(({ theme }) => ({
-  border:"2px solid green",
+  // border:"2px solid green",
   display:"flex",
-  justifyContent:"end",
+  width:"10%",
+  gap:15,
   
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -101,7 +106,7 @@ const BoxThree = styled(Box)(({ theme }) => ({
 }));
 
 const EmblomBox = styled(Box)(({ theme }) => ({
-  border:"2px solid black",
+  // border:"2px solid black",
   display:"flex",
   width:120,
   [theme.breakpoints.down("xl")]: {},
@@ -123,24 +128,24 @@ function Navbar() {
 </FirstBox>
 
 <SecondBox>
-  <BoxOne>
+  {/* <BoxOne>
     <TextMenu>Men</TextMenu>
     <TextMenu>Women</TextMenu>
     <TextMenu>Ceramic watches</TextMenu>
     <TextMenu>Feel Rado</TextMenu>
     <TextMenu>Services</TextMenu>
-  </BoxOne>
+  </BoxOne> */}
 
   <BoxTwo>
-    <EmblomBox  as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
+    <EmblomBox as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
 
   </BoxTwo>
-{/* 
+  
   <BoxThree>
     <SearchOutlinedIcon/>
     <PersonOutlineOutlinedIcon/>
 
-  </BoxThree> */}
+  </BoxThree>
 
 </SecondBox>
 
