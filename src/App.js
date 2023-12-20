@@ -15,12 +15,12 @@ function App() {
   const path=useLocation()
   return (
     <div className='App'>
-      
+{/*       
       {path.pathname!=="/info"&&<Navbar/>}
-      {path.pathname==='/info'&&<Info/>}
+      {path.pathname==='/info'&&<Info/>} */}
       
-      {/* <PublicRoutes/> 
-      <Footer/> */}
+      <PublicRoutes/> 
+      {/* <Footer/> */}
   
      
     

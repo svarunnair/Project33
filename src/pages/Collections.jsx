@@ -1,4 +1,5 @@
 import { Box, Button, Typography, styled } from '@mui/material';
+import { grey } from '@mui/material/colors';
 import React from 'react'
 
 
@@ -19,6 +20,7 @@ const ImageSlider = styled(Box)(({ theme }) => ({
   display:"flex",
   justifyContent:"center",
   height:300,
+
  
    
   [theme.breakpoints.down("xl")]: {},
@@ -44,7 +46,9 @@ const TextBox = styled(Typography)(({ theme }) => ({
 
 const ImageBox = styled(Box)(({ theme }) => ({
   // border: "2px solid blue",
-   
+  cursor:"pointer",
+  ":hover":{paddingTop:10},
+
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -64,7 +68,8 @@ const Wrapper = styled(Box)(({ theme }) => ({
 
 const Slidertext= styled(Box)(({ theme }) => ({
   // border: "2px solid black",
-   
+  ":hover":{color:"grey"},
+  cursor:"pointer",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
