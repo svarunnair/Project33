@@ -84,7 +84,7 @@ function Navbar2() {
 
 
 
-          <Box sx={{display:'flex', flexDirection:'column'}}>
+          <Box sx={{display:'flex', flexDirection:'column',justifyContent:"end"}}>
         
 
 
