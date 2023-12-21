@@ -49,6 +49,7 @@ const SecondBox = styled(Box)(({ theme }) => ({
   display: "flex",
   background: "black",
   justifyItems: "center",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -60,10 +61,10 @@ const SecondBox = styled(Box)(({ theme }) => ({
 }));
 
 const ThirdBox = styled(Box)(({ theme }) => ({
-  border: "2px solid blue",
+  border: "3px solid blue",
   width: "100%",
   background: "black",
-  height: 600,
+  height: 500,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -75,12 +76,15 @@ const ThirdBox = styled(Box)(({ theme }) => ({
 }));
 
 const TextBox = styled(Typography)(({ theme }) => ({
+
+    // border:"2px solid green",
   fontSize: "20px",
   position: "absolute",
   bottom: 300,
   left: 100,
   color: "white",
   fontWeight: 900,
+  display:"flex",
 
   [theme.breakpoints.down("xl")]: {
     fontSize: "18px",
@@ -88,8 +92,10 @@ const TextBox = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     fontSize: "16px",
-    bottom: 600,
+    bottom: 410,
     fontWeight: 900,
+    left: 120,
+   
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -126,18 +132,23 @@ const SubBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
-const ButtonBox = styled(Box)(({ theme }) => ({
-  border: "2px solid yellow",
+const ButtonBox = styled(Button)(({ theme }) => ({
+  border: "1px solid white",
   position: "absolute",
-  bottom: 200,
-  left: 200,
+  bottom: 170,
+  left: 100,
   color: "white",
+  borderRadius:25,
+  width:"13%",
+  height:"9%",
+  // boxShadow:"5px 5px black",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    position: "absolute",
-    bottom: 550,
+    height:"5%",
+    width:"25%",
+    bottom: 340,
     left: 200,
     color: "white",
   },
@@ -163,6 +174,7 @@ const SliderBox = styled(Box)(({ theme }) => ({
 const FourthBox = styled(Box)(({ theme }) => ({
   border: "2px solid yellow",
   display: "flex",
+  color:"white",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -197,7 +209,7 @@ const TextData = styled(Box)(({ theme }) => ({
 }));
 
 const ImageSlide = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "2px solid green",
   width: "100%",
   height: "100%",
   [theme.breakpoints.down("xl")]: {},
@@ -217,7 +229,7 @@ const InnerBox = styled(Box)(({ theme }) => ({
   overflow: "auto",
   height: 300,
 
-  border: "4px solid green",
+  // border: "4px solid green",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -230,7 +242,7 @@ const FivethBox = styled(Box)(({ theme }) => ({
   width: "100%",
   background: "#F0F0F0",
   height: 350,
-  border: "2px solid red",
+  // border: "2px solid red",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -258,6 +270,7 @@ const ImageShow = styled(Box)(({ theme }) => ({
 }));
 
 const FivethText = styled(Typography)(({ theme }) => ({
+  fontSize:"36px",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -285,8 +298,10 @@ const MapBox = styled(Box)(({ theme }) => ({
 }));
 
 const SixthBox = styled(Box)(({ theme }) => ({
-  border: "2px solid blue",
-  display: "flex",
+  border: "4px solid blue",
+  display: "grid",
+  gridTemplateColumns:"repeat(3,1fr)",
+ 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -298,9 +313,10 @@ const SixthBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxOne = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
-  width: "33%",
+  // border: "2px solid black",
+  width: "100%",
   height: 280,
+  position:"relative",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -312,10 +328,10 @@ const BoxOne = styled(Box)(({ theme }) => ({
 }));
 
 const BoxTwo = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
-  width: "33%",
+  // border: "2px solid black",
+  width: "100%",
   height:280,
-
+  position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
@@ -326,9 +342,10 @@ const BoxTwo = styled(Box)(({ theme }) => ({
 }));
 
 const BoxThree = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
-  width: "33%",
+  // border: "2px solid black",
+  width: "100%",
   height: 280,
+  position:"relative",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -340,7 +357,7 @@ const BoxThree = styled(Box)(({ theme }) => ({
 }));
 
 const SeventhBox = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
+  // border: "2px solid black",
   width: "100%",
   display: "flex",
 
@@ -354,10 +371,10 @@ const SeventhBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxFour = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
-  width: "50%",
+  border: "10px solid black",
+  width: "500px",
   height: 400,
-
+  position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
@@ -369,10 +386,10 @@ const BoxFour = styled(Box)(({ theme }) => ({
 }));
 
 const BoxFive = styled(Box)(({ theme }) => ({
-  border: "2px solid black",
+  // border: "2px solid black",
   width: "50%",
   height: 400,
-
+  position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
@@ -384,7 +401,7 @@ const BoxFive = styled(Box)(({ theme }) => ({
 }));
 
 const EighthBox = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+  border: "2px solid green",
   width: "100%",
 
   display: "flex",
@@ -472,8 +489,13 @@ const BoxSeven = styled(Box)(({ theme }) => ({
 
 const TextImage = styled(Typography)(({ theme }) => ({
   border: "2px solid red",
-  position:"absolute",
-
+  position:"absolute", 
+top:"50%",
+justifyItems:"center",
+left:'50%',
+fontSize:33,
+fontWeight:900,
+color:"white",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -485,9 +507,15 @@ const TextImage = styled(Typography)(({ theme }) => ({
 }));
 
 
-const ButtonImage = styled(Box)(({ theme }) => ({
+const ButtonImage = styled(Button)(({ theme }) => ({
   border: "2px solid red",
   position:"absolute",
+  fontSize: "16px",
+  color: "white",
+  top:"70%",
+  display:"flex",
+  justifyItems:"center",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -501,6 +529,8 @@ const ImageIcon = styled(Box)(({ theme }) => ({
   border: "2px solid red",
   width:"100%",
   height:"100%",
+  
+  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
@@ -512,10 +542,13 @@ const ImageIcon = styled(Box)(({ theme }) => ({
 }));
 
 const TextAllign = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+  border: "2px solid yellow",
   width:"50%",
 background:"#F5F5F5",
-textAllign:"left",
+display:"flex",
+flexDirection:"column",
+textAlign:"left",
+
   
   
   [theme.breakpoints.down("xl")]: {},
@@ -628,7 +661,7 @@ const handleCook=()=>{
         <FivethBox>
           <FivethText>Our gift ideas for you</FivethText>
           <InnerBox>
-            {mainData?.map((item) => (
+            {mainData?.slice(0,10).map((item) => (
               <MapBox>
                 <ImageShow as={"img"} src={item.images[0]} />
                 <TextMap>{item.name}</TextMap>
@@ -640,19 +673,19 @@ const handleCook=()=>{
         <SixthBox>
           <BoxOne>
             <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Chronography watches</TextImage>
+          <TextImage>Chronography Watches</TextImage>
           <ButtonImage>Discover more</ButtonImage>
 
           </BoxOne>
           <BoxTwo>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/skeleton-watches.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Chronography watches</TextImage>
+          <TextImage>Skelton Watches</TextImage>
           <ButtonImage>Discover more</ButtonImage>
 
           </BoxTwo>
           <BoxThree>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-over-pole.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Chronography watches</TextImage>
+          <TextImage>Leather Watches</TextImage>
           <ButtonImage>Discover more</ButtonImage>
 
           </BoxThree>
@@ -660,14 +693,14 @@ const handleCook=()=>{
 
         <SeventhBox>
           <BoxFour>
-          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Chronography watches</TextImage>
+          <ImageIcon sx={{width:'200px', height:'200px'}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImage >Men's Watches</TextImage>
           <ButtonImage>Discover more</ButtonImage>
 
           </BoxFour>
           <BoxFive>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/women-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Chronography watches</TextImage>
+          <TextImage>Women's Watches</TextImage>
           <ButtonImage>Discover more</ButtonImage>
 
           </BoxFive>
