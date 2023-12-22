@@ -12,10 +12,52 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Image } from '@mui/icons-material';
+import { styled } from '@mui/material';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
+const ImageBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid red",
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const BoxThree = styled(Box)(({ theme }) => ({
+
+  border:"2px solid yellow",
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const Text = styled(Typography)(({ theme }) => ({
+
+  border:"2px solid yellow",
+  width:"100%",
+
+
+  
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 function Navbar2() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -88,7 +130,7 @@ function Navbar2() {
         
 
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } ,justifyContent:"end"}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , width:"22%",height:60,justifyContent:"end",border:"2px solid green",paddingLeft:120}}>
          
 
           <Button
@@ -113,57 +155,71 @@ function Navbar2() {
               
           </Box>
 
+<Box>
 
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+  
+          <Box sx={{gap:2, flexGrow: 1, display: { xs: 'none', md: 'flex' },width:"50%",height:50,border:"2px solid red" ,}}>
          
 
-          <Button
+          <Text
               
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
              Men
-            </Button>
+            </Text>
 
 
-              <Button
+              <Text
               
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                Women
-              </Button>
+              </Text>
 
-              <Button
+              <Text
               
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-              seramic watches
-            </Button>
+              Ceramic watches
+            </Text>
 
 
-            <Button
+            <Text
               
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-               feel rado
-            </Button>
+               Feel rado
+            </Text>
 
 
-            <Button
+            <Text
               
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-             services 
-            </Button>
+             Services 
+            </Text>
+            <ImageBox sx={{width:"15%"}} as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
 
+            <BoxThree >
+    <SearchOutlinedIcon/>
+    <PersonOutlineOutlinedIcon/>
 
+  </BoxThree>
               
           </Box>
+
+          </Box>
+
+
+          
+
+
+
           </Box>
         </Toolbar>
       </Container>

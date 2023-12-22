@@ -14,16 +14,17 @@ import Navbar2 from './components/Navbar2';
 
 function App() {
   const path=useLocation()
+  
   return (
     <div className='App'>
       
       {/* {path.pathname!=="/info"&&<Navbar/>}
       {path.pathname==='/info'&&<Info/>} */}
       
-      {/* <PublicRoutes/> 
-      <Footer/> */}
+      <PublicRoutes/> 
+      {/* <Footer/> */}
   
-     <Navbar2/>
+     {/* <Navbar2/> */}
     
      
     </div>

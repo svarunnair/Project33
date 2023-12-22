@@ -10,7 +10,7 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
-  
+
   display:"flex",
   flexDirection:"column",
   // background: "rgba(0, 0, 0, 0.3)",

@@ -61,7 +61,7 @@ const SecondBox = styled(Box)(({ theme }) => ({
 }));
 
 const ThirdBox = styled(Box)(({ theme }) => ({
-  border: "3px solid blue",
+  // border: "3px solid blue",
   width: "100%",
   background: "black",
   height: 500,
@@ -105,6 +105,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
   // border:"2px solid green",
   width: "100%",
   height: "100%",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -117,7 +118,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 }));
 
 const SubBox = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "2px solid green",
   width: "100%",
   width: 700,
   height: 150,
@@ -135,7 +136,7 @@ const SubBox = styled(Box)(({ theme }) => ({
 const ButtonBox = styled(Button)(({ theme }) => ({
   border: "1px solid white",
   position: "absolute",
-  bottom: 170,
+  bottom: 220,
   left: 100,
   color: "white",
   borderRadius:25,
@@ -172,9 +173,11 @@ const SliderBox = styled(Box)(({ theme }) => ({
 }));
 
 const FourthBox = styled(Box)(({ theme }) => ({
-  border: "2px solid yellow",
+  // border: "2px solid red",
   display: "flex",
   color:"white",
+  paddingTop:120,
+  paddingBottom:80,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -186,8 +189,23 @@ const FourthBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 const SubContainer = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "4px solid red",
   width: "50%",
+  display:"flex",
+  flexDirection:"column",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const WrapImage = styled(Box)(({ theme }) => ({
+  // border: "4px solid yellow",
+ 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -199,7 +217,14 @@ const SubContainer = styled(Box)(({ theme }) => ({
 }));
 
 const TextData = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "2px solid green",
+  color:"black",
+  textAlign:"left",
+  width:"70%",
+  padding:15,
+paddingLeft:100,
+justifyContent:"center",
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -224,12 +249,12 @@ const ImageSlide = styled(Box)(({ theme }) => ({
 
 const InnerBox = styled(Box)(({ theme }) => ({
   display: "flex",
-
+padding:20,
   maxWidth: "100%",
   overflow: "auto",
   height: 300,
 
-  // border: "4px solid green",
+  border: "4px solid green",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -241,8 +266,9 @@ const InnerBox = styled(Box)(({ theme }) => ({
 const FivethBox = styled(Box)(({ theme }) => ({
   width: "100%",
   background: "#F0F0F0",
-  height: 350,
-  // border: "2px solid red",
+  // height: 350,
+  border: "2px solid red",
+  paddingTop:50,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -252,6 +278,7 @@ const FivethBox = styled(Box)(({ theme }) => ({
 }));
 
 const SecondText = styled(Typography)(({ theme }) => ({
+  color:"white",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -260,7 +287,7 @@ const SecondText = styled(Typography)(({ theme }) => ({
 }));
 
 const ImageShow = styled(Box)(({ theme }) => ({
-  width: 150,
+  width: 200,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -271,6 +298,7 @@ const ImageShow = styled(Box)(({ theme }) => ({
 
 const FivethText = styled(Typography)(({ theme }) => ({
   fontSize:"36px",
+  paddingBottom:30,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -279,6 +307,17 @@ const FivethText = styled(Typography)(({ theme }) => ({
 }));
 
 const TextMap = styled(Typography)(({ theme }) => ({
+  paddingTop:10,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ModalText = styled(Typography)(({ theme }) => ({
+  color:"grey",
+  fontSize:11,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -298,9 +337,10 @@ const MapBox = styled(Box)(({ theme }) => ({
 }));
 
 const SixthBox = styled(Box)(({ theme }) => ({
-  border: "4px solid blue",
+  // border: "4px solid blue",
   display: "grid",
   gridTemplateColumns:"repeat(3,1fr)",
+
  
 
   [theme.breakpoints.down("xl")]: {},
@@ -371,8 +411,8 @@ const SeventhBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxFour = styled(Box)(({ theme }) => ({
-  border: "10px solid black",
-  width: "500px",
+  // border: "10px solid black",
+  width: "50%",
   height: 400,
   position:"relative",
   [theme.breakpoints.down("xl")]: {},
@@ -401,9 +441,9 @@ const BoxFive = styled(Box)(({ theme }) => ({
 }));
 
 const EighthBox = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "2px solid green",
   width: "100%",
-
+paddingTop:100,
   display: "flex",
 
   [theme.breakpoints.down("xl")]: {},
@@ -416,7 +456,27 @@ const EighthBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
+
+const WrapBox = styled(Box)(({ theme }) => ({
+  // border: "2px solid blue",
+  background:"whiteSmoke",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+ 
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
 const Detailtext = styled(Typography)(({ theme }) => ({
+
+  fontFamily:"sans-serif",
+  // border:"2px solid red",
+  width:"65%",
+  padding:10,
+  paddingLeft:120,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -428,7 +488,7 @@ const Detailtext = styled(Typography)(({ theme }) => ({
 }));
 
 const ImageDetail = styled(Box)(({ theme }) => ({
- 
+//  border:"3px solid red",
   width: "50%",
   height: 500,
 
@@ -444,7 +504,7 @@ const ImageDetail = styled(Box)(({ theme }) => ({
 }));
 
 const NinethBox = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+  
   width: "100%",
   height: 500,
   display: "flex",
@@ -460,8 +520,12 @@ const NinethBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxSix = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+
   width: "50%",
+  display:"flex",
+  flexDirection:"column",
+
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -474,7 +538,7 @@ const BoxSix = styled(Box)(({ theme }) => ({
 }));
 
 const BoxSeven = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+
   width: "50%",
 
   [theme.breakpoints.down("xl")]: {},
@@ -488,15 +552,15 @@ const BoxSeven = styled(Box)(({ theme }) => ({
 }));
 
 const TextImage = styled(Typography)(({ theme }) => ({
-  border: "2px solid red",
+  // border: "2px solid red",
   position:"absolute", 
-top:"50%",
+top:"45%",
 justifyItems:"center",
-left:'50%',
-fontSize:33,
-fontWeight:900,
+left:'20%',
+fontSize:30,
+fontWeight:400,
 color:"white",
-
+fontFamily:"sans-serif",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
@@ -508,13 +572,16 @@ color:"white",
 
 
 const ButtonImage = styled(Button)(({ theme }) => ({
-  border: "2px solid red",
+  border: "1px solid white",
   position:"absolute",
-  fontSize: "16px",
+  fontSize: "12px",
+  left:"35%",
+  borderRadius:20,
   color: "white",
   top:"70%",
   display:"flex",
   justifyItems:"center",
+  fontFamily:"sans-serif",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -526,9 +593,11 @@ const ButtonImage = styled(Button)(({ theme }) => ({
 
 
 const ImageIcon = styled(Box)(({ theme }) => ({
-  border: "2px solid red",
+  // border: "2px solid red",
   width:"100%",
   height:"100%",
+  background:"rgba(0, 0, 0, 0.5)",
+
   
   
   [theme.breakpoints.down("xl")]: {},
@@ -541,16 +610,138 @@ const ImageIcon = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
+
+const ButtonImageOne = styled(Button)(({ theme }) => ({
+
+  border:"1px solid white",
+  color:"white",
+  borderRadius:"20px",
+  bottom:"20%",
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageWrapper = styled(Box)(({ theme }) => ({
+//   border: "19px solid green",
+//  position:"relative",
+//  background:"rgba(0, 0, 0, 0.5)",
+
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const WrapText = styled(Box)(({ theme }) => ({
+    // border: "10px solid blue",
+  //  position:"relative",
+  //  background:"rgba(0, 0, 0, 0.5)",
+  paddingTop:20,
+
+  
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+
+
+const TextImageOne = styled(Box)(({ theme }) => ({
+  //   border: "19px solid green",
+  //  position:"relative",
+  //  background:"rgba(0, 0, 0, 0.5)",
+  
+  left:'20%',
+  fontSize:30,
+  fontWeight:400,
+  color:"white",
+  fontFamily:"sans-serif",
+  bottom:100,
+  left:200,
+  position:"absolute",
+
+   
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
+
 const TextAllign = styled(Box)(({ theme }) => ({
-  border: "2px solid yellow",
+  // border: "2px solid green",
   width:"50%",
 background:"#F5F5F5",
 display:"flex",
 flexDirection:"column",
 textAlign:"left",
+justifyContent:"center",
+
 
   
   
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const BottomBoxOne = styled(Typography)(({ theme }) => ({
+  // border: "2px solid green",
+  width:"70%",
+  paddingLeft:90,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BottomBox = styled(Typography)(({ theme }) => ({
+  // border: "2px solid green",
+  width:"53%",
+ paddingLeft:130,
+ paddingTop:30,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+const BottomButton = styled(Button)(({ theme }) => ({
+border:"1px solid black",
+borderRadius:20,
+width:150,
+height:50,
+":hover":{color:"black"},
+color:"white",
+background:"black",
+top:60,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const WrapperBottom = styled(Box)(({ theme }) => ({
+
+justifyContent:"center",
+padding:50,
+paddingTop:100,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -594,10 +785,10 @@ const handleCook=()=>{
 
         <SecondBox>
           <SubBox>
-            <SecondText sx={{ color: "white" }}>
+            <SecondText >
               Explore our latest creations
             </SecondText>
-            <SecondText sx={{ color: "white" }}>
+            <SecondText >
               Rado is known as the Master of Materials: from high-tech ceramic
               to sapphire crystal and diamonds to stainless steel, our
               innovative watches have no boundaries when it comes to design.
@@ -633,8 +824,9 @@ const handleCook=()=>{
 
         <FourthBox>
           <SubContainer>
-            <TextData>5-year International Warranty</TextData>
-            <TextData>
+            <WrapText>
+            <TextData sx={{fontWeight:400,fontSize:33,width:"60%"}}>5-year International Warranty</TextData>
+            <TextData sx={{fontWeight:500,fontSize:18}}>
               As of 1st November 2023, all new Rado watches benefit from a
               5-year International Warranty.
             </TextData>
@@ -649,12 +841,17 @@ const handleCook=()=>{
               our products, and are pleased to offer our customers additional
               support in the care and handling of their watches.
             </TextData>
+            <TextData>________</TextData>
+            <TextData>Discover more{">"}</TextData>
+            </WrapText>
           </SubContainer>
           <SubContainer>
-            <ImageBox
+            <WrapImage>
+            <ImageBox 
               as={"img"}
               src="https://www.rado.com/media/sgecom_contentsystem/Warranty-Extension/warranty-extension-homepage-block.jpg?im=Resize=(800,657),aspect=fill;Crop=(0,0,800,657),gravity=Center"
             />
+            </WrapImage>
           </SubContainer>
         </FourthBox>
 
@@ -665,11 +862,14 @@ const handleCook=()=>{
               <MapBox>
                 <ImageShow as={"img"} src={item.images[0]} />
                 <TextMap>{item.name}</TextMap>
+                <ModalText>{item.model}</ModalText>
               </MapBox>
             ))}
           </InnerBox>
         </FivethBox>
 
+
+<ImageWrapper>
         <SixthBox>
           <BoxOne>
             <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
@@ -693,35 +893,53 @@ const handleCook=()=>{
 
         <SeventhBox>
           <BoxFour>
-          <ImageIcon sx={{width:'200px', height:'200px'}} as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage >Men's Watches</TextImage>
-          <ButtonImage>Discover more</ButtonImage>
+          <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
+          <TextImageOne >Men's Watches</TextImageOne>
+          <ButtonImageOne>Discover more</ButtonImageOne>
 
           </BoxFour>
           <BoxFive>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/women-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
-          <TextImage>Women's Watches</TextImage>
-          <ButtonImage>Discover more</ButtonImage>
+          <TextImageOne>Women's Watches</TextImageOne>
+          <ButtonImageOne>Discover more</ButtonImageOne>
 
           </BoxFive>
         </SeventhBox>
+        </ImageWrapper>
 
+<WrapBox>
         <EighthBox>
           <TextAllign>
-        <Detailtext>Master of materials</Detailtext>
-        <Detailtext>The unconventional beauty of ceramic</Detailtext>
+        <Detailtext >Master of materials</Detailtext>
+        <Detailtext sx={{fontSize:33,fontWeight:500}}>The unconventional beauty of ceramic</Detailtext>
         <Detailtext>Hypoallergenic comfort, lightness and the very special sensation of ceramic against your skin – unmistakable, sensual and unique with Rado high-tech ceramic.</Detailtext>
+        <Detailtext sx={{fontWeight:900}}>_____</Detailtext>
+        <Detailtext sx={{fontWeight:400,fontSize:12}} >Discover the world of ceramics {">"}</Detailtext>
         </TextAllign>
           <ImageDetail
             as={"img"}
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage-master-of-materials-image-card.jpg?im=Resize=(1300,1068),aspect=fill;Crop=(0,0,1300,1068),gravity=Center"
           />
         </EighthBox>
-
+        </WrapBox>
         <NinethBox>
-          <BoxSix></BoxSix>
+          <BoxSix>
+         <WrapperBottom>
+            <BottomBoxOne sx={{fontSize:33,fontWeight:500,fontFamily:"sans-serif"}}>Rado Customer Service</BottomBoxOne>
+            <BottomBox>Access the most exclusive services and discover the wealth of knowledge of our Customer Service Team.</BottomBox>
+            <BottomButton>Contact Us</BottomButton>
+            </WrapperBottom>
+          </BoxSix>
 
-          <BoxSeven></BoxSeven>
+          <BoxSeven>
+
+          <WrapperBottom>
+            <BottomBoxOne sx={{fontSize:33,fontWeight:500,fontFamily:"sans-serif"}}>Rado Store Locator</BottomBoxOne>
+            <BottomBox>Find your nearest store, boutique or service centre.</BottomBox>
+            <BottomButton>Find a store</BottomButton>
+            </WrapperBottom>
+
+          </BoxSeven>
         </NinethBox>
       </InnerDiv>
 
