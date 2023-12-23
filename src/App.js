@@ -6,8 +6,8 @@ import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import Info from './pages/Info';
 import Welcome from './pages/Welcome';
-import { Box } from '@mui/material';
-
+import { Box, Input } from '@mui/material';
+import DatePicker from "react-datepicker"
 import Cookies from './components/Cookies';
 import Permision from './components/Permision';
 import Navbar2 from './components/Navbar2';
@@ -21,10 +21,10 @@ function App() {
       {/* {path.pathname!=="/info"&&<Navbar/>}
       {path.pathname==='/info'&&<Info/>} */}
       
-      <PublicRoutes/> 
+      {/* <PublicRoutes/>  */}
       {/* <Footer/> */}
-  
-     {/* <Navbar2/> */}
+  {/* <DatePicker placeholder='select a date' type='date'/> */}
+     <Navbar2/>
     
      
     </div>

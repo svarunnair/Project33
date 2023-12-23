@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Image } from '@mui/icons-material';
-import { styled } from '@mui/material';
+import { Input, styled } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -23,20 +24,85 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ImageBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red",
+  // border:"2px solid red",
+
+  display:'flex',
+ paddingRight:200,
+ paddingLeft:100,
  
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
+
+
+ 
+  [theme.breakpoints.down("xl")]: {
+    
+  },
+  [theme.breakpoints.down("lg")]: {
+    paddingLeft:450,
+  },
+  [theme.breakpoints.down("md")]: {
+    paddingLeft:0,
+  width:"35%",
+
+  
+
+  },
+  [theme.breakpoints.down("sm")]: {
+    paddingRight:20,
+    width:"30%",
+  },
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const TextBox = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid blue",
+  display:"flex",
+  width:"100%",
+
+ 
+  [theme.breakpoints.down("xl")]: {
+
+  },
+  [theme.breakpoints.down("lg")]: {
+    display:"none",
+  },
+  [theme.breakpoints.down("md")]: {
+    display:"none",
+  },
+  [theme.breakpoints.down("sm")]: {
+    display:"none",
+  },
   [theme.breakpoints.down("xs")]: {},
 }));
 
 
 const BoxThree = styled(Box)(({ theme }) => ({
 
-  border:"2px solid yellow",
+  // border:"2px solid black",
+  display:"flex",
+  gap:30,
+
  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {
+    paddingRight:0,
+  },
+  [theme.breakpoints.down("md")]: {
+    paddingLeft:0,
+  },
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft:0,
+    width:"40%",
+    gap:15,
+  },
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const Text = styled(Typography)(({ theme }) => ({
+  fontFamily:"sans-serif",
+  
+
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -44,18 +110,126 @@ const BoxThree = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
-const Text = styled(Typography)(({ theme }) => ({
 
-  border:"2px solid yellow",
-  width:"100%",
+const TextOne = styled(Typography)(({ theme }) => ({
+ fontSize:15,
+ fontFamily:"sans-serif",
 
 
-  
- 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const BoxTop = styled(Box)(({ theme }) => ({
+display:"flex",
+// border:"4px solid yellow",
+gap:10,
+fontFamily:"sans-serif",
+width:"100%",
+justifyContent:"end",
+
+
+
+
+
+
+
+   [theme.breakpoints.down("xl")]: {
+    paddingLeft:0,
+
+   },
+   [theme.breakpoints.down("lg")]: {
+    // border:"4px solid green",
+   },
+   [theme.breakpoints.down("md")]: {
+    
+   },
+   [theme.breakpoints.down("sm")]: {
+    display:"none"
+   },
+   [theme.breakpoints.down("xs")]: {},
+ }));
+
+
+ const BoxBottom = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid red" ,
+  width:"100%",
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+      
+  },
+  [theme.breakpoints.down("sm")]: {
+    // border:"5px solid green" ,
+    display:"flex",
+   
+
+  },
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+const BoxOne = styled(Box)(({ theme }) => ({
+ 
+  width:"100%",
+  gap:20, 
+  // border:'5px solid white', 
+  flexGrow: 1, 
+  display: 'flex', 
+  justifyContent:'space-between',
+
+  height:50,
+
+
+  [theme.breakpoints.down("xl")]: {
+    paddingLeft:80,
+  },
+  [theme.breakpoints.down("lg")]: {
+    paddingLeft:0,
+  },
+  [theme.breakpoints.down("md")]: {
+  // border:'5px solid yellow', 
+  width:"100%",
+  // gap:20,
+  
+
+  
+
+  },
+  [theme.breakpoints.down("sm")]: {
+    // border:"5px solid green" ,
+    display:"flex",
+   
+
+  },
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+
+
+const Outer = styled(AppBar)(({ theme }) => ({
+
+  // border:"5px solid blue" ,
+  width:"100%",
+
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {
+    // border:"5px solid yellow" ,
+    background:"black",
+    height:80,
+    display:"flex",
+   
+  },
   [theme.breakpoints.down("xs")]: {},
 }));
 function Navbar2() {
@@ -78,7 +252,7 @@ function Navbar2() {
   };
 
   return (
-    <AppBar sx={{bgcolor:'black', height:'120px', background: `linear-gradient(to top, rgb(20,20,20) 50%, black 50%)`,}} position="static">
+    <Outer sx={{bgcolor:'black', height:'110px', background: `linear-gradient(to top, rgb(20,20,20) 60%, black 35%)`,}} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
@@ -119,9 +293,7 @@ function Navbar2() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-
-
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
 
 
 
@@ -130,37 +302,35 @@ function Navbar2() {
         
 
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , width:"22%",height:60,justifyContent:"end",border:"2px solid green",paddingLeft:120}}>
+          <BoxTop >
          
 
-          <Button
+          <TextOne
               
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              sx={{ my: 2, color: 'white', display: 'flex'}}
             >
-             Store location
-            </Button>
+             Store location <RoomOutlinedIcon/>
+            </TextOne>
 
 
-              <Button
+              <TextOne
               
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'flex', }}
               >
                India/English₹
-              </Button>
+              </TextOne>
 
-              
+          </BoxTop>
 
-              
-          </Box>
 
-<Box>
+<BoxBottom>
 
   
-          <Box sx={{gap:2, flexGrow: 1, display: { xs: 'none', md: 'flex' },width:"50%",height:50,border:"2px solid red" ,}}>
+          <BoxOne>
          
-
+       <TextBox sx={{display:'flex',gap:"20px"}}>
           <Text
               
               onClick={handleCloseNavMenu}
@@ -203,7 +373,15 @@ function Navbar2() {
             >
              Services 
             </Text>
-            <ImageBox sx={{width:"15%"}} as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
+
+            </TextBox>
+
+
+
+            <ImageBox sx={{width:"15%",height:"70%"}} as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
+
+
+
 
             <BoxThree >
     <SearchOutlinedIcon/>
@@ -211,21 +389,20 @@ function Navbar2() {
 
   </BoxThree>
               
-          </Box>
+          </BoxOne>
 
-          </Box>
-
-
-          
-
+          </BoxBottom>
 
 
           </Box>
+
+
+
         </Toolbar>
       </Container>
 
 
-    </AppBar>
+    </Outer>
   );
 }
 export default Navbar2;

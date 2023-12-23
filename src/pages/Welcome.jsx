@@ -411,7 +411,7 @@ const SeventhBox = styled(Box)(({ theme }) => ({
 }));
 
 const BoxFour = styled(Box)(({ theme }) => ({
-  border: "10px solid black",
+  // border: "10px solid black",
   width: "50%",
   height: 400,
   position:"relative",
