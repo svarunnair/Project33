@@ -11,6 +11,7 @@ import DatePicker from "react-datepicker"
 import Cookies from './components/Cookies';
 import Permision from './components/Permision';
 import Navbar2 from './components/Navbar2';
+import Signin from './auth/Signin';
 
 function App() {
   const path=useLocation()
@@ -25,8 +26,9 @@ function App() {
       {/* <Footer/> */}
   {/* <DatePicker placeholder='select a date' type='date'/> */}
      <Navbar2/>
-    
-     
+{/*     
+     <Signin/> */}
+  
     </div>
   );
 }

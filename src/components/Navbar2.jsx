@@ -17,6 +17,7 @@ import { Input, styled } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import PublicRoutes from '../Routes/PublicRoutes';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,12 +44,14 @@ const ImageBox = styled(Box)(({ theme }) => ({
     paddingLeft:0,
   width:"35%",
 
+
   
 
   },
   [theme.breakpoints.down("sm")]: {
-    paddingRight:20,
-    width:"30%",
+    paddingRight:10,
+    width:"40%",
+    paddingTop:20,
   },
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -59,6 +62,7 @@ const TextBox = styled(Box)(({ theme }) => ({
   // border:"2px solid blue",
   display:"flex",
   width:"100%",
+  
 
  
   [theme.breakpoints.down("xl")]: {
@@ -82,7 +86,7 @@ const BoxThree = styled(Box)(({ theme }) => ({
   // border:"2px solid black",
   display:"flex",
   gap:30,
-
+  
  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {
@@ -92,9 +96,11 @@ const BoxThree = styled(Box)(({ theme }) => ({
     paddingLeft:0,
   },
   [theme.breakpoints.down("sm")]: {
-    paddingLeft:0,
+    
     width:"40%",
-    gap:15,
+    gap:35,
+    paddingTop:20,
+    flexDirection:'row-reverse',
   },
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -156,8 +162,9 @@ justifyContent:"end",
 
  const BoxBottom = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red" ,
+  // border:"2px solid red" ,
   width:"100%",
+
 
 
   [theme.breakpoints.down("xl")]: {},
@@ -226,7 +233,7 @@ const Outer = styled(AppBar)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     // border:"5px solid yellow" ,
     background:"black",
-    height:80,
+    height:70,
     display:"flex",
    
   },
@@ -401,6 +408,7 @@ function Navbar2() {
         </Toolbar>
       </Container>
 
+<PublicRoutes/>
 
     </Outer>
   );

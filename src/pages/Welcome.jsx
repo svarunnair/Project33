@@ -97,7 +97,10 @@ const TextBox = styled(Typography)(({ theme }) => ({
     left: 120,
    
   },
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    bottom: 310,
+    left: 50,
+  },
   [theme.breakpoints.down("xs")]: {},
 }));
 
@@ -118,15 +121,19 @@ const ImageBox = styled(Box)(({ theme }) => ({
 }));
 
 const SubBox = styled(Box)(({ theme }) => ({
-  // border: "2px solid green",
+  border: "2px solid green",
   width: "100%",
   width: 700,
-  height: 150,
+  height: 250,
+  display:"flex",
+  flexDirection:"column",
+  textTransform:"none",
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    width: 300,
+    width: 500,
     height: 50,
   },
   [theme.breakpoints.down("sm")]: {},
@@ -153,7 +160,12 @@ const ButtonBox = styled(Button)(({ theme }) => ({
     left: 200,
     color: "white",
   },
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    height:"5%",
+    width:"35%",
+    bottom:230,
+    left: 150,
+  },
   [theme.breakpoints.down("xs")]: {},
 }));
 
@@ -252,9 +264,9 @@ const InnerBox = styled(Box)(({ theme }) => ({
 padding:20,
   maxWidth: "100%",
   overflow: "auto",
-  height: 300,
+  height: 325,
 
-  border: "4px solid green",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -267,7 +279,7 @@ const FivethBox = styled(Box)(({ theme }) => ({
   width: "100%",
   background: "#F0F0F0",
   // height: 350,
-  border: "2px solid red",
+  // border: "2px solid red",
   paddingTop:50,
 
   [theme.breakpoints.down("xl")]: {},
@@ -279,8 +291,15 @@ const FivethBox = styled(Box)(({ theme }) => ({
 
 const SecondText = styled(Typography)(({ theme }) => ({
   color:"white",
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
+  fontFamily:"sans-serif",
+  // border:"2px solid yellow",
+  paddingTop:35,
+  [theme.breakpoints.down("xl")]: {
+    
+  },
+  [theme.breakpoints.down("lg")]: {
+    paddingTop:0,
+  },
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -299,6 +318,8 @@ const ImageShow = styled(Box)(({ theme }) => ({
 const FivethText = styled(Typography)(({ theme }) => ({
   fontSize:"36px",
   paddingBottom:30,
+  color:"black",
+  fontFamily:"sans-serif",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -308,6 +329,8 @@ const FivethText = styled(Typography)(({ theme }) => ({
 
 const TextMap = styled(Typography)(({ theme }) => ({
   paddingTop:10,
+  fontFamily:"sans-serif",
+  color:"black",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -318,6 +341,7 @@ const TextMap = styled(Typography)(({ theme }) => ({
 const ModalText = styled(Typography)(({ theme }) => ({
   color:"grey",
   fontSize:11,
+  fontFamily:"sans-serif",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -477,6 +501,8 @@ const Detailtext = styled(Typography)(({ theme }) => ({
   width:"65%",
   padding:10,
   paddingLeft:120,
+  color:"black",
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -785,7 +811,7 @@ const handleCook=()=>{
 
         <SecondBox>
           <SubBox>
-            <SecondText >
+            <SecondText sx={{fontSize:35}}>
               Explore our latest creations
             </SecondText>
             <SecondText >
@@ -863,6 +889,8 @@ const handleCook=()=>{
                 <ImageShow as={"img"} src={item.images[0]} />
                 <TextMap>{item.name}</TextMap>
                 <ModalText>{item.model}</ModalText>
+                <ModalText>{item.size}</ModalText>
+                <TextMap>₹{item.price}.00</TextMap>
               </MapBox>
             ))}
           </InnerBox>

@@ -1,5 +1,7 @@
 import { Box, Input, Typography, styled } from '@mui/material';
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { postAuth } from '../Redux/auth/authAction';
 
 
 
@@ -157,6 +159,18 @@ const AuthButtonOne = styled(Box)(({ theme }) => ({
 
 
 function Signin() {
+const dispatch = useDispatch()
+
+const handleSignin = ()=>{
+let data = {
+  email:"varun2@gmail.com",
+  password:"1234"
+}
+
+  dispatch(postAuth(data))
+}
+
+
   return (
     <OuterContainer>
 
@@ -178,7 +192,7 @@ function Signin() {
 
         
        
-        <AuthButtonOne>Sign In</AuthButtonOne>
+        <AuthButtonOne onClick={handleSignin}>Sign In</AuthButtonOne>
         <TextAuth>Forgoten password?</TextAuth>
 
         <TextOne>_______________________OR_______________________</TextOne>
