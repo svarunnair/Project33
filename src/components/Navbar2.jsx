@@ -259,7 +259,7 @@ function Navbar2() {
   };
 
   return (
-    <Outer sx={{bgcolor:'black', height:'110px', background: `linear-gradient(to top, rgb(20,20,20) 60%, black 35%)`,}} position="static">
+    <Outer position={"static"} sx={{bgcolor:'black', height:'110px', background: `linear-gradient(to top, rgb(20,20,20) 60%, black 35%)`,}} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           

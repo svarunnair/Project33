@@ -54,7 +54,7 @@ const SecondBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    height: 190,
+    height: 270,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -121,7 +121,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 }));
 
 const SubBox = styled(Box)(({ theme }) => ({
-  border: "2px solid green",
+  // border: "2px solid green",
   width: "100%",
   width: 700,
   height: 250,
@@ -299,6 +299,7 @@ const SecondText = styled(Typography)(({ theme }) => ({
   },
   [theme.breakpoints.down("lg")]: {
     paddingTop:0,
+    
   },
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -370,16 +371,19 @@ const SixthBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
+    display:"flex",
+    flexDirection:"column",
   },
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+  
+  },
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const BoxOne = styled(Box)(({ theme }) => ({
   // border: "2px solid black",
   width: "100%",
-  height: 280,
+  // height: 320,
   position:"relative",
 
   [theme.breakpoints.down("xl")]: {},
@@ -394,7 +398,7 @@ const BoxOne = styled(Box)(({ theme }) => ({
 const BoxTwo = styled(Box)(({ theme }) => ({
   // border: "2px solid black",
   width: "100%",
-  height:280,
+  // height:280,
   position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -408,7 +412,7 @@ const BoxTwo = styled(Box)(({ theme }) => ({
 const BoxThree = styled(Box)(({ theme }) => ({
   // border: "2px solid black",
   width: "100%",
-  height: 280,
+  // height: 280,
   position:"relative",
 
   [theme.breakpoints.down("xl")]: {},
@@ -437,7 +441,7 @@ const SeventhBox = styled(Box)(({ theme }) => ({
 const BoxFour = styled(Box)(({ theme }) => ({
   // border: "10px solid black",
   width: "50%",
-  height: 400,
+  height: 500,
   position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -452,7 +456,7 @@ const BoxFour = styled(Box)(({ theme }) => ({
 const BoxFive = styled(Box)(({ theme }) => ({
   // border: "2px solid black",
   width: "50%",
-  height: 400,
+  height: 500,
   position:"relative",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -507,7 +511,8 @@ const Detailtext = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-   
+    paddingLeft:80,
+    width:"100%",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -516,14 +521,14 @@ const Detailtext = styled(Typography)(({ theme }) => ({
 const ImageDetail = styled(Box)(({ theme }) => ({
 //  border:"3px solid red",
   width: "50%",
-  height: 500,
+  height: 600,
 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: 200,
+    height: 300,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -538,15 +543,14 @@ const NinethBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-    width: "100%",
-    flexDirection: "column",
+    flexDirection:"column",
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const BoxSix = styled(Box)(({ theme }) => ({
-
+  // border:'2px solid green',
   width: "50%",
   display:"flex",
   flexDirection:"column",
@@ -557,21 +561,22 @@ const BoxSix = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: 200,
+    
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const BoxSeven = styled(Box)(({ theme }) => ({
-
+// border:'2px solid red',
   width: "50%",
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: 200,
+   paddingTop:20,
   },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
@@ -643,16 +648,20 @@ const ButtonImageOne = styled(Button)(({ theme }) => ({
   color:"white",
   borderRadius:"20px",
   bottom:"20%",
+  right:100,
  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    right:0,
+    bottom:"30%",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
 
 const ImageWrapper = styled(Box)(({ theme }) => ({
-//   border: "19px solid green",
+  // border: "19px solid green",
 //  position:"relative",
 //  background:"rgba(0, 0, 0, 0.5)",
 
@@ -697,7 +706,9 @@ const TextImageOne = styled(Box)(({ theme }) => ({
    
     [theme.breakpoints.down("xl")]: {},
     [theme.breakpoints.down("lg")]: {},
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      left:80,
+    },
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.down("xs")]: {},
   }));
@@ -725,7 +736,8 @@ justifyContent:"center",
 const BottomBoxOne = styled(Typography)(({ theme }) => ({
   // border: "2px solid green",
   width:"70%",
-  paddingLeft:90,
+  paddingLeft:50,
+  color:"black",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -738,11 +750,16 @@ const BottomBox = styled(Typography)(({ theme }) => ({
   // border: "2px solid green",
   width:"53%",
  paddingLeft:130,
- paddingTop:30,
+ 
+ color:"black",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingLeft:70,
+    width:"70%",
+
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -754,11 +771,13 @@ height:50,
 ":hover":{color:"black"},
 color:"white",
 background:"black",
-top:60,
+
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -766,8 +785,8 @@ top:60,
 const WrapperBottom = styled(Box)(({ theme }) => ({
 
 justifyContent:"center",
-padding:50,
-paddingTop:100,
+
+
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},

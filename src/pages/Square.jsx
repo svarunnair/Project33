@@ -1,201 +1,212 @@
-import { Box, Pagination, PaginationItem, styled } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getData } from '../Redux/data/action'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useNavigate } from 'react-router-dom';
-import { hover } from '@testing-library/user-event/dist/hover';
-const OuterContainer=styled(Box)(({theme})=>({
-    
-  
-    [theme.breakpoints.down("xl")]:{
-  
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+import { Box, Typography, styled } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getData } from "../Redux/data/action";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-  const ImageBox=styled(Box)(({theme})=>({
-    
-  
-    [theme.breakpoints.down("xl")]:{
-  
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+const OuterContainer = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const InnerContainer = styled(Box)(({ theme }) => ({
+  // border:"1px solid blue",
+  background: "black",
+  display: "grid",
+  justifyItems: "center",
+  paddingBottom: 60,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingBottom: 0,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextDetails = styled(Typography)(({ theme }) => ({
+  // border:"1px solid green",
+  fontSize: 20,
+  width: "70%",
+  paddingTop: 60,
+  paddingBottom: 60,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingTop: 0,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageBox = styled(Box)(({ theme }) => ({
+  // border:"1px solid yellow",
+  width: "50%",
+  paddingTop: 60,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingTop: 0,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const TextHover = styled(Typography)(({ theme }) => ({
+  ":hover": { textDecoration: "underline" },
+  cursor: "pointer",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingTop: 0,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const ImageMap = styled(Box)(({ theme }) => ({
+  // border:"1px solid red",
+  width: 400,
+  cursor: "pointer",
+  // border:"2px solid red",
+  paddingTop:20,
 
 
-  const TextBox=styled(Box)(({theme})=>({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-    [theme.breakpoints.down("xl")]:{
-  
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+const MapData = styled(Box)(({ theme }) => ({
+  // border:"1px solid black",
+  cursor: "pointer",
+  display: "grid",
+  gridTemplateColumns: "repeat(3,1fr)",
 
-  const InnerBox=styled(Box)(({theme})=>({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-    
-    width:1250,
-    height:450,
-    
-    
-  
-    [theme.breakpoints.down("xl")]:{
-  
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+const InnerDiv = styled(Box)(({ theme }) => ({
+  // border: "2px solid green",
+padding:10,
+background:"#F0F0F0",
+display:"grid",
+ justifyItems:"center",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  const BoxData=styled(Box)(({theme})=>({
+const InnerDivOne = styled(Box)(({ theme }) => ({
+  // border: "2px solid black",
+ width:"80%",
+ height:'90%',
+ display:"grid",
+ padding:50,
+ justifyItems:"center",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-    [theme.breakpoints.down("xl")]:{
+const FavoriteIconDiv = styled(Box)(({ theme }) => ({
+  // border: "2px solid black",
+  width:"100%",
+  display:"flex",
+  justifyContent:"end",
   
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  const FirstBox=styled(Box)(({theme})=>({
 
-    [theme.breakpoints.down("xl")]:{
-  
-    },
-    [theme.breakpoints.down("lg")]:{
-  
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-  }))
+const TextMap = styled(Typography)(({ theme }) => ({
+ 
+  color:"black",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 function Square() {
+  const mainData = useSelector((store) => store.data.getData);
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
-    const mainData=useSelector((store)=>store.data.getData)
-    const dispatch=useDispatch()
-    const [page, setPage] = useState(1);
-    const [data,setData]=useState([])
-    const navigate=useNavigate()
+  useEffect(() => {
+    setData(mainData);
+  }, [mainData]);
 
-    useEffect(()=>{
-     setData(mainData)
-    },[mainData])
+  // const handleChange = (event, value) => {
+  //   setPage(value);
+  // };
+  console.log("squareData", mainData);
 
-    const handleChange = (event, value) => {
-      setPage(value);
-    };
-    console.log("squareData",mainData)
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
 
-    useEffect(()=>{
-      dispatch(getData())
-    },[])
-
-    const handleProduct=(id)=>{
-      navigate(`/detail/${id}`)
-    }
-
-
+  const handleProduct = (id) => {
+    navigate(`/detail/${id}`);
+  };
 
   return (
     <OuterContainer>
+      <InnerContainer>
+        <ImageBox
+          as={"img"}
+          src="https://www.rado.com/media/catalog/category/True_Square_9.png"
+        />
+        <TextDetails>
+          At Rado, we don’t just know square high-tech ceramic watches: We
+          invented them! The True Square features a full high-tech ceramic case
+          and bracelet, meeting every Rado requirement.
+        </TextDetails>
+        <TextHover>Read more about the collection {">"}</TextHover>
+      </InnerContainer>
 
-        <InnerBox  sx={{background:"#1B1B1B",marginTop:7,width:"100%"}} >
-<ImageBox width={"50%"} as={'img'}  src="https://www.rado.com/media/catalog/category/True_Square_9.png"/>
-<TextBox marginLeft={46} marginTop={4} width={600} color={"white"} >At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.</TextBox>
-      <TextBox color={"white"} sx={{cursor:'pointer',
-      ':hover': {
-    textDecoration: 'underline',
-    color:'white'
-  },
-  
-  }} marginTop={5} marginLeft={8} marginBottom={5} >
-        Read more about the collection {">"}</TextBox>
-        </InnerBox>
-        <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
-
-        </FirstBox>
-
-        <InnerBox sx={{height:3100}} display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
-
-            {mainData.map((item)=>(
-
-                <BoxData onClick={()=>handleProduct(item.id)} sx={{cursor:'pointer',bgcolor:"#F8F8F8"}}  width={350} height={400} border={"1px solid black"}>
-                <ImageBox  width={300} as={"img"} src={item.images[0]}/>
-                <TextBox sx={{color:"grey"}}>{item.name}</TextBox>
-                <TextBox  sx={{color:"grey"}}>{item.model}</TextBox>
-                <TextBox>₹{item.price}.00</TextBox>
-                </BoxData>
-
-            ))}
- <Pagination
- onChange={handleChange}
- count={10} page={page}
-          />
-   
-        </InnerBox>
-
+      <MapData>
+        {mainData.map((item) => (
+          <InnerDiv>
+          <InnerDivOne>
+            <FavoriteIconDiv>
+            <FavoriteIcon sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+            </FavoriteIconDiv>
+            <ImageMap as={"img"} src={item.images[0]} />    
+            <TextMap sx={{fontSize:20}}>{item.name}</TextMap>
+            <TextMap sx={{color:"grey"}}>{item.model}</TextMap>
+            <TextMap sx={{color:"grey"}}>{item.size}</TextMap>
+            <TextMap sx={{fontSize:20}}>₹{item.price}.00</TextMap>
+            </InnerDivOne>
+          </InnerDiv>
+        ))}
+      </MapData>
     </OuterContainer>
-  )
+  );
 }
 
-export default Square
+export default Square;
