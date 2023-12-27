@@ -221,21 +221,18 @@ const BoxOne = styled(Box)(({ theme }) => ({
 
 
 const Outer = styled(AppBar)(({ theme }) => ({
-
-  // border:"5px solid blue" ,
-  width:"100%",
-
-
+  position: 'sticky',
+  top: 0,
+  zIndex: 1000, // Set a higher z-index value if needed
+  width: '100%',
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {
-    // border:"5px solid yellow" ,
-    background:"black",
-    height:70,
-    display:"flex",
-   
+    background: "black",
+    height: 70,
+    display: "flex",
   },
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -259,7 +256,10 @@ function Navbar2() {
   };
 
   return (
-    <Outer position={"static"} sx={{bgcolor:'black', height:'110px', background: `linear-gradient(to top, rgb(20,20,20) 60%, black 35%)`,}} position="static">
+    <>
+    <Outer  sx={{bgcolor:'black', height:'110px', 
+    background: `linear-gradient(to top, rgb(20,20,20) 60%, black 35%)`,}} >
+      
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
@@ -408,9 +408,12 @@ function Navbar2() {
         </Toolbar>
       </Container>
 
-<PublicRoutes/>
+
 
     </Outer>
+
+    <PublicRoutes/>
+    </>
   );
 }
 export default Navbar2;
