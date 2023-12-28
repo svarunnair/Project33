@@ -196,7 +196,7 @@ function Square() {
             <FavoriteIconDiv>
             <FavoriteIcon sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
             </FavoriteIconDiv>
-            <ImageMap as={"img"} src={item.images[0]} />    
+            <ImageMap onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]} />    
             <TextMap sx={{fontSize:20}}>{item.name}</TextMap>
             <TextMap sx={{color:"grey"}}>{item.model}</TextMap>
             <TextMap sx={{color:"grey"}}>{item.size}</TextMap>

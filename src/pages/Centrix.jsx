@@ -66,7 +66,7 @@ const TextBox=styled(Box)(({theme})=>({
 
 const InnerBox=styled(Box)(({theme})=>({
 
-  
+  border:"2px solid red",
   width:1250,
   height:450,
   
@@ -137,7 +137,7 @@ function Centrix() {
       navigate(`/detail/${id}`)
     }
 
-    console.log("squareData",mainData)
+    console.log("CentrixData",mainData)
 
     useEffect(()=>{
       dispatch(getData())
