@@ -97,6 +97,7 @@ const DetailDiv = styled(Box)(({ theme }) => ({
 
 const IconDiv = styled(Box)(({ theme }) => ({
   cursor:'pointer',
+  border:"2px solid yellow"
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
