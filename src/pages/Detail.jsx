@@ -88,6 +88,7 @@ const DetailDiv = styled(Box)(({ theme }) => ({
   border:"2px solid green",
   width:'70%',
   textAlign:"left",
+ 
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -100,10 +101,15 @@ const DetailDiv = styled(Box)(({ theme }) => ({
 
 const BottomBox = styled(Typography)(({ theme }) => ({
 
-  border:"2px solid green",
-  width:"80%",
+  // border:"2px solid green",
+  width:"70%",
   display:'flex',
   justifyContent:"center",
+  paddingLeft:40,
+  paddingTop:60,
+  fontSize:25,
+  textAlign:'center',
+  paddingBottom:70,
 
   
 
@@ -118,6 +124,107 @@ const IconDiv = styled(Box)(({ theme }) => ({
   cursor:'pointer',
   border:"2px solid yellow",
 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const SpecificationBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid red",
+
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const InnerBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid red",
+  display:"flex",
+  padding:10,
+  gap:50,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const GeneralBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid green",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const DialBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid green",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const MovementBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid green",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const CaseBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid green",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const BraceletBox = styled(Box)(({ theme }) => ({
+
+  border:"2px solid green",
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const TextBox = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid blue",
+  textAlign:"left",
+  color:"grey",
+  paddingTop:15,
+  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -207,6 +314,44 @@ const handleCall=()=>{
 </InnerDiv>
 
 <BottomBox>{detail.description}</BottomBox>
+
+<SpecificationBox>
+<TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,}}>___________________________________Specification___________________________________</TextBox>
+<InnerBox>
+  <GeneralBox>
+    <TextBox sx={{color:'black'}}>General</TextBox>
+    <TextBox>Engravable:{detail.Engravable}</TextBox>
+    <TextBox>Product Name:{detail.ProductName}</TextBox>
+    <TextBox>SKU:{detail.SKU}</TextBox>
+    <TextBox>Gender:{detail.Gender}</TextBox>
+  </GeneralBox>
+  <MovementBox>
+  <TextBox sx={{color:'black'}}>Movement</TextBox>
+  <TextBox>Movement Type:{detail.MovementType}</TextBox>
+    <TextBox>Movement Power Reserve:{detail.MovementReference}</TextBox>
+    <TextBox>Movement Reference:{detail.MovementReference}</TextBox>
+   
+  </MovementBox>
+  <CaseBox>
+  <TextBox sx={{color:'black'}}>Case</TextBox>
+  <TextBox>Case Materials:{detail.CaseMaterials}</TextBox>
+    <TextBox>Case Thickness:{detail.CaseThickness}</TextBox>
+    <TextBox>Case Water Resistance:{detail.CaseWaterResistance}</TextBox>
+    <TextBox>Case Dimension:{detail.CaseDimension}</TextBox>
+  </CaseBox>
+  <DialBox>
+  <TextBox sx={{color:'black'}}>Dial</TextBox>
+  <TextBox>Dial Colour:{detail.DialColour}</TextBox>
+    <TextBox>Dial Has Date:{detail.DialHasDate}</TextBox>
+    <TextBox>Dial Has Jewels:{detail.DialHasJewels}</TextBox>
+    <TextBox>Mother Of Pearl:{detail.MotherOfPearl}</TextBox>
+  </DialBox>
+  <BraceletBox></BraceletBox>
+
+
+</InnerBox>
+
+</SpecificationBox>
 
 
 
