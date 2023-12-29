@@ -8,6 +8,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
+  display:"grid",
+  justifyItems:"center",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -95,9 +97,26 @@ const DetailDiv = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }))
 
+
+const BottomBox = styled(Typography)(({ theme }) => ({
+
+  border:"2px solid green",
+  width:"80%",
+  display:'flex',
+  justifyContent:"center",
+
+  
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
 const IconDiv = styled(Box)(({ theme }) => ({
   cursor:'pointer',
-  border:"2px solid yellow"
+  border:"2px solid yellow",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -186,6 +205,8 @@ const handleCall=()=>{
 
 
 </InnerDiv>
+
+<BottomBox>{detail.description}</BottomBox>
 
 
 
