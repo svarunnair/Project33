@@ -1,7 +1,7 @@
 import { Box, Typography, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getDetail, postInfo } from '../Redux/data/action';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -20,8 +20,9 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 const InnerDiv = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red",
+  // border:"2px solid red",
   display:'flex',
+  width:"100%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -32,7 +33,7 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 
 const ImageBox = styled(Box)(({ theme }) => ({
 
-  border:'2px solid green',
+  // border:'2px solid green',
   width:"60%",
 
   [theme.breakpoints.down("xl")]: {},
@@ -56,7 +57,7 @@ const TextDetail = styled(Typography)(({ theme }) => ({
 
 const DetailBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid blue",
+  // border:"2px solid blue",
   width:"50%",
   padding:30,
 
@@ -69,12 +70,13 @@ const DetailBox = styled(Box)(({ theme }) => ({
 }));
 const ImageDiv = styled(Box)(({ theme }) => ({
 
-  border:"2px solid blue",
+  // border:"2px solid blue",
   width:"50%",
   padding:30,
   display:"flex",
   justifyItems:'center',
   justifyContent:"center",
+  background:"#F5F5F5	",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -300,6 +302,7 @@ const handleCall=()=>{
   <ArrowForwardIcon sx={{paddingTop:22}}/>
   </IconDiv>
   </ImageDiv>
+
   <DetailBox>
     <DetailDiv>
     <TextDetail sx={{fontSize:40}}>{detail.name}</TextDetail>
@@ -346,7 +349,13 @@ const handleCall=()=>{
     <TextBox>Dial Has Jewels:{detail.DialHasJewels}</TextBox>
     <TextBox>Mother Of Pearl:{detail.MotherOfPearl}</TextBox>
   </DialBox>
-  <BraceletBox></BraceletBox>
+  <BraceletBox>
+  <TextBox sx={{color:'black'}}>Dial</TextBox>
+  <TextBox>Dial Colour:{detail.DialColour}</TextBox>
+    <TextBox>Dial Has Date:{detail.DialHasDate}</TextBox>
+    <TextBox>Dial Has Jewels:{detail.DialHasJewels}</TextBox>
+    <TextBox>Mother Of Pearl:{detail.MotherOfPearl}</TextBox>
+  </BraceletBox>
 
 
 </InnerBox>
