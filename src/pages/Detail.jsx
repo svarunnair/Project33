@@ -34,7 +34,7 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 const ImageBox = styled(Box)(({ theme }) => ({
 
   // border:'2px solid green',
-  width:"60%",
+  width:"75%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -87,9 +87,11 @@ const ImageDiv = styled(Box)(({ theme }) => ({
 
 const DetailDiv = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   width:'70%',
   textAlign:"left",
+  paddingLeft:100,
+  paddingTop:100,
  
   
 
@@ -124,7 +126,7 @@ const BottomBox = styled(Typography)(({ theme }) => ({
 
 const IconDiv = styled(Box)(({ theme }) => ({
   cursor:'pointer',
-  border:"2px solid yellow",
+  // border:"2px solid yellow",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -308,7 +310,7 @@ const handleCall=()=>{
     <TextDetail sx={{fontSize:40}}>{detail.name}</TextDetail>
     <TextDetail sx={{color:"grey"}} >{detail.size}</TextDetail>
     <TextDetail sx={{color:"grey"}}>{detail.model}</TextDetail>
-    <TextDetail sx={{fontSize:20}}>{detail.price}</TextDetail>
+    <TextDetail sx={{fontSize:30,paddingTop:18}}>₹ {detail.price}.00</TextDetail>
     </DetailDiv>
   </DetailBox>
 
