@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getDetail, postInfo } from '../Redux/data/action';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   display:"grid",
@@ -26,7 +26,9 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    flexDirection:"column",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -35,10 +37,14 @@ const ImageBox = styled(Box)(({ theme }) => ({
 
   // border:'2px solid green',
   width:"75%",
+  
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"70%",
+  
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -64,7 +70,10 @@ const DetailBox = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"100%",
+    padding:0,
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -80,7 +89,11 @@ const ImageDiv = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"100%",
+    padding:0,
+
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }))
@@ -119,25 +132,35 @@ const BottomBox = styled(Typography)(({ theme }) => ({
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingLeft:0,
+  paddingTop:20,
+  paddingBottom:0,
+  width:"80%",
+  fontSize:12,
+  
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }))
 
 const IconDiv = styled(Box)(({ theme }) => ({
   cursor:'pointer',
-  // border:"2px solid yellow",
+  // border:"2px solid red",
+ 
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingRight:10,
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }))
 
 const SpecificationBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red",
+  // border:"2px solid red",
 
 
 
@@ -150,21 +173,25 @@ const SpecificationBox = styled(Box)(({ theme }) => ({
 
 const InnerBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid red",
+  // border:"2px solid red",
   display:"flex",
   padding:10,
   gap:50,
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("md")]: {
+    padding:0,
+    display:"flex",
+    flexDirection:"column",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }))
 
 const GeneralBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -176,7 +203,7 @@ const GeneralBox = styled(Box)(({ theme }) => ({
 
 const DialBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -188,7 +215,7 @@ const DialBox = styled(Box)(({ theme }) => ({
 
 const MovementBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -200,7 +227,7 @@ const MovementBox = styled(Box)(({ theme }) => ({
 
 const CaseBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -212,7 +239,7 @@ const CaseBox = styled(Box)(({ theme }) => ({
 
 const BraceletBox = styled(Box)(({ theme }) => ({
 
-  border:"2px solid green",
+  // border:"2px solid green",
   
 
   [theme.breakpoints.down("xl")]: {},
@@ -228,6 +255,18 @@ const TextBox = styled(Box)(({ theme }) => ({
   textAlign:"left",
   color:"grey",
   paddingTop:15,
+  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const Wrapper = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid blue",
+  display:"flex",
   
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -296,21 +335,30 @@ const handleCall=()=>{
     <OuterContainer>
 <InnerDiv>
 <ImageDiv>
+ 
+
+ <Wrapper>
   <IconDiv onClick={handlePrev}>
-  <ArrowBackIcon sx={{paddingTop:22}}/>
+  <ArrowBackIcon sx={{paddingTop:22,}}/>
   </IconDiv>
-  <ImageBox as={"img"} src={dataImage[count]}/>
+  <ImageBox  as={"img"} src={dataImage[count]}/>
+  <FavoriteOutlinedIcon sx={{":hover":{color:"red"}}}/>
   <IconDiv onClick={handleNext}>
   <ArrowForwardIcon sx={{paddingTop:22}}/>
   </IconDiv>
+ 
+  </Wrapper>
+
   </ImageDiv>
 
   <DetailBox>
     <DetailDiv>
     <TextDetail sx={{fontSize:40}}>{detail.name}</TextDetail>
-    <TextDetail sx={{color:"grey"}} >{detail.size}</TextDetail>
     <TextDetail sx={{color:"grey"}}>{detail.model}</TextDetail>
-    <TextDetail sx={{fontSize:30,paddingTop:18}}>₹ {detail.price}.00</TextDetail>
+    <TextDetail sx={{color:"grey"}} >{detail.size}</TextDetail>
+   <TextDetail sx={{paddingTop:1,cursor:"pointer"}} >View full details{">"}  Add to compare {">"} Open comparetor {"?"}</TextDetail>
+    <TextDetail sx={{fontSize:30,paddingTop:8}}>₹{detail.price}.00</TextDetail>
+    <TextDetail sx={{color:"grey",fontWeight:700}} >Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextDetail>
     </DetailDiv>
   </DetailBox>
 
@@ -321,7 +369,7 @@ const handleCall=()=>{
 <BottomBox>{detail.description}</BottomBox>
 
 <SpecificationBox>
-<TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,}}>___________________________________Specification___________________________________</TextBox>
+{/* <TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,display:{sm:"none",md:"none"}}}>__________________________________________________________Specification__________________________________________________________</TextBox> */}
 <InnerBox>
   <GeneralBox>
     <TextBox sx={{color:'black'}}>General</TextBox>
@@ -352,11 +400,9 @@ const handleCall=()=>{
     <TextBox>Mother Of Pearl:{detail.MotherOfPearl}</TextBox>
   </DialBox>
   <BraceletBox>
-  <TextBox sx={{color:'black'}}>Dial</TextBox>
-  <TextBox>Dial Colour:{detail.DialColour}</TextBox>
-    <TextBox>Dial Has Date:{detail.DialHasDate}</TextBox>
-    <TextBox>Dial Has Jewels:{detail.DialHasJewels}</TextBox>
-    <TextBox>Mother Of Pearl:{detail.MotherOfPearl}</TextBox>
+  <TextBox sx={{color:'black'}}>Bracelet</TextBox>
+  <TextBox>Bracelet Materials:{detail.CaseMaterials}</TextBox>
+    
   </BraceletBox>
 
 
