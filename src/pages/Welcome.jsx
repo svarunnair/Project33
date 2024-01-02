@@ -799,6 +799,10 @@ function Welcome() {
   const dispatch = useDispatch();
   const navigate=useNavigate()
 
+  const handleDiscover=()=>{
+    navigate('/centrix')
+  }
+
   const handleCentrix=()=>{
     navigate('/centrix')
   }
@@ -825,7 +829,7 @@ const handleCook=()=>{
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill"
           />
           <TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>
-          <ButtonBox>Dicover more</ButtonBox>
+          <ButtonBox onClick={handleDiscover}>Dicover more</ButtonBox>
         </FirstBox>
 
         <SecondBox>
