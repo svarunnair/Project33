@@ -274,6 +274,20 @@ const Wrapper = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }))
+
+const TextWrap = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid blue",
+  
+  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    display:"none",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
 function Detail() {
 
   const dispatch=useDispatch()
@@ -369,7 +383,9 @@ const handleCall=()=>{
 <BottomBox>{detail.description}</BottomBox>
 
 <SpecificationBox>
-{/* <TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,display:{sm:"none",md:"none"}}}>__________________________________________________________Specification__________________________________________________________</TextBox> */}
+  <TextWrap >
+<TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,}}>__________________________________________________________Specification__________________________________________________________</TextBox>
+</TextWrap>
 <InnerBox>
   <GeneralBox>
     <TextBox sx={{color:'black'}}>General</TextBox>

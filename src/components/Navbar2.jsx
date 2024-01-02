@@ -18,6 +18,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import PublicRoutes from '../Routes/PublicRoutes';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -138,11 +139,6 @@ width:"100%",
 justifyContent:"end",
 
 
-
-
-
-
-
    [theme.breakpoints.down("xl")]: {
     paddingLeft:0,
 
@@ -170,13 +166,12 @@ justifyContent:"end",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {
-      
+    
   },
   [theme.breakpoints.down("sm")]: {
     // border:"5px solid green" ,
     display:"flex",
-   
-
+    
   },
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -239,6 +234,7 @@ const Outer = styled(AppBar)(({ theme }) => ({
 function Navbar2() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate=useNavigate()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -254,6 +250,10 @@ function Navbar2() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleRado=()=>{
+    navigate('/')
+  }
 
   return (
     <>
@@ -337,7 +337,7 @@ function Navbar2() {
   
           <BoxOne>
          
-       <TextBox sx={{display:'flex',gap:"20px"}}>
+       <TextBox sx={{display:'flex',gap:"20px",cursor:"pointer"}}>
           <Text
               
               onClick={handleCloseNavMenu}
@@ -385,7 +385,7 @@ function Navbar2() {
 
 
 
-            <ImageBox sx={{width:"15%",height:"70%"}} as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
+            <ImageBox onClick={handleRado} sx={{width:"15%",height:"70%",cursor:"pointer"}} as={"img"} src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg" />
 
 
 
