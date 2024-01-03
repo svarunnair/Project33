@@ -799,6 +799,10 @@ function Welcome() {
   const dispatch = useDispatch();
   const navigate=useNavigate()
 
+  const handleItem=(id)=>{
+    navigate(`/detail/${id}`)
+  }
+
   const handleDiscover=()=>{
     navigate('/centrix')
   }
@@ -908,8 +912,8 @@ const handleCook=()=>{
           <FivethText>Our gift ideas for you</FivethText>
           <InnerBox>
             {mainData?.slice(0,10).map((item) => (
-              <MapBox>
-                <ImageShow as={"img"} src={item.images[0]} />
+              <MapBox sx={{cursor:"pointer"}}>
+                <ImageShow onClick={()=>handleItem(item.id)} as={"img"} src={item.images[0]} />
                 <TextMap>{item.name}</TextMap>
                 <ModalText>{item.model}</ModalText>
                 <ModalText>{item.size}</ModalText>
