@@ -374,6 +374,7 @@ const handleCall=()=>{
     <TextDetail sx={{fontSize:30,paddingTop:8}}>₹{detail.price}.00</TextDetail>
     <TextDetail sx={{color:"grey",fontWeight:700}} >Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextDetail>
     </DetailDiv>
+    <TextDetail>Call me</TextDetail>
   </DetailBox>
 
 
