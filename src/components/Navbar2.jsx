@@ -254,6 +254,9 @@ function Navbar2() {
   const handleRado=()=>{
     navigate('/')
   }
+  const handleSearch=()=>{
+    navigate("/search")
+  }
 
   return (
     <>
@@ -391,7 +394,7 @@ function Navbar2() {
 
 
             <BoxThree >
-    <SearchOutlinedIcon/>
+    <SearchOutlinedIcon sx={{cursor:"pointer"}} onClick={handleSearch}/>
     <PersonOutlineOutlinedIcon/>
 
   </BoxThree>

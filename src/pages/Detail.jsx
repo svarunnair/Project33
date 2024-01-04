@@ -370,11 +370,11 @@ const handleCall=()=>{
     <TextDetail sx={{fontSize:40}}>{detail.name}</TextDetail>
     <TextDetail sx={{color:"grey"}}>{detail.model}</TextDetail>
     <TextDetail sx={{color:"grey"}} >{detail.size}</TextDetail>
-   <TextDetail sx={{paddingTop:1,cursor:"pointer"}} >View full details{">"}  Add to compare {">"} Open comparetor {"?"}</TextDetail>
+    <TextDetail sx={{paddingTop:1,cursor:"pointer"}} >View full details{">"}  Add to compare {">"} Open comparetor {"?"}</TextDetail>
     <TextDetail sx={{fontSize:30,paddingTop:8}}>₹{detail.price}.00</TextDetail>
-    <TextDetail sx={{color:"grey",fontWeight:700}} >Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextDetail>
+    <TextDetail sx={{color:"grey",fontWeight:700}} >Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextDetail>  
+    <TextDetail sx={{paddingTop:6,fontSize:20,cursor:"pointer"}} onClick={handleCall}>Call me</TextDetail>
     </DetailDiv>
-    <TextDetail>Call me</TextDetail>
   </DetailBox>
 
 
