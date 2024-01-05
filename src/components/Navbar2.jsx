@@ -257,6 +257,9 @@ function Navbar2() {
   const handleSearch=()=>{
     navigate("/search")
   }
+  const handleAccount=()=>{
+    navigate('signin')
+  }
 
   return (
     <>
@@ -395,7 +398,7 @@ function Navbar2() {
 
             <BoxThree >
     <SearchOutlinedIcon sx={{cursor:"pointer"}} onClick={handleSearch}/>
-    <PersonOutlineOutlinedIcon/>
+    <PersonOutlineOutlinedIcon sx={{cursor:"pointer"}} onClick={handleAccount}/>
 
   </BoxThree>
               
