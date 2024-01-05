@@ -49,7 +49,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 
       // border:"2px solid green",
       display:"flex",
-      paddingBottom:30,
+      paddingBottom:10,
       paddingTop:30,
       gap:20,
         [theme.breakpoints.down("xl")]: {},
@@ -62,7 +62,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 
       const DataBox = styled(Box)(({ theme }) => ({
 
-        border:"2px solid red",
+        // border:"2px solid red",
        padding:50,
      
         
@@ -78,7 +78,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 
         const FirstBox = styled(Box)(({ theme }) => ({
 
-          border:"2px solid black",
+          // border:"2px solid black",
           display:"flex",
           flexDirection:"column",
           gap:20,
@@ -109,21 +109,25 @@ function Signin() {
       <InnerContainer>
         <DataBox>
     
-        <TextBox sx={{fontSize:30,textAlign:"left",fontWeight:400}}>Customer Login</TextBox>
+        <TextBox sx={{fontSize:45,textAlign:"left",fontWeight:400,paddingTop:5}}>Customer Login</TextBox>
   
         <AuthBox>
-          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:250,height:50,borderRadius:0}}>Signup with Google</Button>
-          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:250,height:50,borderRadius:0}}>Signup with Apple</Button>
+          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:300,height:60,borderRadius:0}}>Signup with Google</Button>
+          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:300,height:60,borderRadius:0}}>Signup with Apple</Button>
         </AuthBox>
 
         <FirstBox>
-        <Input placeholder='Email'/>
-        </FirstBox>
-        <FirstBox>
-        <Input placeholder='Password'/>
-        </FirstBox>
-        <Button sx={{width:520,color:"white",background:"black",":hover":{background:"black"}}}>SignIn</Button>
+        <Input  sx={{border:"1px solid black",height:60}} placeholder='Email'/>
        
+      
+        <Input  sx={{border:"1px solid black",height:60}} placeholder='Password'/>
+        
+        <Button sx={{width:620,color:"white",background:"black",":hover":{background:"black"},height:60}}>SignIn</Button>
+        </FirstBox>
+        <TextBox sx={{textAlign:"left",textDecoration:"underline"}}>Forgot your password?</TextBox>
+        <TextBox sx={{fontSize:25,paddingTop:4, paddingBottom:4}}>___________________OR___________________</TextBox>
+
+        <Button sx={{width:620,color:"white",background:"black",":hover":{background:"black"},height:60,}} >Create my account</Button>
 
         </DataBox>
       </InnerContainer>
