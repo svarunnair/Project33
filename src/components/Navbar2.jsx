@@ -29,8 +29,8 @@ const ImageBox = styled(Box)(({ theme }) => ({
   // border:"2px solid red",
 
   display:'flex',
- paddingRight:200,
- paddingLeft:100,
+ paddingRight:520,
+ paddingLeft:250,
  
 
 
@@ -260,6 +260,7 @@ function Navbar2() {
   const handleAccount=()=>{
     navigate('signin')
   }
+  
 
   return (
     <>

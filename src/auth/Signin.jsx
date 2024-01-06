@@ -1,5 +1,7 @@
 import { Box, Button, Input, styled } from '@mui/material';
 import React from 'react'
+import AppleIcon from '@mui/icons-material/Apple';
+import { useNavigate } from 'react-router-dom';
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -98,6 +100,11 @@ const ImageBox = styled(Box)(({ theme }) => ({
        
 
 function Signin() {
+  const navigate=useNavigate()
+
+  const handleSignup=()=>{
+    navigate('/signup')
+  }
   return (
     <OuterContainer>
       <InnerContainer sx={{background:"black",width:"50%"}}>
@@ -112,8 +119,8 @@ function Signin() {
         <TextBox sx={{fontSize:45,textAlign:"left",fontWeight:400,paddingTop:5}}>Customer Login</TextBox>
   
         <AuthBox>
-          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:300,height:60,borderRadius:0}}>Signup with Google</Button>
-          <Button sx={{color:"white",":hover":{background:"black"},background:"black",width:300,height:60,borderRadius:0}}>Signup with Apple</Button>
+          <Button sx={{color:"white",":hover":{background:"white",color:"black"},border:"1px solid black",textTransform:"none",background:"black",width:300,height:60,borderRadius:0}}>Signup with Google</Button>
+          <Button sx={{color:"white",":hover":{background:"white",color:"black"}, border:"1px solid black",textTransform:"none",background:"black",width:300,height:60,borderRadius:0}}><AppleIcon/>Signup with Apple</Button>
         </AuthBox>
 
         <FirstBox>
@@ -122,12 +129,12 @@ function Signin() {
       
         <Input  sx={{border:"1px solid black",height:60}} placeholder='Password'/>
         
-        <Button sx={{width:620,color:"white",background:"black",":hover":{background:"black"},height:60}}>SignIn</Button>
+        <Button sx={{width:620,color:"white",textTransform:"none",background:"black",":hover":{background:"white",color:"black"},border:"1px solid black",height:60}}>SignIn</Button>
         </FirstBox>
         <TextBox sx={{textAlign:"left",textDecoration:"underline"}}>Forgot your password?</TextBox>
         <TextBox sx={{fontSize:25,paddingTop:4, paddingBottom:4}}>___________________OR___________________</TextBox>
 
-        <Button sx={{width:620,color:"white",background:"black",":hover":{background:"black"},height:60,}} >Create my account</Button>
+        <Button onClick={handleSignup} sx={{width:620,color:"white",textTransform:"none",background:"black",border:"1px solid black",":hover":{background:"white",color:"black"},height:60,}} >Create my account</Button>
 
         </DataBox>
       </InnerContainer>
