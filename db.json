@@ -688,40 +688,6 @@
   "booking": [],
   "search": [
     {
-      "id": 5,
-      "name": "True Square Automatic Diamonds",
-      "images": [
-        "https://www.rado.com/media/catalog/product/r/g/rgb_cat_truesquare_763_6077_3_070_3.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
-        "https://www.rado.com/media/catalog/product/t/r/truesquare_r27077702_wrist_w_u.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
-        "https://www.rado.com/media/catalog/product/t/r/truesquare_0176360773070_r27077702_a_2.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
-        "https://www.rado.com/media/catalog/product/t/r/truesquare_0176360773070_r27077702_b_2.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center"
-      ],
-      "description": "At Rado, we made our name producing square high-tech ceramic watches. The True Square is a new take on an iconic Rado shape. Our first watch made using a square injected monobloc high-tech ceramic case, the True Square is light, scratch-resistant and comfortable to wear. Distinctive and design-led the Rado True Square Automatic Diamonds is the shape of things to come.",
-      "price": "244300",
-      "model": "R10202209",
-      "size": "42.0 mm, Automatic, 164 g",
-      "Engravable": "No",
-      "ProductName": "Anatom Automatic",
-      "SKU": "R10202209",
-      "Gender": "Men",
-      "MovementType": "Automatic",
-      "MovementReference": " 03.766.731",
-      "CaseMaterials": "Stainless Steel",
-      "CaseThickness": "8.7 mm",
-      "CaseWaterResistance": "5 bar (50 m)",
-      "CaseColour": "light",
-      "CaseDimension": "38.0 mm",
-      "CaseCrystal": "Sapphire crystal with anti-reflective coating on both sides",
-      "DialColour": "Green, White",
-      "DialHasDate": "Yes",
-      "DialHasJewels": "Yes",
-      "MotherOfPearl": "No",
-      "JewelDetails": " 4 Diamonds - 0.032 8 Diamonds - 0.030"
-    },
-    {
-      "id": 6
-    },
-    {
       "id": 1,
       "name": "Captain Cook Hrithik Roshan Special Edition",
       "images": [
@@ -752,5 +718,6 @@
       "MotherOfPearl": "No",
       "JewelDetails": " 4 Diamonds - 0.032 8 Diamonds - 0.030"
     }
-  ]
+  ],
+  "signin": []
 }

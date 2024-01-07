@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { auth,provider } from "./GoogleAuth/FireBase";
 import {signInWithPopup} from 'firebase/auth'
 import Welcome from "../pages/Welcome";
+import { useDispatch } from "react-redux";
+import { postAuth } from "../Redux/auth/authAction";
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -122,12 +124,32 @@ const TextBoxTitle = styled(Typography)(({ theme }) => ({
 
 
 function Signin() {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState("")
   const navigate = useNavigate();
   const [value,setValue]=useState('')
+  const dispatch=useDispatch()
 
+  const handleEmail=(e)=>{
+    let value=e.target.value 
+    setEmail(value)
+  }
+  const handlePassword=(e)=>{
+    let value=e.target.value 
+    setPassword(value)
+  }
   const handleSignup = () => {
     navigate("/signup");
   };
+
+  const handleSignin=()=>{
+    let data={
+      email:email,
+      password:password
+    }
+dispatch(postAuth(data))
+    
+  }
 
   const handleGoogle=()=>{
     signInWithPopup(auth,provider)
@@ -199,17 +221,17 @@ function Signin() {
           </AuthBox>
 
           <FirstBox>
-            <Input
+            <Input onChange={handleEmail}
               sx={{ border: "1px solid black", height: 60 }}
               placeholder="Email"
             />
 
-            <Input
+            <Input onChange={handlePassword}
               sx={{ border: "1px solid black", height: 60 }}
               placeholder="Password"
             />
 
-            <ButtonBox
+            <ButtonBox onClick={handleSignin}
               sx={{
                 width: 540,
                 color: "white",
@@ -232,8 +254,8 @@ function Signin() {
 
           <ButtonBox
             onClick={handleSignup}
-            sx={{
-              width: 540,
+            sx={{  
+              width: 540,       
               color: "white",
               textTransform: "none",
               background: "black",

@@ -22,7 +22,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 }));
 
 const InnerDiv = styled(Box)(({ theme }) => ({
-  border: "3px solid red",
+  // border: "3px solid red",
   width: "250px",
 
   [theme.breakpoints.down("xl")]: {},
@@ -78,7 +78,7 @@ const ButtonBox = styled(Button)(({ theme }) => ({
 
 const ButtonTheme = styled(Button)(({ theme }) => ({
 
-  border:"1px solid red",
+  // border:"1px solid red",
     justifyContent:"left",
     display:"flex",
     color:"green",
@@ -96,7 +96,7 @@ const ButtonTheme = styled(Button)(({ theme }) => ({
   
   
   const MenuBox = styled(Box)(({ theme }) => ({
-    border:"3px solid green",
+    // border:"3px solid green",
     position:"absolute",
     width:"40%",
     background:"white",
@@ -112,7 +112,7 @@ const ButtonTheme = styled(Button)(({ theme }) => ({
   }));
 
 const EmblomBox = styled(Box)(({ theme }) => ({
-  border:"3px solid blue",
+  // border:"3px solid blue",
 width:100,
   
 
@@ -124,7 +124,7 @@ width:100,
 }));
 
 const TextDetail = styled(Typography)(({ theme }) => ({
-  border:"1px solid blue",
+  // border:"1px solid blue",
   
   
 
@@ -137,7 +137,7 @@ const TextDetail = styled(Typography)(({ theme }) => ({
 
 
 const AllowButton = styled(Button)(({ theme }) => ({
-  border:"1px solid blue",
+  // border:"1px solid blue",
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -160,7 +160,7 @@ const FirstBox = styled(Box)(({ theme }) => ({
 
 
 const TopBox = styled(Box)(({ theme }) => ({
-  border:"4px solid red",
+  // border:"4px solid red",
 height:600,
  
 
@@ -172,7 +172,7 @@ height:600,
 }));
 
 const IconBox = styled(Box)(({ theme }) => ({
-  border:"1px solid blue",
+  // border:"1px solid blue",
   display:"flex",
  justifyContent:"end",
  
@@ -216,11 +216,7 @@ function Search() {
     dispatch(getData());
   }, []);
 
-  // useEffect(()=>{
-  //   Object.keys(search.length>0){
-  //     setShow(true)
-  //   }
-  // },[show])
+  
 
   console.log("show", show);
 
@@ -256,7 +252,7 @@ function Search() {
       <Input
         onChange={handleSearch}
         sx={{
-          marginTop: 13,
+          paddingTop: 0,
           width: 600,
           height: 85,
           border: "1px solid black",

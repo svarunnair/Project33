@@ -36,7 +36,7 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 const ImageBox = styled(Box)(({ theme }) => ({
 
   // border:'2px solid green',
-  width:"75%",
+  width:"90%",
   
 
   [theme.breakpoints.down("xl")]: {},

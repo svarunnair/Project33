@@ -30,6 +30,7 @@ const InnerContainer = styled(Box)(({ theme }) => ({
 
 const TextDetails = styled(Typography)(({ theme }) => ({
   // border:"1px solid green",
+  color:"white",
   fontSize: 20,
   width: "70%",
   paddingTop: 60,
@@ -59,6 +60,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 const TextHover = styled(Typography)(({ theme }) => ({
   ":hover": { textDecoration: "underline" },
   cursor: "pointer",
+  color:"white",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -71,7 +73,7 @@ const TextHover = styled(Typography)(({ theme }) => ({
 
 const ImageMap = styled(Box)(({ theme }) => ({
   // border:"1px solid red",
-  width: 400,
+  width: "100%",
   cursor: "pointer",
   // border:"2px solid red",
   paddingTop:20,
