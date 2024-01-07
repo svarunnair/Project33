@@ -1,7 +1,11 @@
 import { Box, Button, Input, Typography, styled } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import { useNavigate } from "react-router-dom";
+import { auth,provider } from "./GoogleAuth/FireBase";
+import {signInWithPopup} from 'firebase/auth'
+import Welcome from "../pages/Welcome";
+
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -17,6 +21,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 const InnerContainer = styled(Box)(({ theme }) => ({
   // border:"2px solid green",
+  width:"50%",
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -118,10 +123,26 @@ const TextBoxTitle = styled(Typography)(({ theme }) => ({
 
 function Signin() {
   const navigate = useNavigate();
+  const [value,setValue]=useState('')
 
   const handleSignup = () => {
     navigate("/signup");
   };
+
+  const handleGoogle=()=>{
+    signInWithPopup(auth,provider)
+    .then((data)=>{
+      setValue(data.user.email)
+      localStorage.setItem('email',data.user.email)
+    })
+  }
+
+
+  useEffect(()=>{
+    setValue(localStorage.getItem('email'))
+  },[])
+
+
   return (
     <OuterContainer>
       <InnerContainer sx={{ background: "black", width: "50%" }}>
@@ -146,7 +167,7 @@ function Signin() {
           </TextBoxTitle>
 
           <AuthBox>
-            <Button
+            <Button onClick={handleGoogle}
               sx={{
                 color: "white",
                 ":hover": { background: "white", color: "black" },
@@ -160,7 +181,7 @@ function Signin() {
             >
               Signup with Google
             </Button>
-            <Button
+           <Button
               sx={{
                 color: "white",
                 ":hover": { background: "white", color: "black" },
@@ -190,7 +211,7 @@ function Signin() {
 
             <ButtonBox
               sx={{
-                width: 620,
+                width: 540,
                 color: "white",
                 textTransform: "none",
                 background: "black",
@@ -212,7 +233,7 @@ function Signin() {
           <ButtonBox
             onClick={handleSignup}
             sx={{
-              width: 620,
+              width: 540,
               color: "white",
               textTransform: "none",
               background: "black",

@@ -29,8 +29,8 @@ const ImageBox = styled(Box)(({ theme }) => ({
   // border:"2px solid red",
 
   display:'flex',
- paddingRight:520,
- paddingLeft:250,
+ paddingRight:400,
+ paddingLeft:0,
  
 
 
@@ -63,9 +63,7 @@ const TextBox = styled(Box)(({ theme }) => ({
   // border:"2px solid blue",
   display:"flex",
   width:"100%",
-  
 
- 
   [theme.breakpoints.down("xl")]: {
 
   },
