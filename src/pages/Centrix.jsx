@@ -3,6 +3,7 @@ import { Box, Typography, styled } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../Redux/data/action'
+import { useNavigate } from 'react-router-dom'
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -109,8 +110,13 @@ const ImageMap = styled(Box)(({ theme }) => ({
 function Centrix() {
   const mainData=useSelector((store)=>store.data.getData)
   const dispatch=useDispatch()
+  const navigate=useNavigate()
   
   console.log("mainData",mainData)
+
+  const handleProduct=(id)=>{
+    navigate(`/detail/${id}`)
+  }
 
   useEffect(()=>{
     dispatch(getData())
@@ -127,12 +133,12 @@ function Centrix() {
 
 <MapData>
   {mainData?.map((item)=>(
-    <InnerDiv>
-    <ImageMap as={"img"} src={item.images[0]}/>
-    <TextDetail>{item.name}</TextDetail>
-    <TextDetail>{item.model}</TextDetail>
-    <TextDetail>{item.size}</TextDetail>
-    <TextDetail>₹{item.price}.00</TextDetail>
+    <InnerDiv >
+    <ImageMap sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]}/>
+    <TextDetail onClick={()=>handleProduct(item.id)}>{item.name}</TextDetail>
+    <TextDetail sx={{cursor:"pointer",color:"grey",fontSize:12,cursor:"pointer"}}>{item.model}</TextDetail>
+    <TextDetail sx={{cursor:"pointer",color:"grey",fontSize:12,cursor:"pointer"}}>{item.size}</TextDetail>
+    <TextDetail sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)}>₹{item.price}.00</TextDetail>
     </InnerDiv>
   ))}
 </MapData>

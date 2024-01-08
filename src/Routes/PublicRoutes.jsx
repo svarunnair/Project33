@@ -21,7 +21,7 @@ function PublicRoutes() {
 
             <Route path='/' element={<Welcome/>}/>
             <Route path='/welcome' element={<Welcome/>}/>
-            <Route path='/home' element={<Home/>}/>
+            {/* <Route path='/home' element={<Home/>}/> */}
             <Route path='/signin' element={<Signin/>}/>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/square' element={<Square/>}/>

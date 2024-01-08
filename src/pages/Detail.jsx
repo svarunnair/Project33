@@ -37,6 +37,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 
   // border:'2px solid green',
   width:"90%",
+  height:"90%",
   
 
   [theme.breakpoints.down("xl")]: {},

@@ -35,6 +35,7 @@ export const postAuth=(data)=>(dispatch)=>{
     })
     .then((res)=>{
         dispatch(postAuthSuccess(res.data))
+        localStorage.setItem('email',res.data.token)
         console.log("res.data",res.data)
     })
     .catch((error)=>{
