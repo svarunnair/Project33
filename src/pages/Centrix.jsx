@@ -51,7 +51,8 @@ const DetailBox = styled(Typography)(({ theme }) => ({
 }))
 
 const FirstBox = styled(Box)(({ theme }) => ({
-  border:'2px solid green',
+  // border:'2px solid green',
+  background:"#F0F0F0",
  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -61,7 +62,7 @@ const FirstBox = styled(Box)(({ theme }) => ({
 }))
 
 const MapData = styled(Box)(({ theme }) => ({
-  border:'2px solid green',
+  // border:'2px solid green',
   display:"grid",
   gridTemplateColumns:"repeat(3,1fr)",
  
@@ -73,7 +74,17 @@ const MapData = styled(Box)(({ theme }) => ({
 }))
 
 const InnerDiv = styled(Box)(({ theme }) => ({
-  border:'2px solid green',
+  border:'1px solid white',
+
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const TextDetail = styled(Typography)(({ theme }) => ({
 
  
   [theme.breakpoints.down("xl")]: {},
@@ -84,8 +95,9 @@ const InnerDiv = styled(Box)(({ theme }) => ({
 }))
 
 const ImageMap = styled(Box)(({ theme }) => ({
-  border:'2px solid green',
-  width:400,
+  // border:'2px solid green',
+  width:"70%",
+  paddingTop:10,
  
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -117,6 +129,10 @@ function Centrix() {
   {mainData?.map((item)=>(
     <InnerDiv>
     <ImageMap as={"img"} src={item.images[0]}/>
+    <TextDetail>{item.name}</TextDetail>
+    <TextDetail>{item.model}</TextDetail>
+    <TextDetail>{item.size}</TextDetail>
+    <TextDetail>₹{item.price}.00</TextDetail>
     </InnerDiv>
   ))}
 </MapData>

@@ -124,7 +124,7 @@ const BottomBox = styled(Typography)(({ theme }) => ({
   justifyContent:"center",
   paddingLeft:40,
   paddingTop:60,
-  fontSize:25,
+  fontSize:15,
   textAlign:'center',
   paddingBottom:70,
 
@@ -385,7 +385,7 @@ const handleCall=()=>{
 
 <SpecificationBox>
   <TextWrap >
-<TextBox sx={{fontSize:22,color:"grey",paddingLeft:13,}}>__________________________________________________________Specification__________________________________________________________</TextBox>
+<TextBox sx={{fontSize:22,color:"grey",paddingLeft:8}}>__________________________________________________________Specification__________________________________________________________</TextBox>
 </TextWrap>
 <InnerBox>
   <GeneralBox>
