@@ -32,6 +32,8 @@ export const authReducer=(state=iniState,action)=>{
             })
 
 
+
+            
             default:
                 return({
                     ...state

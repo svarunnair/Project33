@@ -1,19 +1,9 @@
-import { Box, Button, Input, Typography, styled } from '@mui/material'
+import { CheckBox } from '@mui/icons-material'
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, Select, Typography, styled } from '@mui/material'
 import React, { useState } from 'react'
-import Footer from './Footer'
-import PublicRoutes from '../Routes/PublicRoutes'
-import { useLocation, useNavigate } from 'react-router-dom'
-import SearchIcon from '@mui/icons-material/Search';
-import { AccessAlarm, Balcony, ThreeDRotation } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import RoomIcon from '@mui/icons-material/Room';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 
-const OuterDiv=styled(Box)(({theme})=>({
- 
-  
+const OuterContainer=styled(Box)(({theme})=>({
 
   [theme.breakpoints.down("xl")]:{
 
@@ -32,121 +22,8 @@ const OuterDiv=styled(Box)(({theme})=>({
   }
 }))
 
-const OuterConteiner=styled(Box)(({theme})=>({
-  
-   width:"100%",
-   display:'flex',
-   flexDirection:'column',
-   background:"black",
-   color:"white",
- 
-    [theme.breakpoints.down("xl")]:{
+const TextBox=styled(Typography)(({theme})=>({
 
-    },
-    [theme.breakpoints.down("lg")]:{
-
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
-}))
-
-const InnerContainer=styled(Box)(({theme})=>({
-
-
-  
-  background:"black",
-  display:"flex",
-  justifyContent:'space-between',
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const ImageBox=styled(Box)(({theme})=>({
-
-  width:130,
-  height:50,
-  background:"black",
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const Text=styled(Typography)(({theme})=>({
-  textAlign:"left",
-  
- 
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const BoxData=styled(Box)(({theme})=>({
- 
- 
-   [theme.breakpoints.down("xl")]:{
-
-   },
-   [theme.breakpoints.down("lg")]:{
-
-   },
-   [theme.breakpoints.down("md")]:{
-       
-   },
-   [theme.breakpoints.down("sm")]:{
-       
-   },
-   [theme.breakpoints.down("xs")]:{
-       
-   }
-}))
-
-const ButtonAuth=styled(Button)(({theme})=>({
- 
- 
   [theme.breakpoints.down("xl")]:{
 
   },
@@ -164,9 +41,8 @@ const ButtonAuth=styled(Button)(({theme})=>({
   }
 }))
 
-const MenuBox=styled(Box)(({theme})=>({
- 
- 
+const InnerBox=styled(Typography)(({theme})=>({
+
   [theme.breakpoints.down("xl")]:{
 
   },
@@ -184,903 +60,107 @@ const MenuBox=styled(Box)(({theme})=>({
   }
 }))
 
+const FirstBox=styled(Typography)(({theme})=>({
 
+  [theme.breakpoints.down("xl")]:{
 
+  },
+  [theme.breakpoints.down("lg")]:{
 
-
-
-
-
-
-function Navbar() {
-  const navigate=useNavigate()
-  const path=useLocation()
-  const [hover,setHover]=useState(false)
-  const [women,setWomen]=useState(false)
-
-
-
-
-  const handleImage=()=>{
-    navigate('/welcome')
+  },
+  [theme.breakpoints.down("md")]:{
+      
+  },
+  [theme.breakpoints.down("sm")]:{
+      
+  },
+  [theme.breakpoints.down("xs")]:{
+      
   }
-  const handleAuth=()=>{
-    navigate('/signin')
-  }
-const handleSearch=()=>{
-  navigate('/search')
-}
-  return (
-    <OuterDiv >
+}))
 
-       
-<OuterConteiner  position={"sticky"}  top={0} zIndex="1000" >
-    <Box sx={{display:"flex",justifyContent:"end",gap:"10px"}} >
-     <Box sx={{display:'flex',width:"110px"}}> <Text >Store Locator</Text><RoomIcon fontSize='small'/></Box>
-      <Box sx={{display:'flex',width:"120px"}}><Text  >India / English</Text><CurrencyRupeeIcon fontSize='small'/></Box>
-    </Box>
+function Signup() {
 
+  const [name,setName]=useState('')
 
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
    
+  return (
+    <OuterContainer>
+
+      <TextBox  sx={{fontSize:39, marginTop:10}}>Create New Customer Account</TextBox>
+      <InnerBox>
+        <TextBox sx={{marginRight:70}}>
+          Personal Information
+       </TextBox>
+       <FirstBox sx={{display:'flex', marginLeft:36,width:600}} > 
+
+       <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
+        <InputLabel   id="demo-simple-select-standard-label">Salutation</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={name}
+          onChange={handleChange}
+          label="Salutation"
+        >
 
 
-    <InnerContainer   >
-      <Box sx={{display:"flex", gap:'15px'}}>
-      <Text  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} marginLeft={3} marginTop={3}>Men</Text>
-      <Text onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} marginTop={3} >Women</Text>
-      <Text marginTop={3}>Ceramic Watches</Text>
-      <Text marginTop={3} >Feel Rado</Text>
-      <Text marginTop={3} >Services</Text>
-      </Box>  
+<MenuItem  value="">
+           
+          </MenuItem>
+          <MenuItem value={"Mr."}>Mr.</MenuItem>
+          <MenuItem value={"Mrs."}>Mrs.</MenuItem>
+         
+        </Select>
+      </FormControl><br/>
+
+      <Input sx={{marginLeft:10,borderRadius:1,border:"1px solid black",height:35,marginTop:2}} placeholder='Address'/>
         
-    <ImageBox  onClick={handleImage} sx={{cursor:'pointer',marginTop:0,paddingRight:35,height:65}} as="img" src="https://timeandtidewatches.com/wp-content/uploads/logos/Rado-Partner.jpg" />
- <Box >
-<ButtonAuth onClick={handleSearch} ><SearchIcon/></ButtonAuth>
-<ButtonAuth onClick={handleAuth} ><PermIdentityIcon/></ButtonAuth>
-</Box>
-      </InnerContainer>
+      </FirstBox>
+      <FirstBox sx={{marginLeft:-12}}>
+
+        <Input sx={{border:"1px solid black"}}  placeholder='First Name'/>
+        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='Last Name'/>
+
+      </FirstBox>
+      <FirstBox sx={{marginLeft:-12,padding:1}}>
+        <Input type='date' sx={{border:"1px solid black"}}  placeholder='Date of Birth'/>
+        <Input sx={{marginLeft:33,border:"1px solid black"}}  placeholder='Country'/>
+      </FirstBox>
+      <FirstBox sx={{marginLeft:-12}}>
+        <Input sx={{border:"1px solid black"}} placeholder='Pincode'/>
+        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='City'/>
+      </FirstBox>
+      <FirstBox sx={{marginLeft:-12,padding:1}}>
+        <Input sx={{border:"1px solid black"}} placeholder='State'/>
+        <Input sx={{marginLeft:24,border:"1px solid black"}}  placeholder='Telephone'/>
+      </FirstBox>
+      <Input sx={{marginLeft:36,border:"1px solid black"}}  placeholder='Personal Style'/>
 
 
 
-
-
-      </OuterConteiner>
-    
-    {hover?<MenuBox onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} sx={{width:"100%",height:500,position:"absolute",marginTop:8,display:'flex',color:'white',bgcolor:'black'}}> 
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
-    </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
-    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
-    <MenuBox >New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-    </Text>
-    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
-    </MenuBox>:""}
-
-
-
-   {women?<MenuBox onMouseEnter={()=>setWomen(true)} onMouseLeave={()=>setWomen(false)} sx={{width:"100%",height:500,position:"sticky",marginTop:8,display:'flex',color:'white',bgcolor:'grey'}}> 
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Discover</Text>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Gift Ideas</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Special Edition</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>Favourite</MenuBox>
-    </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Our Selections</Text>
-    <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      </Text>
-    <Text><Text  sx={{color:'grey',fontSize:30,marginTop:3}} >Collections</Text>
-    <MenuBox >New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-      <MenuBox sx={{color:"white",fontSize:16}}>New arraivals</MenuBox>
-    </Text>
-    <MenuBox sx={{marginTop:8}}>See all colections</MenuBox>
-    </MenuBox>:""}
-
-
-  
-    
-      <PublicRoutes/>
-      {path.pathname!=="/search"||path.pathname!=="/info"&&<Footer/>}
-     {path.pathname!=="/search"&&<Footer/>}
-     
-    </OuterDiv>
-    
+      
+      </InnerBox>
+<TextBox sx={{marginRight:70,fontSize:21,marginTop:4}}>Communication
+</TextBox>
+<TextBox sx={{marginRight:46}}>I prefer receive communication from Rado by :</TextBox>
+<FirstBox sx={{marginLeft:36}}>
+<FormGroup >
+<FormControlLabel  required control={<Checkbox />}  label="EMAILS" />
+<FormControlLabel  required  control={<Checkbox />} label="SMS" />
+<FormControlLabel  required  control={<Checkbox />} label="MAILS" />
+</FormGroup>
+</FirstBox>
+<TextBox sx={{marginRight:71}}>Sign-in Information</TextBox>
+<Input sx={{border:"1px solid black"}} placeholder='Email'/>
+<Input sx={{border:"1px solid black"}} placeholder='Password'/>
+<Input sx={{border:"1px solid black"}} placeholder='Confirm Password'/>
+<Button>Create Account</Button>
+    </OuterContainer>
   )
 }
 
-export default Navbar
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { Box, Typography, styled } from "@mui/material";
-import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import Welcome from "../pages/Welcome";
-
-const OuterBox = styled(Box)(({ theme }) => ({
-  border:"1px solid red", 
-width:"100px",
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const FirstBox = styled(Box)(({ theme }) => ({
-  border:"3px solid green",
-  height: 30,
-  background: "black",
-  display: "flex",
-  justifyContent: "end",
-  gap: 10,
- 
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const SecondBox = styled(Box)(({ theme }) => ({
-  border:"2px solid yellow", 
-  width:1300,
-  height: 70,
-  background: "#181818",
-  display: "flex",
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {
-    width:900,
-  },
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const TextBox = styled(Typography)(({ theme }) => ({
-  color: "white",
-  fontSize: 15,
-  border:"1px solid red",
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const SecondText = styled(Typography)(({ theme }) => ({
-  color: "white",
-  fontSize: 15,
-  border:"1px solid red",
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const CategoryBox = styled(Box)(({ theme }) => ({
- 
-  border:"2px solid white",
-  fontSize: 15,
-  display: "flex",
-  gap:30,
-  paddingLeft:15,
-  paddingTop:20,
-  
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const EmblomBox = styled(Box)(({ theme }) => ({
- border:"2px solid green",
-
-  display: "flex",
-  justifyContent:"center",
- 
-
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const SearchBox = styled(Box)(({ theme }) => ({
-  border:"1px solid red",
-  color:"white",
-
-  display: "flex",
- 
-  gap:20,
-  paddingTop:20,
-
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-
-const ImageEmblom = styled(Box)(({ theme }) => ({
-  width:120,
-  border:"1px solid red",
-  
-  [theme.breakpoints.down("xl")]: {},
-  [theme.breakpoints.down("lg")]: {},
-  [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
-  [theme.breakpoints.down("xs")]: {},
-}));
-function Navbar() {
-  return (
-    <OuterBox>
-      <FirstBox>
-        <TextBox>
-          Store location
-          <LocationOnIcon />
-        </TextBox>
-        <TextBox>
-          India/English
-          <CurrencyRupeeIcon />
-        </TextBox>
-      </FirstBox>
-      <SecondBox>
-         <CategoryBox>
-          <SecondText>Men</SecondText>
-          <SecondText>Women</SecondText>
-          <SecondText>Ceramic Watches</SecondText>
-          <SecondText>Feel Rado</SecondText>
-          <SecondText>Services</SecondText>
-        </CategoryBox>
-
-        <EmblomBox>
-          <ImageEmblom
-            as={"img"}
-            src="https://www.rado.com/static/version1702032715/frontend/Rado/default/en_GB/images/logo.svg"/>
-        </EmblomBox>
-
-        <SearchBox>
-<SearchOutlinedIcon/>
-<PersonOutlineOutlinedIcon/>
-
-        </SearchBox> 
-      </SecondBox>
-
-
-{/* <Welcome/> */}
-    </OuterBox>
-  );
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Box, Pagination, PaginationItem, styled } from '@mui/material'
-// import React, { useEffect, useState } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { getData } from '../Redux/data/action'
-// import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-// import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-// import { useNavigate } from 'react-router-dom';
-// import { hover } from '@testing-library/user-event/dist/hover';
-// const OuterContainer=styled(Box)(({theme})=>({
-    
-  
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-//   const ImageBox=styled(Box)(({theme})=>({
-    
-  
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-
-//   const TextBox=styled(Box)(({theme})=>({
-
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-//   const InnerBox=styled(Box)(({theme})=>({
-
-    
-//     width:1250,
-//     height:450,
-    
-    
-  
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-//   const BoxData=styled(Box)(({theme})=>({
-
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-//   const FirstBox=styled(Box)(({theme})=>({
-
-//     [theme.breakpoints.down("xl")]:{
-  
-//     },
-//     [theme.breakpoints.down("lg")]:{
-  
-//     },
-//     [theme.breakpoints.down("md")]:{
-        
-//     },
-//     [theme.breakpoints.down("sm")]:{
-        
-//     },
-//     [theme.breakpoints.down("xs")]:{
-        
-//     }
-//   }))
-
-// function Square() {
-
-//     const mainData=useSelector((store)=>store.data.getData)
-//     const dispatch=useDispatch()
-//     const [page, setPage] = useState(1);
-//     const [data,setData]=useState([])
-//     const navigate=useNavigate()
-
-//     useEffect(()=>{
-//      setData(mainData)
-//     },[mainData])
-
-//     const handleChange = (event, value) => {
-//       setPage(value);
-//     };
-//     console.log("squareData",mainData)
-
-//     useEffect(()=>{
-//       dispatch(getData())
-//     },[])
-
-//     const handleProduct=(id)=>{
-//       navigate(`/detail/${id}`)
-//     }
-
-
-
-//   return (
-//     <OuterContainer>
-
-//         <InnerBox  sx={{background:"#1B1B1B",marginTop:7,width:"100%"}} >
-// <ImageBox width={"50%"} as={'img'}  src="https://www.rado.com/media/catalog/category/True_Square_9.png"/>
-// <TextBox marginLeft={46} marginTop={4} width={600} color={"white"} >At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.</TextBox>
-//       <TextBox color={"white"} sx={{cursor:'pointer',
-//       ':hover': {
-//     textDecoration: 'underline',
-//     color:'white'
-//   },
-  
-//   }} marginTop={5} marginLeft={8} marginBottom={5} >
-//         Read more about the collection {">"}</TextBox>
-//         </InnerBox>
-//         <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
-
-//         </FirstBox>
-
-//         <InnerBox sx={{height:3100}} display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
-
-//             {mainData.map((item)=>(
-
-//                 <BoxData onClick={()=>handleProduct(item.id)} sx={{cursor:'pointer',bgcolor:"#F8F8F8"}}  width={350} height={400} border={"1px solid black"}>
-//                 <ImageBox  width={300} as={"img"} src={item.images[0]}/>
-//                 <TextBox sx={{color:"grey"}}>{item.name}</TextBox>
-//                 <TextBox  sx={{color:"grey"}}>{item.model}</TextBox>
-//                 <TextBox>₹{item.price}.00</TextBox>
-//                 </BoxData>
-
-//             ))}
-//  <Pagination
-//  onChange={handleChange}
-//  count={10} page={page}
-//           />
-   
-//         </InnerBox>
-
-//     </OuterContainer>
-//   )
-// }
-
-// export default Square
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const dispatch=useDispatch()
-// const detail=useSelector((store)=>store.data.getDetail)
-// const params=useParams()
-// const [count,setCount]=useState(0)
-// const navigate=useNavigate()
-// const [data,setData]=useState([])
-// const [dataImage,setDataImage]=useState([])
-
-// console.log("details",detail)
-
-
-// useEffect(()=>{
-//     if(Object.keys(detail).length>0){
-//         setDataImage(detail?.images)
-//     }
-// },[detail])
-
-// useEffect(()=>{
-
-//     if(Object.keys(detail).length>0){
-//         setData(detail)
-//     }    
-
-// },[detail])
-
-
-// useEffect(()=>{
-// dispatch(getDetail(params.id))
-// },[params])
-
-// const handleNext=()=>{
-// if(count>=3){
-//     setCount(0)
-// }
-// else{
-//     setCount(count+1)
-// }
-// }
-
-// const handlePrev=()=>{
-//     if(count<=0){
-//         setCount(3)
-//     }
-//     else{
-//         setCount(count-1)
-//     }
-
-// }
-
-// const handleCall=()=>{
-//   dispatch(postInfo(detail))
-//   navigate('/info')
-// }
-
-
-
-
-// return (
-// <OuterContainer>
-
-//   <OuterBox>
-  
-// <InnerBox sx={{width:"50%",border:"2px solid black"}} height={600} bgcolor={"#F0F0F0"} marginRight={70}>
-// <ButtonBox  onClick={handlePrev} sx={{fontSize:"x-large", marginBottom:50}}><ArrowBackIcon/></ButtonBox>
-// <ImageBox sx={{marginTop:8}} width={400} as={'img'} src={dataImage[count]}/>
-
-// <ButtonBox onClick={handleNext} sx={{fontSize:"x-large", marginBottom:50}}><ArrowForwardIcon/></ButtonBox>
-// </InnerBox>
-
-// <DetailBox sx={{textAlign:"left",padding:3,border:"2px solid red",width:"50%"}}>
-// <TextBox sx={{textAlign:"left",fontSize:35, fontWeight:500}}>{detail.name}</TextBox>
-// <TextBox sx={{fontSize:13,color:'grey'}}>{detail.model}</TextBox>
-// <TextBox sx={{fontSize:13,color:'grey'}}>{detail.size}</TextBox>
-// <TextDetails sx={{display:'flex'}}>
-// <TextBox sx={{fontSize:14,cursor:'pointer'}}>View full details {">"}</TextBox>
-// <TextBox sx={{fontSize:14,cursor:'pointer'}}> Add to Compare {">"}</TextBox>
-// <TextBox sx={{fontSize:14,cursor:'pointer'}}> Open comparator {">"}</TextBox>
-
-// </TextDetails>
-
-
-// <TextBox sx={{fontSize:22,marginTop:4}}>₹ {detail.price}.00</TextBox>
-// <TextBox sx={{color:"grey",fontSize:15}}>Maximum retail price (gst incl.). This maximum retail price is applicable for imports in India effect from 1st February 2023. Retailers may have stock at different MRP based on their date of purchase.</TextBox>
-// <TextBox onClick={()=>handleCall()} sx={{cursor:"pointer",textDecoration:"underline",fontSize:17,marginTop:3}}>Call me back</TextBox>
-// </DetailBox>
-// </OuterBox>
-
-// <DiscriptionBox>
-
-// <TextBox sx={{textAlign:"center",fontSize:22}}>{detail.description}</TextBox>
-
-// </DiscriptionBox>
-
-
-{/* <SpecificationBox>
-
-<TextBox sx={{color:"grey",marginTop:10,marginLeft:-14}}>__________________________________________________________Specification__________________________________________________________</TextBox>
-
-<FirstBox sx={{display:"flex",marginLeft:-22,width:"100%"}}>
-<SecondBox sx={{display:"grid",textAlign:"left",padding:5,}}>
-  <TextBox sx={{fontSize:17}}>General</TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>Engravable:<TextBox sx={{color:'grey',fontSize:13}}>{detail.Engravable}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>Product Name:<TextBox sx={{color:'grey',fontSize:13}}>{detail.ProductName}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>SKU:<TextBox sx={{color:'grey',fontSize:13}}>{detail.SKU}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>Gende:<TextBox sx={{color:'grey',fontSize:13}}>{detail.Gender}</TextBox></TextBox>
-</SecondBox>
-<SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
-  <TextBox sx={{fontSize:17}}>Movement</TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>Movement Type:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MovementType}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>Movement Reference:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MovementReference}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}> CaseMaterials:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseMaterials}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>CaseThickness:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseThickness}</TextBox></TextBox>
-</SecondBox>
-<SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
-  <TextBox sx={{fontSize:17}}>Case</TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>CaseWaterResistance:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseWaterResistance}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>CaseColour:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseColour}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>CaseDimension:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseDimension}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>CaseCrystal:<TextBox sx={{color:'grey',fontSize:13}}>{detail.CaseCrystal}</TextBox></TextBox>
-</SecondBox>
-<SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
-  <TextBox sx={{fontSize:17}}>Dial</TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>DialColour:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialColour}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>DialHasDate:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialHasDate}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>DialHasJewels:<TextBox sx={{color:'grey',fontSize:13}}>{detail.DialHasJewels}</TextBox></TextBox>
-  <TextBox sx={{fontSize:13,display:'flex'}}>MotherOfPearl:<TextBox sx={{color:'grey',fontSize:13}}>{detail.MotherOfPearl}</TextBox></TextBox>
-</SecondBox>
-<SecondBox sx={{display:"grid",textAlign:"left",padding:5,marginLeft:3}}>
-  <TextBox sx={{fontSize:17}}>Bracelet</TextBox>
-  <TextBox sx={{fontSize:13,display:"flex" ,marginTop:-12}}>JewelDetails:<TextBox sx={{color:'grey',fontSize:13}}>{detail.JewelDetails}</TextBox></TextBox>
-  </SecondBox>
-</FirstBox>
-
-</SpecificationBox> */}
-
-{/* </OuterContainer>
-)
-}
-
-export default Detail */}
-
-
-
-
-
-
-// 
-
-
-// import React, { useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { getData } from '../Redux/data/action'
-// import { Box, styled } from '@mui/material'
-// import { useNavigate } from 'react-router-dom'
-
-// const OuterContainer=styled(Box)(({theme})=>({
-    
-  
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-// const ImageBox=styled(Box)(({theme})=>({
-  
-
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-
-// const TextBox=styled(Box)(({theme})=>({
-
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-// const InnerBox=styled(Box)(({theme})=>({
-
-//   border:"2px solid red",
-//   width:1250,
-//   height:450,
-  
-  
-
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-// const BoxData=styled(Box)(({theme})=>({
-
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-// const FirstBox=styled(Box)(({theme})=>({
-
-//   [theme.breakpoints.down("xl")]:{
-
-//   },
-//   [theme.breakpoints.down("lg")]:{
-
-//   },
-//   [theme.breakpoints.down("md")]:{
-      
-//   },
-//   [theme.breakpoints.down("sm")]:{
-      
-//   },
-//   [theme.breakpoints.down("xs")]:{
-      
-//   }
-// }))
-
-// function Centrix() {
-
-//   const mainData=useSelector((store)=>store.data.getData)
-//     const dispatch=useDispatch()
-//     const navigate=useNavigate()
-
-//     const handleProduct=(id)=>{
-//       navigate(`/detail/${id}`)
-//     }
-
-//     console.log("CentrixData",mainData)
-
-//     useEffect(()=>{
-//       dispatch(getData())
-//     },[])
-//   return (
-//     <OuterContainer>
-
-//     <InnerBox sx={{background:"#1B1B1B",width:"100%"}} >
-// <ImageBox width={"50%"}  sx={{marginTop:10}} as={'img'} src="https://www.rado.com/media/catalog/category/Centrix_9.png"/>
-// <TextBox color={"white"} marginLeft={57} width={400} >There is a reason why Centrix is Rado’s most popular watch. Its versatility in a range of different sizes, colour combinations, quartz and automatic movements guarantees there is a model to suit all tastes.</TextBox>
-//   <TextBox color={"white"} marginTop={5} marginLeft={8}>Read more about the collection</TextBox>
-//     </InnerBox>
-
-//     <FirstBox position={"sticky"} top={100} bgcolor={"white"} sx={{width:"100%",border:"1px solid red",height:55}}>
-
-// </FirstBox>
-
-//     <InnerBox  display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
-
-//         {mainData.map((item)=>(
-
-//             <BoxData onClick={()=>handleProduct(item.id)}  sx={{cursor:'pointer'}}  width={350} height={500} border={"1px solid black"}>
-//             <ImageBox  width={300} as={"img"} src={item.images[0]}/>
-//             <TextBox>{item.name}</TextBox>
-//             <TextBox sx={{color:"grey"}}>{item.model}</TextBox>
-//             <TextBox sx={{color:"grey"}}>{item.size}</TextBox>
-//             <TextBox>₹ {item.price}.00</TextBox>
-//             </BoxData>
-
-//         ))}
-
-//     </InnerBox>
-
-// </OuterContainer>
-//   )
-// }
-
-// export default Centrix
+export default Signup

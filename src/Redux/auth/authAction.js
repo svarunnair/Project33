@@ -27,15 +27,17 @@ const postAuthFailure=()=>{
 
 
 export const postAuth=(data)=>(dispatch)=>{
+  
     dispatch(postAuthRequiest())
     return axios({
-        url:"https://fine-cyan-pelican-cuff.cyclic.app/signin",
+        url:"https://reqres.in/api/register",
         method:"POST",
         data
     })
     .then((res)=>{
         dispatch(postAuthSuccess(res.data))
         localStorage.setItem('email',res.data.token)
+        console.log("token",res.data.token)
         console.log("res.data",res.data)
     })
     .catch((error)=>{

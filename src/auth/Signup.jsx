@@ -1,106 +1,105 @@
-import { CheckBox } from '@mui/icons-material'
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, Select, Typography, styled } from '@mui/material'
-import React, { useState } from 'react'
+import { Box, FormControl, Input, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from "@mui/material";
+import React, { useState } from "react";
 
+const OuterContainer = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-const OuterContainer=styled(Box)(({theme})=>({
+const InnerContainer = styled(Box)(({ theme }) => ({
+border:"2px solid red",
+display:"grid",
+justifyItems:"center",
 
-  [theme.breakpoints.down("xl")]:{
+padding:70,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  },
-  [theme.breakpoints.down("lg")]:{
+const TitleText = styled(Typography)(({ theme }) => ({
+ 
+  fontSize:33,
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
+  }));
 
-  },
-  [theme.breakpoints.down("md")]:{
+  const PersonalInfo = styled(Box)(({ theme }) => ({
+    // border:"2px solid blue",
+
+    
+      [theme.breakpoints.down("xl")]: {},
+      [theme.breakpoints.down("lg")]: {},
+      [theme.breakpoints.down("md")]: {},
+      [theme.breakpoints.down("sm")]: {},
+      [theme.breakpoints.down("xs")]: {},
+    }));
+
+    const TextBox = styled(Typography)(({ theme }) => ({
       
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
+        [theme.breakpoints.down("xl")]: {},
+        [theme.breakpoints.down("lg")]: {},
+        [theme.breakpoints.down("md")]: {},
+        [theme.breakpoints.down("sm")]: {},
+        [theme.breakpoints.down("xs")]: {},
+      }));
 
-const TextBox=styled(Typography)(({theme})=>({
 
-  [theme.breakpoints.down("xl")]:{
+      const InputBox = styled(Box)(({ theme }) => ({
+      // border:"1px solid black",
+      display:"flex",
+     gap:30,
+     
+        [theme.breakpoints.down("xl")]: {},
+        [theme.breakpoints.down("lg")]: {},
+        [theme.breakpoints.down("md")]: {},
+        [theme.breakpoints.down("sm")]: {},
+        [theme.breakpoints.down("xs")]: {},
+      }));
 
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const InnerBox=styled(Typography)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const FirstBox=styled(Typography)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
+      const FirstBox = styled(Box)(({ theme }) => ({
+        // border:"1px solid black",
+        display:"flex",
+        flexDirection:"column",
+       gap:10,
+       
+          [theme.breakpoints.down("xl")]: {},
+          [theme.breakpoints.down("lg")]: {},
+          [theme.breakpoints.down("md")]: {},
+          [theme.breakpoints.down("sm")]: {},
+          [theme.breakpoints.down("xs")]: {},
+        }));
 
 function Signup() {
-
   const [name,setName]=useState('')
-
-
-
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
-   
+  const [region,setRegion]=useState('')
+  const handleChange=(e)=>{
+    let value=e.target.value 
+setName(value)
+  }
+  const handleRegion=(e)=>{
+    let value=e.target.value 
+setRegion(value)
+  }
   return (
-    <OuterContainer>
+<OuterContainer>
 
-      <TextBox  sx={{fontSize:39, marginTop:10}}>Create New Customer Account</TextBox>
-      <InnerBox>
-        <TextBox sx={{marginRight:70}}>
-          Personal Information
-       </TextBox>
-       <FirstBox sx={{display:'flex', marginLeft:36,width:600}} > 
+  <InnerContainer>
+<TitleText>Create New Customer Account</TitleText>
 
-       <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
+<PersonalInfo>
+  <TextBox sx={{textAlign:"left"}}>Personal Information</TextBox>
+  <FirstBox>
+  <InputBox  sx={{gap:1}}>
+  <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
         <InputLabel   id="demo-simple-select-standard-label">Salutation</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
@@ -120,50 +119,58 @@ function Signup() {
         </Select>
       </FormControl><br/>
 
-      <Input sx={{marginLeft:10,borderRadius:1,border:"1px solid black",height:35,marginTop:2}} placeholder='Address'/>
-        
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12}}>
+  <OutlinedInput  sx={{width:300}} placeholder="Address"/>
+  </InputBox>
 
-        <Input sx={{border:"1px solid black"}}  placeholder='First Name'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='Last Name'/>
+  <InputBox>
+  <OutlinedInput  sx={{width:300}} placeholder="First Name"/>
+  <OutlinedInput  sx={{width:300}} placeholder="City"/>
+  </InputBox>
 
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12,padding:1}}>
-        <Input type='date' sx={{border:"1px solid black"}}  placeholder='Date of Birth'/>
-        <Input sx={{marginLeft:33,border:"1px solid black"}}  placeholder='Country'/>
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12}}>
-        <Input sx={{border:"1px solid black"}} placeholder='Pincode'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='City'/>
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12,padding:1}}>
-        <Input sx={{border:"1px solid black"}} placeholder='State'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}}  placeholder='Telephone'/>
-      </FirstBox>
-      <Input sx={{marginLeft:36,border:"1px solid black"}}  placeholder='Personal Style'/>
+  <InputBox sx={{gap:2.6}}>
+  <OutlinedInput  sx={{width:300}} placeholder="Last Name"/>
+  <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
+        <InputLabel   id="demo-simple-select-standard-label">Salutation</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={region}
+          onChange={handleRegion}
+          label="Salutation"
+        >
 
 
+<MenuItem  value="">
+           
+          </MenuItem>
+          <MenuItem value={"Mr."}>Mr.</MenuItem>
+          <MenuItem value={"Mrs."}>Mrs.</MenuItem>
+         
+        </Select>
+      </FormControl><br/>
 
-      
-      </InnerBox>
-<TextBox sx={{marginRight:70,fontSize:21,marginTop:4}}>Communication
-</TextBox>
-<TextBox sx={{marginRight:46}}>I prefer receive communication from Rado by :</TextBox>
-<FirstBox sx={{marginLeft:36}}>
-<FormGroup >
-<FormControlLabel  required control={<Checkbox />}  label="EMAILS" />
-<FormControlLabel  required  control={<Checkbox />} label="SMS" />
-<FormControlLabel  required  control={<Checkbox />} label="MAILS" />
-</FormGroup>
-</FirstBox>
-<TextBox sx={{marginRight:71}}>Sign-in Information</TextBox>
-<Input sx={{border:"1px solid black"}} placeholder='Email'/>
-<Input sx={{border:"1px solid black"}} placeholder='Password'/>
-<Input sx={{border:"1px solid black"}} placeholder='Confirm Password'/>
-<Button>Create Account</Button>
-    </OuterContainer>
-  )
+  </InputBox>
+
+  <InputBox>
+  <OutlinedInput type='date'  sx={{width:300}} placeholder="Birth Date"/>
+  <OutlinedInput  sx={{width:300}} placeholder="Post Code"/>
+  </InputBox>
+
+  <InputBox>
+  <OutlinedInput  sx={{width:300}} placeholder="Telephone"/>
+  <OutlinedInput  sx={{width:300}} placeholder="Country"/>
+  </InputBox>
+  </FirstBox>
+
+</PersonalInfo>
+
+
+
+  </InnerContainer>
+
+
+</OuterContainer>
+  ) 
 }
 
-export default Signup
+export default Signup;
