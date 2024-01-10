@@ -1,166 +1,121 @@
-import { CheckBox } from '@mui/icons-material'
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, Select, Typography, styled } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getData } from "../Redux/data/action";
+import { Box, styled } from "@mui/material";
 
+const OuterContainer = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-const OuterContainer=styled(Box)(({theme})=>({
+const ImageBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  [theme.breakpoints.down("xl")]:{
+const TextBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  },
-  [theme.breakpoints.down("lg")]:{
+const InnerBox = styled(Box)(({ theme }) => ({
+  width: 1250,
+  height: 450,
 
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-const TextBox=styled(Typography)(({theme})=>({
+const BoxData = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  [theme.breakpoints.down("xl")]:{
+const FirstBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
-  },
-  [theme.breakpoints.down("lg")]:{
+function Captain() {
+  const mainData = useSelector((store) => store.data.getData);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const InnerBox=styled(Typography)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const FirstBox=styled(Typography)(({theme})=>({
-
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-function Signup() {
-
-  const [name,setName]=useState('')
-
-  const handleChange = (e) => {
-    setName(e.target.value);
+  const handleProduct = (id) => {
+    navigate(`/detail/${id}`);
   };
-   
+
+  console.log("squareData", mainData);
+
+  useEffect(() => {
+    dispatch(getData());
+  }, []);
   return (
     <OuterContainer>
-
-      <TextBox  sx={{fontSize:39, marginTop:10}}>Create New Customer Account</TextBox>
-      <InnerBox>
-        <TextBox sx={{marginRight:70}}>
-          Personal Information
-       </TextBox>
-       <FirstBox sx={{display:'flex', marginLeft:36,width:600}} > 
-
-       <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
-        <InputLabel   id="demo-simple-select-standard-label">Salutation</InputLabel>
-        <Select
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
-          value={name}
-          onChange={handleChange}
-          label="Salutation"
-        >
-
-
-<MenuItem  value="">
-           
-          </MenuItem>
-          <MenuItem value={"Mr."}>Mr.</MenuItem>
-          <MenuItem value={"Mrs."}>Mrs.</MenuItem>
-         
-        </Select>
-      </FormControl><br/>
-
-      <Input sx={{marginLeft:10,borderRadius:1,border:"1px solid black",height:35,marginTop:2}} placeholder='Address'/>
-        
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12}}>
-
-        <Input sx={{border:"1px solid black"}}  placeholder='First Name'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='Last Name'/>
-
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12,padding:1}}>
-        <Input type='date' sx={{border:"1px solid black"}}  placeholder='Date of Birth'/>
-        <Input sx={{marginLeft:33,border:"1px solid black"}}  placeholder='Country'/>
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12}}>
-        <Input sx={{border:"1px solid black"}} placeholder='Pincode'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}} placeholder='City'/>
-      </FirstBox>
-      <FirstBox sx={{marginLeft:-12,padding:1}}>
-        <Input sx={{border:"1px solid black"}} placeholder='State'/>
-        <Input sx={{marginLeft:24,border:"1px solid black"}}  placeholder='Telephone'/>
-      </FirstBox>
-      <Input sx={{marginLeft:36,border:"1px solid black"}}  placeholder='Personal Style'/>
-
-
-
-      
+      <InnerBox sx={{ background: "#1B1B1B", width: "100%" }}>
+        <ImageBox
+          width={"50%"}
+          sx={{ marginTop: 10 }}
+          as={"img"}
+          src="https://www.rado.com/media/catalog/category/Captain_Cook_9.png"
+        />
+        <TextBox color={"white"} marginLeft={57} width={400}>
+          There is a reason why Centrix is Rado’s most popular watch. Its
+          versatility in a range of different sizes, colour combinations, quartz
+          and automatic movements guarantees there is a model to suit all
+          tastes.
+        </TextBox>
+        <TextBox color={"white"} marginTop={5} marginLeft={8}>
+          Read more about the collection
+        </TextBox>
       </InnerBox>
-<TextBox sx={{marginRight:70,fontSize:21,marginTop:4}}>Communication
-</TextBox>
-<TextBox sx={{marginRight:46}}>I prefer receive communication from Rado by :</TextBox>
-<FirstBox sx={{marginLeft:36}}>
-<FormGroup >
-<FormControlLabel  required control={<Checkbox />}  label="EMAILS" />
-<FormControlLabel  required  control={<Checkbox />} label="SMS" />
-<FormControlLabel  required  control={<Checkbox />} label="MAILS" />
-</FormGroup>
-</FirstBox>
-<TextBox sx={{marginRight:71}}>Sign-in Information</TextBox>
-<Input sx={{border:"1px solid black"}} placeholder='Email'/>
-<Input sx={{border:"1px solid black"}} placeholder='Password'/>
-<Input sx={{border:"1px solid black"}} placeholder='Confirm Password'/>
-<Button>Create Account</Button>
+
+      <FirstBox
+        position={"sticky"}
+        top={100}
+        bgcolor={"white"}
+        sx={{ width: "100%", border: "1px solid red", height: 55 }}
+      ></FirstBox>
+      
+
+      <InnerBox display={"grid"} gridTemplateColumns={"repeat(3,1fr)"}>
+        {mainData.map((item) => (
+          <BoxData
+            onClick={() => handleProduct(item.id)}
+            sx={{ cursor: "pointer" }}
+            width={350}
+            height={500}
+            border={"1px solid black"}
+          >
+            <ImageBox width={300} as={"img"} src={item.images[0]} />
+            <TextBox>{item.name}</TextBox>
+            <TextBox sx={{ color: "grey" }}>{item.model}</TextBox>
+            <TextBox sx={{ color: "grey" }}>{item.size}</TextBox>
+            <TextBox>₹ {item.price}.00</TextBox>
+          </BoxData>
+        ))}
+      </InnerBox>
     </OuterContainer>
-  )
+  );
 }
 
-export default Signup
+export default Captain;

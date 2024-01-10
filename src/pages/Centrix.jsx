@@ -1,10 +1,11 @@
 import { Store } from '@mui/icons-material'
-import { Box, Typography, styled } from '@mui/material'
-import React, { useEffect } from 'react'
+import { Box, Pagination, PaginationItem, Typography, styled } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../Redux/data/action'
 import { useNavigate } from 'react-router-dom'
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   // border:'2px solid red',
@@ -107,6 +108,18 @@ const ImageMap = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }))
 
+const BottomBox = styled(Box)(({ theme }) => ({
+  // border:'2px solid green',
+ display:"flex",
+ justifyContent:"center",
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
 function Centrix() {
   const mainData=useSelector((store)=>store.data.getData)
   const dispatch=useDispatch()
@@ -121,18 +134,37 @@ function Centrix() {
   useEffect(()=>{
     dispatch(getData())
   },[])
+
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 9; // You can adjust this based on your preference
+
+  const handleChange = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const getDataForPage = () => {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const slicedData = mainData.slice(startIndex, endIndex);
+    return slicedData;
+  };
+
+  const paginatedData = getDataForPage();
+
+
+  console.log("pagg",paginatedData)
   return (
     <OuterContainer>
       <InnerContainer>
         <TitleBox sx={{paddingTop:6}} as={"img"} src="https://www.rado.com/media/catalog/category/Centrix_9.png"/>
         <DetailBox sx={{width:"60%",paddingTop:5,fontSize:20}}>There is a reason why Centrix is Rado’s most popular watch. Its versatility in a range of different sizes, colour combinations, quartz and automatic movements guarantees there is a model to suit all tastes.</DetailBox>
-      <DetailBox sx={{":hover":{textDecoration:"underline"},paddingTop:4,paddingBottom:12}}>Read more about the collection{">"}</DetailBox>
+      <DetailBox sx={{":hover":{textDecoration:"underline"},paddingTop:4,paddingBottom:7}}>Read more about the collection{">"}</DetailBox>
       </InnerContainer>
 
 <FirstBox>
 
 <MapData>
-  {mainData?.map((item)=>(
+  {paginatedData?.map((item)=>(
     <InnerDiv >
     <ImageMap sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]}/>
     <TextDetail onClick={()=>handleProduct(item.id)}>{item.name}</TextDetail>
@@ -142,7 +174,9 @@ function Centrix() {
     </InnerDiv>
   ))}
 </MapData>
-
+<BottomBox>
+<Pagination count={Math.ceil(mainData.length / itemsPerPage)} page={page} onChange={handleChange} />
+</BottomBox>
 </FirstBox>
 
 

@@ -1,6 +1,7 @@
 import { Box, Button, Typography, styled } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -273,6 +274,13 @@ const ButtonDisc= styled(Button)(({ theme }) => ({
 }))
 
 function Collections() {
+  const navigate=useNavigate()
+  const handleCook=()=>{
+    navigate("/captain")
+  }
+  const handleSquare=()=>{
+    navigate("/square")
+  }
   return (
 <OuterContainer>
 
@@ -317,7 +325,7 @@ function Collections() {
   <TextCaption>Captain Cook</TextCaption>
   <TextDiscription>Charting new territory in vintage watches, the Rado Captain Cook is a natural choice for modern explorers. Its vintage details, and up-to-date features make it the perfect watch for men and women.
 </TextDiscription>
-<ButtonDisc variant='contained'>Explore more</ButtonDisc>
+<ButtonDisc variant='contained' onClick={handleCook}>Explore more</ButtonDisc>
 </DetailText>
 
 <DetailImage as={"img"} src="https://www.rado.com/media/catalog/category/captain-cook-htc-diver-category-image.png?im=Resize=(1920,1280),aspect=fill;Crop=(0,0,1920,1280),gravity=Center"/>
@@ -334,7 +342,7 @@ function Collections() {
   <TextCaption> True Square</TextCaption>
   <TextDiscription>At Rado, we don’t just know square high-tech ceramic watches: We invented them! The True Square features a full high-tech ceramic case and bracelet, meeting every Rado requirement.
 </TextDiscription>
-<ButtonDisc>Explore more</ButtonDisc>
+<ButtonDisc onClick={handleSquare}>Explore more</ButtonDisc>
 </DetailText>
 </DetailBoxTwo>
 

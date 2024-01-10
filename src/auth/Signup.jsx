@@ -11,7 +11,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 }));
 
 const InnerContainer = styled(Box)(({ theme }) => ({
-border:"2px solid red",
+// border:"2px solid red",
 display:"grid",
 justifyItems:"center",
 

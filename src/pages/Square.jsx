@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Pagination, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
 const InnerContainer = styled(Box)(({ theme }) => ({
   // border:"1px solid blue",
-  background: "black",
+  background: "#141414",
   display: "grid",
   justifyItems: "center",
   paddingBottom: 60,
@@ -152,20 +152,47 @@ const TextMap = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }));
 
+const BottomBox = styled(Box)(({ theme }) => ({
+ 
+  display:"flex",
+  justifyContent:"center",
+  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
 function Square() {
   const mainData = useSelector((store) => store.data.getData);
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const [page,setPage]=useState(1)
+
+
+  const itemsPerPage=9;
+
+
+  const getDataPage=()=>{
+    const startIndex=(page-1)*itemsPerPage
+    const endIndex=startIndex+itemsPerPage
+    const sliceData=mainData.slice(startIndex,endIndex)
+    return sliceData
+  }
+
+  const paginationData=getDataPage()
+
+  const handleChange=(e,newPage)=>{
+    setPage(newPage)
+  }
 
   useEffect(() => {
     setData(mainData);
   }, [mainData]);
 
-  // const handleChange = (event, value) => {
-  //   setPage(value);
-  // };
+
   console.log("squareData", mainData);
 
   useEffect(() => {
@@ -192,7 +219,7 @@ function Square() {
       </InnerContainer>
 
       <MapData>
-        {mainData.map((item) => (
+        {paginationData.map((item) => (
           <InnerDiv>
           <InnerDivOne>
             <FavoriteIconDiv>
@@ -207,6 +234,10 @@ function Square() {
           </InnerDiv>
         ))}
       </MapData>
+
+      <BottomBox>
+      <Pagination count={Math.ceil(mainData.length/itemsPerPage)} page={page} onChange={handleChange} />
+      </BottomBox>
     </OuterContainer>
   );
 }

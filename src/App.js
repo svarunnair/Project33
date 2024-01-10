@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import PublicRoutes from './Routes/PublicRoutes';
-import Navbar from './components/Navbar';
+
 import Footer from './components/Footer';
 import { useLocation } from 'react-router-dom';
 import Info from './pages/Info';
@@ -26,6 +26,7 @@ function App() {
       {/* <Footer/> */}
   {/* <DatePicker placeholder='select a date' type='date'/> */}
      <Navbar2/>
+     <Footer/>
      {/* <Navbar/> */}
 {/*     
      <Signin/> */}
