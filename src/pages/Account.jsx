@@ -1,5 +1,8 @@
 import { Box, Typography, styled } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSignup } from '../Redux/auth/authAction'
+import { useNavigate } from 'react-router-dom'
 
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -103,6 +106,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
 
       width:"100%",
       height:"100%",
+      cursor:"pointer",
       
        [theme.breakpoints.down("xl")]: {},
        [theme.breakpoints.down("lg")]: {},
@@ -126,12 +130,33 @@ const OuterContainer = styled(Box)(({ theme }) => ({
      }))
 
 function Account() {
+
+  const account=useSelector((store)=>store.auth.getSignupData)
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+  
+
+  let userName=account.map((item)=>{return item.firstName})
+
+  console.log("userrr",userName)
+
+  console.log("acc",account)
+
+  const handleSignout=()=>{
+    localStorage.clear()
+    navigate('/')
+  }
+
+  useEffect(()=>{
+      dispatch(getSignup())
+  },[])
+
   return (
     <OuterContainer>
 
 
       <InnerContainer>
-        <TitleText>Hello </TitleText>
+        <TitleText>Hello {userName} </TitleText>
 
         <BoxDiv>
 
@@ -163,8 +188,8 @@ function Account() {
           <ImageBox as={"img"} src="https://www.rado.com/static/version1704871359/frontend/Rado/default/en_GB/SgEcom_Customer/images/menu/personal-information.jpg?im=Resize=(932,1150),aspect=fill;Crop=(0,0,932,1150),gravity=Center"/>
           </InnerBox>
             <InnerBox sx={{width:250,height:250}}>
-            <TextBox>Sign Out</TextBox>
-            <ImageBox as={"img"} src="https://www.rado.com/static/version1704871359/frontend/Rado/default/en_GB/SgEcom_Customer/images/menu/sign-out.jpg?im=Resize=(932,1150),aspect=fill;Crop=(0,0,932,1150),gravity=Center"/>
+            <TextBox >Sign Out</TextBox>
+            <ImageBox onClick={handleSignout} as={"img"} src="https://www.rado.com/static/version1704871359/frontend/Rado/default/en_GB/SgEcom_Customer/images/menu/sign-out.jpg?im=Resize=(932,1150),aspect=fill;Crop=(0,0,932,1150),gravity=Center"/>
             </InnerBox>
           </FirstBox>
           <FirstBox>
