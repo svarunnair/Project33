@@ -416,28 +416,28 @@ function Navbar2() {
                       Men
                     </Text>
 
-                    <Text
+                    <Text  onMouseEnter={handleMen}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: "white", display: "block" }}
                     >
                       Women
                     </Text>
 
-                    <Text
+                    <Text  onMouseEnter={handleMen}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: "white", display: "block" }}
                     >
                       Ceramic watches
                     </Text>
 
-                    <Text
+                    <Text  onMouseEnter={handleMen}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: "white", display: "block" }}
                     >
                       Feel rado
                     </Text>
 
-                    <Text
+                    <Text  onMouseEnter={handleMen}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: "white", display: "block" }}
                     >

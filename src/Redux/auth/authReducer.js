@@ -1,11 +1,12 @@
-import { POST_AUTH_FAILURE, POST_AUTH_REQUIEST, POST_AUTH_SUCCESS } from "./authAction"
+import { POST_AUTH_FAILURE, POST_AUTH_REQUIEST, POST_AUTH_SUCCESS, POST_SIGNUP_FAILURE, POST_SIGNUP_REQUIEST, POST_SIGNUP_SUCCESS } from "./authAction"
 
 
 
 const iniState={
     isError:false,
     isLoading:false,
-    postAuth:[]
+    postAuth:[],
+    postSignupData:[]
 
 }
 
@@ -25,6 +26,26 @@ export const authReducer=(state=iniState,action)=>{
                 postAuth:action.payload
             })
             case POST_AUTH_FAILURE:
+            return({
+                ...state,
+                isError:true,
+                isLoading:false
+            })
+
+            case POST_SIGNUP_REQUIEST:
+            return({
+                ...state,
+                isError:false,
+                isLoading:true
+            })
+            case POST_SIGNUP_SUCCESS:
+            return({
+                ...state,
+                isError:false,
+                isLoading:false,
+                postSignupData:action.payload
+            })
+            case POST_SIGNUP_FAILURE:
             return({
                 ...state,
                 isError:true,

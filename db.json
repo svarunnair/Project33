@@ -652,5 +652,14 @@
       "JewelDetails": " 4 Diamonds - 0.032 8 Diamonds - 0.030"
     }
   ],
-  "info": []
+  "info": [],
+  "signup": [
+    {
+      "address": "Karippamon kizhakkathil THAZHATHUKULAKKADA .p.o kollam",
+      "firstName": "varun",
+      "lastName": "",
+      "city": "Quilon",
+      "id": 1
+    }
+  ]
 }

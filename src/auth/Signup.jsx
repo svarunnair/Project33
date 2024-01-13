@@ -1,6 +1,9 @@
 import { CheckBox } from "@mui/icons-material";
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postSignup } from "../Redux/auth/authAction";
+import { useNavigate } from "react-router-dom";
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xl")]: {},
@@ -167,6 +170,46 @@ function Signup() {
   const [name,setName]=useState('')
   const [region,setRegion]=useState('')
   const [checked,setChecked]=useState("")
+  const [address,setAddress]=useState('')
+  const [city,setCity]=useState('')
+  const [last,setLast]=useState('')
+  const [first,setFirst]=useState('')
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
+
+  
+  const handleAddress=(e)=>{
+    let value=e.target.value 
+    setAddress(value)
+  }
+  const handleLast=(e)=>{
+    let value=e.target.value 
+    setLast(value)
+  }
+  const handleCity=(e)=>{
+    let value=e.target.value 
+    setCity(value)
+  }
+  const handleFirstName=(e)=>{
+    let value=e.target.value 
+    setFirst(value)
+  }
+
+  const handleSubmit=()=>{
+    
+   
+      let data={
+        address:address,
+        firstName:first,
+        lastName:last,
+        city:city
+      }
+      dispatch(postSignup(data))
+      navigate('/')
+      alert('Account created successfully')
+   
+    
+  }
 
   const handleChange1=(e)=>{
     let value=e.target.value 
@@ -210,16 +253,16 @@ setRegion(value)
         </Select>
       </FormControl><br/>
 
-  <OutlinedInput  sx={{width:300,height:40}} placeholder="Address"/>
+  <OutlinedInput onChange={handleAddress}  sx={{width:300,height:40}} placeholder="Address"/>
   </InputBox>
 
   <InputBox>
-  <OutlinedInput  sx={{width:300,height:40}} placeholder="First Name"/>
-  <OutlinedInput  sx={{width:300,height:40}} placeholder="City"/>
+  <OutlinedInput onChange={handleFirstName} sx={{width:300,height:40}} placeholder="First Name"/>
+  <OutlinedInput onChange={handleCity} sx={{width:300,height:40}} placeholder="City"/>
   </InputBox>
 
   <InputBox sx={{gap:2.6}}>
-  <OutlinedInput  sx={{width:300,height:40}} placeholder="Last Name"/>
+  <OutlinedInput onClick={handleLast} sx={{width:300,height:40}} placeholder="Last Name"/>
   <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
         <InputLabel   id="demo-simple-select-standard-label">Salutation</InputLabel>
         <Select
@@ -342,7 +385,7 @@ setRegion(value)
 </FourthBox>
 <ButtonBox>
 
-<Button sx={{textTransform:"none",height:60,width:150,background:"black",color:"white",":hover":{background:'black',color:"white"},borderRadius:0}}>Create an Account</Button>
+<Button onClick={handleSubmit} sx={{textTransform:"none",height:60,width:150,background:"black",color:"white",":hover":{background:'black',color:"white"},borderRadius:0}}>Create an Account</Button>
   
 </ButtonBox>
 

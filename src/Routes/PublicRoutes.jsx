@@ -12,6 +12,7 @@ import Info from '../pages/Info'
 import Captain from '../pages/Captain'
 import Welcome from '../pages/Welcome'
 import Result from '../pages/Result'
+import Account from '../pages/Account'
 
 
 function PublicRoutes() {
@@ -34,6 +35,8 @@ function PublicRoutes() {
             <Route path='/info' element={<Info/>}/>
             <Route path='/captain' element={<Captain/>}/>
             <Route path='/result' element={<Result/>}/>
+            <Route path='/account' element={<Account/>}/>
+
             
 
         </Routes>
