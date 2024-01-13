@@ -802,6 +802,23 @@ function Welcome() {
   const dispatch = useDispatch();
   const navigate=useNavigate()
 
+
+  const handleChrono=()=>{
+    navigate('/centrix')
+  }
+  const handleSkelt=()=>{
+    navigate('/square')
+  }
+  const handleLeather=()=>{
+    navigate('/captain')
+  }
+  const handleMens=()=>{
+    navigate('/centrix')
+  }
+  const handleWomen=()=>{
+    navigate('/square')
+  }
+
   const handleItem=(id)=>{
     navigate(`/detail/${id}`)
   }
@@ -932,19 +949,19 @@ const handleCook=()=>{
           <BoxOne>
             <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-chronograph_1.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
           <TextImage>Chronography Watches</TextImage>
-          <ButtonImage>Discover more</ButtonImage>
+          <ButtonImage onClick={handleChrono}>Discover more</ButtonImage>
 
           </BoxOne>
           <BoxTwo>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/skeleton-watches.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
           <TextImage>Skelton Watches</TextImage>
-          <ButtonImage>Discover more</ButtonImage>
+          <ButtonImage onClick={handleSkelt}>Discover more</ButtonImage>
 
           </BoxTwo>
           <BoxThree>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/homepage/captain-cook-over-pole.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
           <TextImage>Leather Watches</TextImage>
-          <ButtonImage>Discover more</ButtonImage>
+          <ButtonImage onClick={handleLeather}>Discover more</ButtonImage>
 
           </BoxThree>
         </SixthBox>
@@ -953,13 +970,13 @@ const handleCook=()=>{
           <BoxFour>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/men-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
           <TextImageOne >Men's Watches</TextImageOne>
-          <ButtonImageOne>Discover more</ButtonImageOne>
+          <ButtonImageOne onClick={handleMens}>Discover more</ButtonImageOne>
 
           </BoxFour>
           <BoxFive>
           <ImageIcon as={"img"} src="https://www.rado.com/media/sgecom_contentsystem/Campaigns/2023/Christmas/women-watches-christmas.jpg?im=Resize=(2000,1400),aspect=fill;Crop=(0,0,2000,1400),gravity=Center"/>
           <TextImageOne>Women's Watches</TextImageOne>
-          <ButtonImageOne>Discover more</ButtonImageOne>
+          <ButtonImageOne onClick={handleWomen}>Discover more</ButtonImageOne>
 
           </BoxFive>
         </SeventhBox>

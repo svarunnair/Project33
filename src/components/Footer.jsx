@@ -32,6 +32,7 @@ const InnerBox = styled(Box)(({ theme }) => ({
 }));
 
 const TextBox = styled(Box)(({ theme }) => ({
+  // border: "1px solid yellow",
   color: "grey",
   textAlign: "left",
   padding: "6px",
@@ -48,9 +49,38 @@ const IconBox = styled(Box)(({ theme }) => ({
   height:30,
   display:"flex",
   gap:10,
+  paddingTop:20,
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const InnerBoxIcon = styled(Box)(({ theme }) => ({
+  // border:"1px solid red",
+  paddingLeft:345,
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    paddingLeft:0,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
+
+const DataBox = styled(Box)(({ theme }) => ({
+  // border:"1px solid red",
+  paddingLeft: 227,
+  paddingTop:20,
+
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    display:"none",
+  },
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
@@ -83,7 +113,7 @@ function Footer() {
         <TextBox>Press Room </TextBox>
       </InnerBox>
 
-      <InnerBox sx={{ paddingLeft: 45 }}>
+      <InnerBoxIcon >
         <TextBox sx={{ fontSize: 15, color: "white" }}>Follow us </TextBox>
         <IconBox sx={{cursor:"pointer"}}>
          <Tooltip title="Facebook"> <FacebookIcon/></Tooltip>
@@ -95,13 +125,13 @@ function Footer() {
         <IconBox sx={{cursor:"pointer"}}>
         <Tooltip title="Tictok"> <AudiotrackIcon/></Tooltip>
         </IconBox>
-      </InnerBox>
+      </InnerBoxIcon>
 
-      <InnerBox sx={{ paddingLeft: 27 }}>
+      <DataBox >
         <TextBox sx={{color:"white",fontSize: 15}}>Newsletter</TextBox>
-        <Input  sx={{color:"white"}} placeholder="Enter you address"/>
+        <Input  sx={{color:"white"}} placeholder="Enter you address"/><br/>
         <Button sx={{color:"black",background:"white",":hover":{color:"black",background:"white"},width:250,height:40,borderRadius:20}}>SubScribe</Button>
-      </InnerBox>
+      </DataBox>
     </OuterBox>
   );
 }

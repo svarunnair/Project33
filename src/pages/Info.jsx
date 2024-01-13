@@ -1,258 +1,288 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Input, InputLabel, Menu, MenuItem, Select, Typography, styled } from '@mui/material'
+import { Box, Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteInfo, getInfo, postBooking } from '../Redux/data/action'
-import ClearIcon from '@mui/icons-material/Clear';
+import { deleteInfo, getInfo } from '../Redux/data/action'
+import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
-import { CheckBox } from '@mui/icons-material';
 
+const OuterContainer = styled(Box)(({ theme }) => ({
+  // border:'2px solid red',
+  display:'flex',
+  justifyContent:"center",
 
-const OuterContainer=styled(Box)(({theme})=>({
-    
-     [theme.breakpoints.down("xl")]:{
-  
-     },
-     [theme.breakpoints.down("lg")]:{
-  
-     },
-     [theme.breakpoints.down("md")]:{
-         
-     },
-     [theme.breakpoints.down("sm")]:{
-         
-     },
-     [theme.breakpoints.down("xs")]:{
-         
-     }
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const InnerContainer = styled(Box)(({ theme }) => ({
+  // border:'2px solid red',
+  width:"80%",
+  paddingBottom:100,
+ 
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const TitleText = styled(Typography)(({ theme }) => ({
+  // border:'2px solid red',
+  fontSize:30,
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const Container = styled(Box)(({ theme }) => ({
+  // border:'2px solid black',
+display:"flex",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const FirstBox = styled(Box)(({ theme }) => ({
+  // border:'2px solid green',
+  width:"75%",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const SecondBox = styled(Box)(({ theme }) => ({
+  // border:'2px solid yellow',
+  width:"25%",
+
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const Discription = styled(Typography)(({ theme }) => ({
+ 
+  fontSize:15,
+  textAlign:"left",
+  paddingTop:60,
+  paddingBottom:60,
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const FirstInputBox = styled(Box)(({ theme }) => ({
+ 
+  // border:"2px solid grey",
+  display:"flex",
+  flexDirection:"column",
+  gap:10,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const SecondInputBox = styled(Box)(({ theme }) => ({
+  display:"flex",
+  gap:220,
+
+ 
+  // border:"2px solid grey",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    gap:10,
+    flexDirection:"column",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const ThirdInputBox = styled(Box)(({ theme }) => ({
+ width:"100%",
+  // border:"2px solid grey",
+  gap:10,
+  display:"flex",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    flexDirection:"column",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const FourthInputBox = styled(Box)(({ theme }) => ({
+  display:"flex",
+  // border:"2px solid grey",
+  gap:220,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    flexDirection:"column",
+    gap:10,
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const CheckBoxDiv = styled(Box)(({ theme }) => ({
+  width:"80%",
+  // border:"2px solid blue",
+  paddingTop:70,
+  paddingBottom:70,
+  textAlign:"left",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+    width:"100%",
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const MapData = styled(Box)(({ theme }) => ({
+  // border:"2px solid red",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const ImageBox = styled(Box)(({ theme }) => ({
+ width:"70%",
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const MapText = styled(Typography)(({ theme }) => ({
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const BarierDiv = styled(Box)(({ theme }) => ({
+//  border:"2px solid red",
+ paddingBottom:10,
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
+const SalutationDiv = styled(Box)(({ theme }) => ({
+  //  border:"2px solid red",
+   display:"flex",
+
+    [theme.breakpoints.down("xl")]: {},
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("xs")]: {},
   }))
 
-  const TextBox=styled(Typography)(({theme})=>({
-    
-    [theme.breakpoints.down("xl")]:{
- 
-    },
-    [theme.breakpoints.down("lg")]:{
- 
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
- }))
+const CrossDiv = styled(Box)(({ theme }) => ({
+//  border:'2px solid red',
+ display:"flex",
+ justifyContent:'end',
+ background:"white",
+ position:"sticky",
+ top:0,
+ cursor:"pointer",
 
- const InnerBox=styled(Box)(({theme})=>({
-    
-    [theme.breakpoints.down("xl")]:{
- 
-    },
-    [theme.breakpoints.down("lg")]:{
- 
-    },
-    [theme.breakpoints.down("md")]:{
-        
-    },
-    [theme.breakpoints.down("sm")]:{
-        
-    },
-    [theme.breakpoints.down("xs")]:{
-        
-    }
- }))
-
- const ImageBox=styled(Box)(({theme})=>({
-    
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
 }))
 
 
-const FirstBox=styled(Box)(({theme})=>({
-    
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const SecondBox=styled(Box)(({theme})=>({
-    
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
-
-const ButtonBox=styled(Button)(({theme})=>({
-    
-  [theme.breakpoints.down("xl")]:{
-
-  },
-  [theme.breakpoints.down("lg")]:{
-
-  },
-  [theme.breakpoints.down("md")]:{
-      
-  },
-  [theme.breakpoints.down("sm")]:{
-      
-  },
-  [theme.breakpoints.down("xs")]:{
-      
-  }
-}))
 
 function Info() {
 
-    const [name,setName] =useState('')
-    const infoData=useSelector((store)=>store.data.getInfo)
-    const dispatch=useDispatch()
-    const navigate=useNavigate()
-    const [first,setFirst]=useState('')
-    const [last,setLast]=useState('')
-    const [email,setEmail]=useState('')
-    const [address,setAddress]=useState('')
-    const [postcode,setPostcode]=useState('')
-    const [telephone,setTelephone]=useState('')
-    const [city,setCity]=useState('')
+  const infoData=useSelector((store)=>store.data.getInfo)
+  const dispatch=useDispatch()
+  const [salutation,setSalutation]=useState("")
+  const navigate=useNavigate()
+
+ const dataId=infoData.map((item)=>{return item.id})
+
+ console.log("idddd",dataId)
 
 
-    const handleFirst=(e)=>{
-      let value=e.target.value 
-      setFirst(value)
-    }
-    const handleLast=(e)=>{
-      let value=e.target.value 
-      setLast(value)
-    }
-    const handleEmail=(e)=>{
-      let value=e.target.value 
-      setEmail(value)
-    }
-    const handleAddress=(e)=>{
-      let value=e.target.value 
-      setAddress(value)
-    }
-    const handlePostcode=(e)=>{
-      let value=e.target.value 
-      setPostcode(value)
-    }
-    const handleTelephone=(e)=>{
-      let value=e.target.value 
-      setTelephone(value)
-    }
-    const handleCity=(e)=>{
-      let value=e.target.value 
-      setCity(value)
-    }
+  const handleChange=(e)=>{
+    let value=e.target.value 
+    setSalutation(value)
+  }
+  const handleClose=()=>{
+  dispatch(deleteInfo(dataId))
+    navigate(-1)
+  }
 
-    const handleReserve=()=>{
-      
-      if(first!==""&&email!==""&&telephone!=="",city!==""){
-        let data={
-          Salutation:name,
-          FirstName:first,
-          LastName:last,
-          Email:email,
-          Address:address,
-          Telephone:telephone,
-          PostCode:postcode,
-          City:city,
-          ProductName:infoData.map((item)=>{return item.name}),
-          ProductPrice:infoData.map((item)=>{return item.price})
-        }
-        let dataId=infoData.map((item)=>{return item.id})
-        dispatch(postBooking(data))
-        navigate(`/detail/${dataId}`)
-        alert('thank you')
-      }
-      if(first===""&&email===""&&telephone==="",city===""){
-        alert('please fill the data')
-      }
-      
-    }
 
-    
+  console.log("inFo",infoData)
 
-    console.log("inFo",infoData)
 
-    const handleClose=()=>{
-      let dataId=infoData.map((item)=>{return item.id})
-      dispatch(deleteInfo(dataId))
-      navigate(`/detail/${dataId}`)
-      
-    }
-
-    useEffect(()=>{
-      dispatch(getInfo())
-    },[])
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
+  useEffect(()=>{
+    dispatch(getInfo())
+  },[])
 
   return (
-    <OuterContainer >
+    <OuterContainer>
 
-<InnerBox  onClick={handleClose} sx={{marginLeft:130,marginTop:7 , cursor:'pointer'}}><ClearIcon/></InnerBox>
-<FirstBox sx={{maxHeight:600,width:1200, overflow:"auto",marginTop:4}}>
-  
- 
+      <InnerContainer>
 
-        <TextBox sx={{fontSize:40}}> Please enter your contact details</TextBox>
-        <TextBox sx={{width:530, textAlign:"left",marginLeft:34, marginTop:10,fontSize:18}}>Complete your details and one of our associates will contact you about viewing your selected time piece. No prepayment is required for the reservation and there is no obligation to purchase the reserved watch.</TextBox>
+        <CrossDiv><CloseIcon onClick={handleClose}/></CrossDiv>
+
+        <TitleText>Please enter your contact details</TitleText>
+
+        <Container>
+
+          <FirstBox>
+            <Discription>
+            Please enter your contact details
+Complete your details and one of our associates will contact you about viewing your selected time piece. No prepayment is required for the reservation and there is no obligation to purchase the reserved watch.
+            </Discription>
+
+          <BarierDiv sx={{paddingBottom:6,}}>
+            <FirstInputBox>
 
 
+<SalutationDiv>
 
-
-
-<InnerBox sx={{padding:10, gap:10, textAlign:'left',marginLeft:23 }} >
-
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 300 ,textAlign:"left",border:"1px solid black" }}>
+            <FormControl variant="standard" sx={{ m: 1,width:290 ,textAlign:"left",border:"1px solid black" }}>
         <InputLabel  id="demo-simple-select-standard-label">Salutation</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={name}
+          value={salutation}
           onChange={handleChange}
           label="Salutation"
         >
@@ -266,39 +296,60 @@ function Info() {
          
         </Select>
       </FormControl><br/>
-   <Input onChange={handleFirst} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2}} placeholder='First Name'/><br/>
-   <Input onChange={handleLast} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2}} placeholder='Last Name'/><br/>
-   <Input onChange={handleEmail} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2}} placeholder='Email'/>
-   <Input onChange={handleTelephone} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2,marginLeft:3}} placeholder='Telephone'/><br/>
-   <Input onChange={handleAddress} sx={{width:600,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2}} placeholder='Address'/><br/>
-   <Input onChange={handlePostcode} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2}} placeholder='Postcode'/>
-   <Input onChange={handleCity} sx={{width:300,height:50,border:"1px solid black",padding:"4px",marginTop:3,borderRadius:2,marginLeft:3}} placeholder='City'/><br/>
-</InnerBox>
+      </SalutationDiv>      
+             
+              <OutlinedInput sx={{width:"40%"}} placeholder='First Name'/>
+              <OutlinedInput sx={{width:"40%"}} placeholder='Last Name'/>
+            </FirstInputBox>
+            </BarierDiv>
 
-<InnerBox sx={{width:200,marginLeft:120,marginTop:-90,}} >
-  {infoData.map((item)=>(
-    <InnerBox >
-    <ImageBox  as={"img"} sx={{width:120,}} src={item.images[0]}/>
-    <TextBox sx={{textAlign:"left"}}>{item.name}</TextBox>
-    <TextBox sx={{textAlign:"left"}}>₹ {item.price}.00</TextBox>
-    <TextBox sx={{color:"grey"}}>{item.description}</TextBox>
-    </InnerBox>
-  ))}
-  
-</InnerBox>
-<InnerBox sx={{width:650, textAlign:"left",marginTop:35,marginLeft:30}}>
+            <BarierDiv>
+            <SecondInputBox>
+            <OutlinedInput placeholder='Email'/>
+            <OutlinedInput placeholder='Telephone'/>
+            </SecondInputBox>
+            </BarierDiv>
 
-<FormGroup>
-<FormControlLabel required control={<Checkbox />} label="I consent to my request to being processed by the selected boutique and Rado Watch Co. Ltd for the purpose of contacting me, and I confirm that I have read and understood the privacy policy." />
-<FormControlLabel sx={{marginTop:5}} required  control={<Checkbox />} label="I agree that Rado contacts me about Rado products, services, events or offers and consent that Rado processes my personal data for this purpose. I confirm to have read and understood the Privacy Notice and the Cookie notice. I can always unsubscribe by clicking the opt-out link in the communication message." />
-</FormGroup>
-
-<ButtonBox onClick={handleReserve} sx={{marginBottom:10,border:"1px solid black",bgcolor:'black',width:180,height:50,borderRadius:8,marginTop:10,color:'white'}}>Reserve Now</ButtonBox>
-</InnerBox>
+            <BarierDiv>
+            <ThirdInputBox>
+            <OutlinedInput sx={{width:"88%"}} placeholder='Address'/>
+            </ThirdInputBox>
+            </BarierDiv>
+            <FourthInputBox>
+            <OutlinedInput placeholder='Postcode'/>
+            <OutlinedInput placeholder='City'/>
+            </FourthInputBox>
 
 
+         <CheckBoxDiv>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="I consent to my request to being processed by the selected boutique and Rado Watch Co. Ltd for the purpose of contacting me, and I confirm that I have read and understood the privacy policy." />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="I consent to my request to being processed by the selected boutique and Rado Watch Co. Ltd for the purpose of contacting me, and I confirm that I have read and understood the privacy policy." />
+            </CheckBoxDiv>
 
-</FirstBox>
+            <Button sx={{color:'white',background:"black",display:"flex"}}>Reserve Now</Button>
+
+          </FirstBox>
+
+
+          <SecondBox>
+
+            {infoData.map((item)=>(
+              <MapData>
+                <ImageBox as={"img"} src={item.images[0]}/>
+                <MapText sx={{fontSize:10,}}>{item.name}</MapText>
+                <MapText sx={{fontSize:10,}}>{item.price}</MapText>
+                <MapText sx={{fontSize:10,color:"grey"}}>{item.description}</MapText>
+              </MapData>
+            ))}
+
+          </SecondBox>
+
+
+        </Container>
+
+
+      </InnerContainer>
+
 
     </OuterContainer>
   )

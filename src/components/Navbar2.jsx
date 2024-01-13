@@ -24,7 +24,7 @@ const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ImageBox = styled(Box)(({ theme }) => ({
-  // border:"2px solid red",
+
 
   display: "flex",
   paddingRight: 400,
@@ -148,6 +148,7 @@ const MenDiv = styled(Box)(({ theme }) => ({
   background:"#141414",
   display:"flex",
   paddingBottom:100,
+ 
 
   
 
