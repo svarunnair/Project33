@@ -6,6 +6,7 @@ import { getDetail, postInfo } from '../Redux/data/action';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import test from '../components/rado.mp4'
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   display:"grid",
@@ -276,6 +277,23 @@ const Wrapper = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }))
 
+const VideoBox = styled(Box)(({ theme }) => ({
+
+  // border:"2px solid blue",
+  width:"80%",
+  height:"80%",
+  
+ 
+  
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {
+ 
+  },
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}))
+
 const TextWrap = styled(Box)(({ theme }) => ({
 
   // border:"2px solid blue",
@@ -383,7 +401,11 @@ const handleCall=()=>{
 </InnerDiv>
 
 <BottomBox>{detail.description}</BottomBox>
+<VideoBox>
+<video width="100%" height="100%" src={test} type='video/mp4' loop autoPlay muted/>
+ 
 
+</VideoBox>
 <SpecificationBox>
   <TextWrap >
 <TextBox sx={{fontSize:22,color:"grey",paddingLeft:8}}>__________________________________________________________Specification__________________________________________________________</TextBox>

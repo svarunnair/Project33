@@ -841,6 +841,10 @@ const handleCook=()=>{
   }
   console.log("mainData", mainData);
 
+  const menu=localStorage.getItem('menu')
+
+  console.log("menuWWW",menu)
+
   useEffect(() => {
     dispatch(getData());
   }, []);
@@ -852,7 +856,7 @@ const handleCook=()=>{
             as={"img"}
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill"
           />
-          <TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>
+          {menu&&<TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>}
           <ButtonBox onClick={handleDiscover}>Dicover more</ButtonBox>
         </FirstBox>
 

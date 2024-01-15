@@ -27,6 +27,7 @@ function App() {
   {/* <DatePicker placeholder='select a date' type='date'/> */}
      <Navbar2/>
      <Footer/>
+     
      {/* <Navbar/> */}
 {/*     
      <Signin/> */}

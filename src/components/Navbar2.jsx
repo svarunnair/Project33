@@ -19,6 +19,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import PublicRoutes from "../Routes/PublicRoutes";
 import { useNavigate } from "react-router-dom";
+import Cookies from "./Cookies";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -299,9 +300,11 @@ function Navbar2() {
   const handleMen=()=>{
     if(men===false){
       setMen(true)
+      localStorage.setItem("menu",men)
     }
     if(men===true){
       setMen(false)
+      localStorage.setItem("menu",men)
     }
   }
 

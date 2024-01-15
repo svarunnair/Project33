@@ -5,10 +5,12 @@ import CookieOutlinedIcon from "@mui/icons-material/CookieOutlined";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 
 const ButtonTheme = styled(Button)(({ theme }) => ({
-  border: "1px solid red",
+  border: "1px solid green",
   justifyContent: "left",
   display: "flex",
   color: "green",
+position:'absolute',
+
 
 
   //   position:"sticky",
@@ -66,7 +68,6 @@ const EmblomBox = styled(Box)(({ theme }) => ({
 
 const IconBox = styled(Box)(({ theme }) => ({
   border: "1px solid red",
-
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -115,6 +116,7 @@ function Cookies() {
      return (
     <OuterContainer>
       <ButtonTheme onClick={handleTheme}>
+
         {show?<CancelOutlinedIcon />:<CookieOutlinedIcon />}
       </ButtonTheme>
 
