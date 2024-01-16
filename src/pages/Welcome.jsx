@@ -17,8 +17,10 @@ const Main = styled(Box)(({ theme }) => ({
 }));
 
 const InnerDiv = styled(Box)(({ theme }) => ({
-  // border:"2px solid blue",
+  // border:"bg2px solid blue",
+ 
   width: "100%",
+ 
   display: "flex",
   flexDirection: "column",
 
@@ -33,7 +35,12 @@ const FirstBox = styled(Box)(({ theme }) => ({
   // border:"2px solid blue",
   width: "100%",
   background: "black",
-  height: "100%",
+  height: "400px",
+
+  backgroundImage:'url("https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill")',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
 
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
@@ -78,10 +85,14 @@ const ThirdBox = styled(Box)(({ theme }) => ({
 const TextBox = styled(Typography)(({ theme }) => ({
 
     // border:"2px solid green",
-  fontSize: "20px",
-  position: "absolute",
-  bottom: 300,
-  left: 100,
+  fontSize: 30,
+// paddingTop:200,
+  top:200,
+  padding:150,
+//  right:300,
+
+  // bottom: 300,
+  // left: 100,
   color: "white",
   fontWeight: 900,
   display:"flex",
@@ -94,7 +105,8 @@ const TextBox = styled(Typography)(({ theme }) => ({
     fontSize: "16px",
     bottom: 410,
     fontWeight: 900,
-    left: 120,
+    left: 100,
+    padding:100,
    
   },
   [theme.breakpoints.down("sm")]: {
@@ -142,9 +154,10 @@ const SubBox = styled(Box)(({ theme }) => ({
 
 const ButtonBox = styled(Button)(({ theme }) => ({
   border: "1px solid white",
-  position: "absolute",
-  bottom: 220,
-  left: 100,
+
+  bottom: 130,
+  
+ right:400,
   color: "white",
   borderRadius:25,
   width:"13%",
@@ -156,8 +169,12 @@ const ButtonBox = styled(Button)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     height:"5%",
     width:"25%",
-    bottom: 340,
-    left: 200,
+    bottom: 100,
+    
+ right:100,
+ display:"none",
+ 
+   
     color: "white",
   },
   [theme.breakpoints.down("sm")]: {
@@ -852,11 +869,11 @@ const handleCook=()=>{
     <Main>
       <InnerDiv>
         <FirstBox>
-          <ImageBox
+          {/* <ImageBox
             as={"img"}
             src="https://www.rado.com/media/sgecom_contentsystem/homepage/homepage_banners/centrix-katrina-kaif-india-hero.jpg?im=Resize=(1800,540),aspect=fill"
-          />
-          {menu&&<TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>}
+          /> */}
+          <TextBox>CENTRIX AUTOMATIC DIAMONDS</TextBox>
           <ButtonBox onClick={handleDiscover}>Dicover more</ButtonBox>
         </FirstBox>
 

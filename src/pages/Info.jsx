@@ -1,7 +1,7 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteInfo, getInfo } from '../Redux/data/action'
+import { deleteInfo, getInfo, postBooking } from '../Redux/data/action'
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 
@@ -231,12 +231,21 @@ function Info() {
   const dispatch=useDispatch()
   const [salutation,setSalutation]=useState("")
   const navigate=useNavigate()
+  const [first,setFirst]=useState('')
+  const [last,setLast]=useState('')
+  const [tele,setTele]=useState('')
+  const [address,setAdress]=useState('')
+  const [email,setEmail]=useState('')
+
 
  const dataId=infoData.map((item)=>{return item.id})
 
  console.log("idddd",dataId)
 
-
+const handleEmail=(e)=>{
+  let value=e.target.value 
+  setEmail(value)
+}
   const handleChange=(e)=>{
     let value=e.target.value 
     setSalutation(value)
@@ -244,6 +253,45 @@ function Info() {
   const handleClose=()=>{
   dispatch(deleteInfo(dataId))
     navigate(-1)
+  }
+
+  const handleReserve=()=>{
+    let info={
+      firstName:first,
+      LastName:last,
+      Address:address,
+      Telephone:tele,
+      Email:email
+    }
+
+
+    let data = infoData[0]
+    data.info = info
+
+
+
+console.log("infoData",data)
+
+    dispatch(postBooking(data))
+    // alert('Booking successfully completed, Thank you.')
+    // navigate(-1)
+  }
+
+  const handleFirst=(e)=>{
+    let value=e.target.value 
+    setFirst(value)
+  }
+  const handleLast=(e)=>{
+    let value=e.target.value 
+    setLast(value)
+  }
+  const handleTele=(e)=>{
+    let value=e.target.value 
+    setTele(value)
+  }
+  const handleAddress=(e)=>{
+    let value=e.target.value 
+    setAdress(value)
   }
 
 
@@ -298,25 +346,25 @@ Complete your details and one of our associates will contact you about viewing y
       </FormControl><br/>
       </SalutationDiv>      
              
-              <OutlinedInput sx={{width:"40%"}} placeholder='First Name'/>
-              <OutlinedInput sx={{width:"40%"}} placeholder='Last Name'/>
+              <OutlinedInput onChange={handleFirst} sx={{width:"40%"}} placeholder='First Name'/>
+              <OutlinedInput onChange={handleLast} sx={{width:"40%"}} placeholder='Last Name'/>
             </FirstInputBox>
             </BarierDiv>
 
             <BarierDiv>
             <SecondInputBox>
-            <OutlinedInput placeholder='Email'/>
-            <OutlinedInput placeholder='Telephone'/>
+            <OutlinedInput onChange={handleEmail} placeholder='Email'/>
+            <OutlinedInput onChange={handleTele} placeholder='Telephone'/>
             </SecondInputBox>
             </BarierDiv>
 
             <BarierDiv>
             <ThirdInputBox>
-            <OutlinedInput sx={{width:"88%"}} placeholder='Address'/>
+            <OutlinedInput onChange={handleAddress} sx={{width:"88%"}} placeholder='Address'/>
             </ThirdInputBox>
             </BarierDiv>
             <FourthInputBox>
-            <OutlinedInput placeholder='Postcode'/>
+            <OutlinedInput  placeholder='Postcode'/>
             <OutlinedInput placeholder='City'/>
             </FourthInputBox>
 
@@ -326,7 +374,7 @@ Complete your details and one of our associates will contact you about viewing y
             <FormControlLabel control={<Checkbox defaultChecked />} label="I consent to my request to being processed by the selected boutique and Rado Watch Co. Ltd for the purpose of contacting me, and I confirm that I have read and understood the privacy policy." />
             </CheckBoxDiv>
 
-            <Button sx={{color:'white',background:"black",display:"flex"}}>Reserve Now</Button>
+            <Button onClick={handleReserve} sx={{color:'white',background:"black",display:"flex",":hover":{color:'white',background:"black"}}}>Reserve Now</Button>
 
           </FirstBox>
 
