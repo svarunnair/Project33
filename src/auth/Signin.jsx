@@ -148,6 +148,8 @@ function Signin() {
       password:password
     }
 dispatch(postAuth(data))
+alert("Login Successfull")
+
     
   }
 

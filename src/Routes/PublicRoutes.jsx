@@ -16,6 +16,7 @@ import Account from '../pages/Account'
 
 
 function PublicRoutes() {
+  let token=localStorage.getItem('email')
   return (
     <div>
         <Routes>
@@ -23,7 +24,7 @@ function PublicRoutes() {
             <Route path='/' element={<Welcome/>}/>
             <Route path='/welcome' element={<Welcome/>}/>
             {/* <Route path='/home' element={<Home/>}/> */}
-            <Route path='/signin' element={<Signin/>}/>
+            <Route path='/signin' element={token?<Account/>:<Signin/>}/>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/square' element={<Square/>}/>
             <Route path='/centrix' element={<Centrix/>}/>
