@@ -1,4 +1,4 @@
-import { DELETE_INFO_FAILURE, DELETE_INFO_REQUIEST, DELETE_INFO_SUCCESS, GET_DATA_FAILURE, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, GET_INFO_FAILURE, GET_INFO_REQUIEST, GET_INFO_SUCCESS, GET_SEARCH_FAILURE, GET_SEARCH_REQUIEST, GET_SEARCH_SUCCESS, POST_BOOKING_FAILURE, POST_BOOKING_REQUIEST, POST_BOOKING_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS, POST_SEARCH_FAILURE, POST_SEARCH_REQUIEST, POST_SEARCH_SUCCESS } from "./action"
+import { DELETE_INFO_FAILURE, DELETE_INFO_REQUIEST, DELETE_INFO_SUCCESS, GET_DATA_FAILURE, GET_DATA_REQUIEST, GET_DATA_SUCCESS, GET_DETAIL_FAILURE, GET_DETAIL_REQUIEST, GET_DETAIL_SUCCESS, GET_INFO_FAILURE, GET_INFO_REQUIEST, GET_INFO_SUCCESS, GET_RESULT_FAILURE, GET_RESULT_REQUIEST, GET_RESULT_SUCCESS, GET_SEARCH_FAILURE, GET_SEARCH_REQUIEST, GET_SEARCH_SUCCESS, POST_BOOKING_FAILURE, POST_BOOKING_REQUIEST, POST_BOOKING_SUCCESS, POST_INFO_FAILURE, POST_INFO_REQUIEST, POST_INFO_SUCCESS, POST_RESULT_FAILURE, POST_RESULT_REQUIEST, POST_RESULT_SUCCESS, POST_SEARCH_FAILURE, POST_SEARCH_REQUIEST, POST_SEARCH_SUCCESS } from "./action"
 
 
 
@@ -12,7 +12,9 @@ const initState={
     infoDelete:[],
     bookingPost:[],
     searchPost:[],
-    searchGet:[]
+    searchGet:[],
+    postResultData:[],
+    getResultData:[],
 }
 
 export const dataReducer=(state=initState,action)=>{
@@ -189,6 +191,50 @@ export const dataReducer=(state=initState,action)=>{
                                     isError:true,
                                     isLoading:false
                                 })
+
+                                case POST_RESULT_REQUIEST:
+                                    return({
+                                        ...state,
+                                        isError:false,
+                                        isLoading:true
+                        
+                                    })
+                                    case POST_RESULT_SUCCESS:
+                                        return({
+                                            ...state,
+                                            isLoading:false,
+                                            isError:false,
+                                            postResultData:action.payload
+                                        })
+                                        case POST_RESULT_FAILURE:
+                                            return({
+                                                ...state,
+                                                isError:true,
+                                                isLoading:false
+                                            })
+
+
+                                            case GET_RESULT_REQUIEST:
+                                    return({
+                                        ...state,
+                                        isError:false,
+                                        isLoading:true
+                        
+                                    })
+                                    case GET_RESULT_SUCCESS:
+                                        return({
+                                            ...state,
+                                            isLoading:false,
+                                            isError:false,
+                                            getResultData:action.payload
+                                        })
+                                        case GET_RESULT_FAILURE:
+                                            return({
+                                                ...state,
+                                                isError:true,
+                                                isLoading:false
+                                            })
+                        
 
 
 

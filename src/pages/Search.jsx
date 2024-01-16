@@ -2,7 +2,7 @@ import { Box, Button, Grid, Input, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getData, postSearch } from "../Redux/data/action";
+import { getData, postResult, postSearch } from "../Redux/data/action";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from '@mui/icons-material/Close';
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
@@ -68,6 +68,11 @@ const TextBox = styled(Box)(({ theme }) => ({
 const ButtonBox = styled(Button)(({ theme }) => ({
   background: "black",
   color: "white",
+  ":hover":{
+    background: "black",
+    color: "white",
+
+  },
   [theme.breakpoints.down("xl")]: {},
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -189,6 +194,7 @@ function Search() {
   const mainData = useSelector((store) => store.data.getData);
   const dispatch = useDispatch();
   const [search, setSearch] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
   const [show, setShow] = useState(false);
   const [result, setResult] = useState(false);
 
@@ -198,12 +204,17 @@ function Search() {
 
   const handleSearch = (e) => {
     let value = e.target.value;
+    console.log("valueee",value)
     let sortData = mainData.filter((item) =>
       item.name.toLowerCase().includes(value)
     );
+
     setSearch(sortData);
+    setSearchValue(value)
   };
   console.log("sortData");
+
+ 
 
   if (search === "") {
     setResult(true);
@@ -221,8 +232,8 @@ function Search() {
   console.log("show", show);
 
   const handleView = () => {
-    dispatch(postSearch(...search));
-    navigate("/result");
+    dispatch(postResult(search));
+    navigate(`/result/${searchValue}`);
   };
 
   const handleTheme=()=>{

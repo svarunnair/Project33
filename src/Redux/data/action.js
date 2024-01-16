@@ -30,10 +30,17 @@ export const POST_SEARCH_REQUIEST="POST_SEARCH_REQUIEST"
 export const POST_SEARCH_SUCCESS="POST_SEARCH_SUCCESS"
 export const POST_SEARCH_FAILURE="POST_SEARCH_FAILURE"
 
-
 export const GET_SEARCH_REQUIEST="GET_SEARCH_REQUIEST"
 export const GET_SEARCH_SUCCESS="GET_SEARCH_SUCCESS"
 export const GET_SEARCH_FAILURE="GET_SEARCH_FAILURE"
+
+export const POST_RESULT_REQUIEST="POST_RESULT_REQUIEST"
+export const POST_RESULT_SUCCESS="POST_RESULT_SUCCESS"
+export const POST_RESULT_FAILURE="POST_RESULT_FAILURE"
+
+export const GET_RESULT_REQUIEST="GET_RESULT_REQUIEST"
+export const GET_RESULT_SUCCESS="GET_RESULT_SUCCESS"
+export const GET_RESULT_FAILURE="GET_RESULT_FAILURE"
 
 
 
@@ -54,6 +61,10 @@ const getDataFailure=()=>{
         type:GET_DATA_FAILURE
     })
 }
+
+
+
+
 
 const getDetailRequiest=()=>{
     return({
@@ -173,6 +184,39 @@ const getSearchFailure=()=>{
     })
 }
 
+const postResultRequiest=()=>{
+    return({
+        type:POST_RESULT_REQUIEST
+    })
+}
+const postResultSuccess=(data)=>{
+    return({
+        type:POST_RESULT_SUCCESS,
+        payload:data
+    })
+}
+const postResultFailure=()=>{
+    return({
+        type:POST_RESULT_FAILURE
+    })
+}
+
+const getResultRequiest=()=>{
+    return({
+        type:GET_RESULT_REQUIEST
+    })
+}
+const getResultSuccess=(data)=>{
+    return({
+        type:GET_RESULT_SUCCESS,
+        payload:data
+    })
+}
+const getResultFailure=()=>{
+    return({
+        type:GET_RESULT_FAILURE
+    })
+}
 
 
 
@@ -297,5 +341,40 @@ export const getSearch=()=>(dispatch)=>{
     })
     .catch((error)=>{
         dispatch(getSearchFailure())
+    })
+}
+export const postResult=(data)=>(dispatch)=>{
+console.log("cappp",data)
+    dispatch(postResultRequiest())
+    return axios({
+        url:`http://localhost:8000/data`,
+        // params: {
+        //     search: 'Anatom Automatic'
+        //   },
+        //   method: 'GET'
+       
+    })
+    .then((res)=>{
+        console.log("postResult redux",res.data)
+        dispatch(postResultSuccess(res.data))
+        
+    })
+    .catch((error)=>{
+        dispatch(postResultFailure())
+    })
+}
+
+export const getResult=()=>(dispatch)=>{
+    dispatch(getResultRequiest())
+    return axios({
+        url:"http://localhost:8000/result",
+        method:"GET"
+    })
+    .then((res)=>{
+        dispatch(getResultSuccess(res.data))
+        console.log("getResult",res.data)
+    })
+    .catch((error)=>{
+        dispatch(getResultFailure())
     })
 }
