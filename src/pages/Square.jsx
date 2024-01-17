@@ -2,7 +2,7 @@ import { Box, Pagination, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getData } from "../Redux/data/action";
+import { getData, postWishlist } from "../Redux/data/action";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
@@ -188,6 +188,10 @@ function Square() {
     setPage(newPage)
   }
 
+  const handleFav=(item)=>{
+    dispatch(postWishlist(item))
+    alert('Product added to Wishlist')
+  }
   useEffect(() => {
     setData(mainData);
   }, [mainData]);
@@ -223,7 +227,7 @@ function Square() {
           <InnerDiv>
           <InnerDivOne>
             <FavoriteIconDiv>
-            <FavoriteIcon sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+            <FavoriteIcon onClick={()=>handleFav(item)} sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
             </FavoriteIconDiv>
             <ImageMap onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]} />    
             <TextMap sx={{fontSize:20}}>{item.name}</TextMap>

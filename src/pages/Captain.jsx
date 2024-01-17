@@ -273,7 +273,7 @@ const paginationData=getDataForPage()
         {paginationData.map((item) => (
           <InnerDiv>
             <FavoriteIconDiv>
-       <FavoriteIcon onClick={()=>handleFav(item)} sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+       <FavoriteIcon onClick={()=>handleFav(item)} sx={{color:'black',cursor:'pointer',justifyItems:'end',":hover":{color:"red"},}}/>
        </FavoriteIconDiv>
             <ImageBox
               sx={{ cursor: "pointer" }}

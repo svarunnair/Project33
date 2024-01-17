@@ -2,7 +2,7 @@ import { Box, Typography, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { getDetail, postInfo } from '../Redux/data/action';
+import { getDetail, postInfo, postWishlist } from '../Redux/data/action';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
@@ -363,6 +363,11 @@ const handleCall=()=>{
   navigate('/info')
 }
 
+const handleClick=()=>{
+  dispatch(postWishlist(detail))
+  alert('Product added to Wishlist')
+}
+
 
   return (
     <OuterContainer>
@@ -375,7 +380,7 @@ const handleCall=()=>{
   <ArrowBackIcon sx={{paddingTop:22,}}/>
   </IconDiv>
   <ImageBox  as={"img"} src={dataImage[count]}/>
-  <FavoriteOutlinedIcon sx={{":hover":{color:"red"}}}/>
+  <FavoriteOutlinedIcon onClick={handleClick} sx={{":hover":{color:"red"},cursor:"pointer"}}/>
   <IconDiv onClick={handleNext}>
   <ArrowForwardIcon sx={{paddingTop:22}}/>
   </IconDiv>

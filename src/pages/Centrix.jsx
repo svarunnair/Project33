@@ -2,7 +2,7 @@ import { Store } from '@mui/icons-material'
 import { Box, Pagination, PaginationItem, Typography, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getData } from '../Redux/data/action'
+import { getData, postWishlist } from '../Redux/data/action'
 import { useNavigate } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -156,6 +156,12 @@ function Centrix() {
     setPage(newPage);
   };
 
+
+  const handleFav=(item)=>{
+    dispatch(postWishlist(item))
+    alert('Product added to Wishlist')
+  }
+
   const getDataForPage = () => {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -181,7 +187,7 @@ function Centrix() {
   {paginatedData?.map((item)=>(
     <InnerDiv >
       <FavoriteIconDiv>
-       <FavoriteIcon sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+       <FavoriteIcon onClick={()=>handleFav(item)} sx={{color:'black',cursor:'pointer',justifyItems:'end',":hover":{color:"red"},}}/>
        </FavoriteIconDiv>
     <ImageMap sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]}/>
     <TextDetail onClick={()=>handleProduct(item.id)}>{item.name}</TextDetail>
