@@ -267,7 +267,7 @@ const handleEmail=(e)=>{
     setSalutation(value)
   }
   const handleClose=()=>{
-  dispatch(deleteInfo(dataId))
+  // dispatch(deleteInfo(dataId))
     navigate(-1)
   }
 
