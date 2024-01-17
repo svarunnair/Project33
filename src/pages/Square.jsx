@@ -100,7 +100,7 @@ const MapData = styled(Box)(({ theme }) => ({
 }));
 
 const InnerDiv = styled(Box)(({ theme }) => ({
-  // border: "2px solid green",
+  border: "2px solid white",
 padding:10,
 background:"#F0F0F0",
 display:"grid",

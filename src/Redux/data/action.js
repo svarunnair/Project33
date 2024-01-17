@@ -42,6 +42,18 @@ export const GET_RESULT_REQUIEST="GET_RESULT_REQUIEST"
 export const GET_RESULT_SUCCESS="GET_RESULT_SUCCESS"
 export const GET_RESULT_FAILURE="GET_RESULT_FAILURE"
 
+export const POST_WISHLIST_REQUIEST="POST_WISHLIST_REQUIEST"
+export const POST_WISHLIST_SUCCESS="POST_WISHLIST_SUCCESS"
+export const POST_WISHLIST_FAILURE="POST_WISHLIST_FAILURE"
+
+export const GET_WISHLIST_REQUIEST="GET_WISHLIST_REQUIEST"
+export const GET_WISHLIST_SUCCESS="GET_WISHLIST_SUCCESS"
+export const GET_WISHLIST_FAILURE="GET_WISHLIST_FAILURE"
+
+export const DELETE_WISHLIST_REQUIEST="DELETE_WISHLIST_REQUIEST"
+export const DELETE_WISHLIST_SUCCESS="DELETE_WISHLIST_SUCCESS"
+export const DELETE_WISHLIST_FAILURE="DELETE_WISHLIST_FAILURE"
+
 
 
 
@@ -59,6 +71,23 @@ const getDataSuccess=(data)=>{
 const getDataFailure=()=>{
     return({
         type:GET_DATA_FAILURE
+    })
+}
+
+const deleteWishlistRequiest=()=>{
+    return({
+        type:DELETE_WISHLIST_REQUIEST
+    })
+}
+const deleteWishlistSuccess=(data)=>{
+    return({
+        type:DELETE_WISHLIST_SUCCESS,
+        payload:data
+    })
+}
+const deleteWishlistFailure=()=>{
+    return({
+        type:DELETE_WISHLIST_FAILURE
     })
 }
 
@@ -215,6 +244,39 @@ const getResultSuccess=(data)=>{
 const getResultFailure=()=>{
     return({
         type:GET_RESULT_FAILURE
+    })
+}
+const postWishlistRequiest=()=>{
+    return({
+        type:POST_WISHLIST_REQUIEST
+    })
+}
+const postWishlistSuccess=(data)=>{
+    return({
+        type:POST_WISHLIST_SUCCESS,
+        payload:data
+    })
+}
+const postWishlistFailure=()=>{
+    return({
+        type:POST_WISHLIST_FAILURE
+    })
+}
+
+const getWishlistRequiest=()=>{
+    return({
+        type:GET_WISHLIST_REQUIEST
+    })
+}
+const getWishlistSuccess=(data)=>{
+    return({
+        type:GET_WISHLIST_SUCCESS,
+        payload:data
+    })
+}
+const getWishlistFailure=()=>{
+    return({
+        type:GET_WISHLIST_FAILURE
     })
 }
 
@@ -376,5 +438,50 @@ export const getResult=()=>(dispatch)=>{
     })
     .catch((error)=>{
         dispatch(getResultFailure())
+    })
+}
+export const postWishlist=(data)=>(dispatch)=>{
+    dispatch(postWishlistRequiest())
+    return axios({
+        url:"http://localhost:8000/wishlist",
+        method:"POST",
+        data
+    })
+    .then((res)=>{
+        dispatch(postWishlistSuccess(res.data))
+        console.log("postWishlist",res.data)
+    })
+    .catch((error)=>{
+        dispatch(postWishlistFailure())
+    })
+}
+
+export const getWishlist=()=>(dispatch)=>{
+    dispatch(getWishlistRequiest())
+    return axios({
+        url:"http://localhost:8000/wishlist",
+        method:"GET"
+    })
+    .then((res)=>{
+        dispatch(getWishlistSuccess(res.data))
+        console.log("getWishlist",res.data)
+    })
+    .catch((error)=>{
+        dispatch(getWishlistFailure())
+    })
+}
+
+export const deleteWishlist=(id)=>(dispatch)=>{
+    dispatch(deleteWishlistRequiest())
+    return axios({
+        url:`http://localhost:8000/wishlist/${id}`,
+        method:"DELETE",
+    })
+    .then((res)=>{
+        dispatch(deleteWishlistSuccess(res.data))
+        console.log("deleteWishlist",res.data)
+    })
+    .catch((error)=>{
+        dispatch(deleteWishlistFailure())
     })
 }

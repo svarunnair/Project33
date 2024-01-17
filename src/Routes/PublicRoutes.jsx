@@ -13,6 +13,7 @@ import Captain from '../pages/Captain'
 import Welcome from '../pages/Welcome'
 import Result from '../pages/Result'
 import Account from '../pages/Account'
+import Wishlist from '../pages/Wishlist'
 
 
 function PublicRoutes() {
@@ -37,6 +38,8 @@ function PublicRoutes() {
             <Route path='/captain' element={<Captain/>}/>
             <Route path='/result/:id' element={<Result/>}/>
             <Route path='/account' element={<Account/>}/>
+            <Route path='/wishlist' element={<Wishlist/>}/>
+
 
             
 

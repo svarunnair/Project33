@@ -1,11 +1,12 @@
 import { Box, Pagination, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../Redux/data/action";
+import { getData, postWishlist } from "../Redux/data/action";
 import { useNavigate } from "react-router-dom";
 import { CheckBox } from "@mui/icons-material";
 import ControlledCheckbox from "../components/CheckBox";
 import TemporaryDrawer from "../components/Drawer";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   position:"relative",
@@ -188,6 +189,19 @@ const BottomDiv = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.down("xs")]: {},
 }));
+const FavoriteIconDiv = styled(Box)(({ theme }) => ({
+  // border: "2px solid black",
+  width:"100%",
+  display:"flex",
+  justifyContent:"end",
+  
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 
 function Captain() {
   const maindata = useSelector((store) => store.data.getData);
@@ -222,6 +236,10 @@ const paginationData=getDataForPage()
       setShow(false);
     }
   };
+  const handleFav=(item)=>{
+    dispatch(postWishlist(item))
+    alert('Product added to Wishlist')
+  }
   useEffect(() => {
     dispatch(getData());
   }, []);
@@ -254,6 +272,9 @@ const paginationData=getDataForPage()
 
         {paginationData.map((item) => (
           <InnerDiv>
+            <FavoriteIconDiv>
+       <FavoriteIcon onClick={()=>handleFav(item)} sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+       </FavoriteIconDiv>
             <ImageBox
               sx={{ cursor: "pointer" }}
               as={"img"}

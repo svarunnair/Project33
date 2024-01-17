@@ -6,6 +6,7 @@ import { getData } from '../Redux/data/action'
 import { useNavigate } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   // border:'2px solid red',
@@ -120,6 +121,19 @@ const BottomBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("xs")]: {},
 }))
 
+const FavoriteIconDiv = styled(Box)(({ theme }) => ({
+  // border: "2px solid black",
+  width:"100%",
+  display:"flex",
+  justifyContent:"end",
+  
+ 
+  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("xs")]: {},
+}));
 function Centrix() {
   const mainData=useSelector((store)=>store.data.getData)
   const dispatch=useDispatch()
@@ -166,6 +180,9 @@ function Centrix() {
 <MapData>
   {paginatedData?.map((item)=>(
     <InnerDiv >
+      <FavoriteIconDiv>
+       <FavoriteIcon sx={{color:'black',justifyItems:'end',":hover":{color:"red"},}}/>
+       </FavoriteIconDiv>
     <ImageMap sx={{cursor:"pointer"}} onClick={()=>handleProduct(item.id)} as={"img"} src={item.images[0]}/>
     <TextDetail onClick={()=>handleProduct(item.id)}>{item.name}</TextDetail>
     <TextDetail sx={{cursor:"pointer",color:"grey",fontSize:12,cursor:"pointer"}}>{item.model}</TextDetail>

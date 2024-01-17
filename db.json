@@ -758,8 +758,37 @@
       "JewelDetails": " 4 Diamonds - 0.032 8 Diamonds - 0.030"
     }
   ],
-  "result": [
-    
+  "wishlist": [
+    {
+      "id": 1,
+      "name": "Captain Cook Hrithik Roshan Special Edition",
+      "images": [
+        "https://www.rado.com/media/catalog/product/c/a/captaincook_r32128162_sld_web.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+        "https://www.rado.com/media/catalog/product/c/a/captaincook_r32128162_a.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+        "https://www.rado.com/media/catalog/product/c/a/captaincook_r32128162_b.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center",
+        "https://www.rado.com/media/catalog/product/c/a/captaincook_r32128162_c_1.png?im=AspectCrop=(1980,1980),allowExpansion,location=(0.5,0.5);Resize=(1980,1980),aspect=fill;Crop=(0,0,1980,1980),gravity=Center"
+      ],
+      "description": "The Captain Cook Hrithik Roshan Special Edition is the second Captain Cook special edition watch to be created in collaboration with Bollywood celebrity Hrithik Roshan. This design classic has a diameter of 43 mm and is water resistant down to 300 m. The monobloc case is made of matt plasma high-tech ceramic with a box-shaped sapphire crystal, featuring anti-reflective coating on both sides. Inside, the Rado Calibre R734 automatic movement is visible under the black tinted sapphire crystal with Hrithik Roshan’s metallic signature. The mechanism exceeds standard accuracy test requirements from 3 to 5 positions and offers 80 hours of power reserve. Additional features include a rose gold PVD coated stainless steel turning bezel, rose gold lacquer filled indexes on the plasma high-tech ceramic, brushed, circular insert bezel and a bracelet with matt plasma high-tech ceramic outer links and polished plasma high-tech ceramic middle links. The watch is delivered in a branded black box.",
+      "price": "394400",
+      "model": "R32128162",
+      "size": "43.0 mm, Automatic, 156 g",
+      "Engravable": "No",
+      "ProductName": "Florence Diamonds",
+      "SKU": "R48912773",
+      "Gender": "Unisex",
+      "MovementType": "Quartz",
+      "MovementReference": " 03.073.121",
+      "CaseMaterials": "Stainless Steel",
+      "CaseThickness": "8.7 mm",
+      "CaseWaterResistance": "5 bar (50 m)",
+      "CaseColour": "light",
+      "CaseDimension": "38.0 mm",
+      "CaseCrystal": "Sapphire crystal",
+      "DialColour": "Green",
+      "DialHasDate": "Yes",
+      "DialHasJewels": "Yes",
+      "MotherOfPearl": "No",
+      "JewelDetails": " 4 Diamonds - 0.032 8 Diamonds - 0.030"
+    }
   ]
-  
 }

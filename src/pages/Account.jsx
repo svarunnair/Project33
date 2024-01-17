@@ -48,7 +48,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
      
        [theme.breakpoints.down("xl")]: {},
        [theme.breakpoints.down("lg")]: {},
-       [theme.breakpoints.down("md")]: {},
+       [theme.breakpoints.down("md")]: {
+        flexDirection:'column',
+        
+       },
        [theme.breakpoints.down("sm")]: {},
        [theme.breakpoints.down("xs")]: {},
      }))
@@ -64,13 +67,17 @@ const OuterContainer = styled(Box)(({ theme }) => ({
    
        [theme.breakpoints.down("xl")]: {},
        [theme.breakpoints.down("lg")]: {},
-       [theme.breakpoints.down("md")]: {},
+       [theme.breakpoints.down("md")]: {
+        paddingBottom:20,
+        gap:0,
+       },
        [theme.breakpoints.down("sm")]: {},
        [theme.breakpoints.down("xs")]: {},
      }))
 
      const InnerBox = styled(Box)(({ theme }) => ({
       // border:"2px solid blue",
+    cursor:'pointer',
       width:100,
       height:100,
       display:"flex",
@@ -82,7 +89,10 @@ const OuterContainer = styled(Box)(({ theme }) => ({
    
        [theme.breakpoints.down("xl")]: {},
        [theme.breakpoints.down("lg")]: {},
-       [theme.breakpoints.down("md")]: {},
+       [theme.breakpoints.down("md")]: {
+        width:250,
+        height:200,
+       },
        [theme.breakpoints.down("sm")]: {},
        [theme.breakpoints.down("xs")]: {},
      }))
@@ -103,7 +113,7 @@ const OuterContainer = styled(Box)(({ theme }) => ({
      }))
 
      const ImageBox = styled(Box)(({ theme }) => ({
-
+      // background:"black",
       width:"100%",
       height:"100%",
       cursor:"pointer",
@@ -147,6 +157,10 @@ function Account() {
     navigate('/')
   }
 
+  const handleWish=()=>{
+    navigate('/wishlist')
+  }
+
   useEffect(()=>{
       dispatch(getSignup())
   },[])
@@ -166,7 +180,7 @@ function Account() {
               <TextBox>Register my watch</TextBox>
               <ImageBox as={"img"} src="https://www.rado.com/static/version1704871359/frontend/Rado/default/en_GB/SgEcom_Customer/images/menu/extend-my-warranty.jpg?im=Resize=(932,1150),aspect=fill;Crop=(0,0,932,1150),gravity=Center"/>
             </InnerBox>
-            <InnerBox sx={{width:250,height:100}}>
+            <InnerBox onClick={handleWish} sx={{width:250,height:100}}>
             <TextBox>My Wish List</TextBox>
             <ImageBox as={"img"} src="https://www.rado.com/static/version1704871359/frontend/Rado/default/en_GB/SgEcom_Customer/images/menu/my-wish-list.jpg?im=Resize=(932,1150),aspect=fill;Crop=(0,0,932,1150),gravity=Center"/>
             </InnerBox>

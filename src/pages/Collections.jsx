@@ -281,6 +281,12 @@ function Collections() {
   const handleSquare=()=>{
     navigate("/square")
   }
+  const handleCentrix=()=>{
+    navigate('/centrix')
+  }
+  const handleItem=()=>{
+    navigate('/square')
+  }
   return (
 <OuterContainer>
 
@@ -288,29 +294,29 @@ function Collections() {
 <TextBox sx={{fontSize:"48px"}}>Discover our collections</TextBox>
   <ImageSlider>
     <Wrapper>
-<ImageBox as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/a/captaincook_r32129152_sld_web_1.png"/>
+<ImageBox onClick={handleItem} as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/a/captaincook_r32129152_sld_web_1.png"/>
 <Slidertext>Captain cook</Slidertext>
 </Wrapper>
 
 <Wrapper>
-<ImageBox as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/r/g/rgb_cat_truesquare_734_6086_3_016_3.png"/>
+<ImageBox onClick={handleItem} as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/r/g/rgb_cat_truesquare_734_6086_3_016_3.png"/>
 <Slidertext>True Square</Slidertext>
 </Wrapper>
 
 
 <Wrapper>
-<ImageBox as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/e/centrix_r30019744_sld_web.png"/>
+<ImageBox onClick={handleItem} as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/e/centrix_r30019744_sld_web.png"/>
 <Slidertext>Centrix</Slidertext>
 </Wrapper>
 
 <Wrapper>
-<ImageBox as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/t/r/true_r27100162_sld_web.png"/>
+<ImageBox onClick={handleItem} as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/t/r/true_r27100162_sld_web.png"/>
 <Slidertext>True Round</Slidertext>
 </Wrapper>
 
 
 <Wrapper>
-<ImageBox as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/a/cat_originaldiastar_764_6163_3_511_r12163118_web.png"/>
+<ImageBox onClick={handleItem} as={"img"} src="https://www.rado.com/media/catalog/product/cache/8ebd1c1e7d8d79bd42453dff0616a9d2/c/a/cat_originaldiastar_764_6163_3_511_r12163118_web.png"/>
 <Slidertext>DiaStart Original</Slidertext>
 </Wrapper>
 
@@ -325,7 +331,7 @@ function Collections() {
   <TextCaption>Captain Cook</TextCaption>
   <TextDiscription>Charting new territory in vintage watches, the Rado Captain Cook is a natural choice for modern explorers. Its vintage details, and up-to-date features make it the perfect watch for men and women.
 </TextDiscription>
-<ButtonDisc variant='contained' onClick={handleCook}>Explore more</ButtonDisc>
+<ButtonDisc onClick={handleCook}>Explore more</ButtonDisc>
 </DetailText>
 
 <DetailImage as={"img"} src="https://www.rado.com/media/catalog/category/captain-cook-htc-diver-category-image.png?im=Resize=(1920,1280),aspect=fill;Crop=(0,0,1920,1280),gravity=Center"/>
@@ -353,7 +359,7 @@ function Collections() {
   <TextCaption>Centrix</TextCaption>
   <TextDiscription>There is a reason why Centrix is Rado’s most popular watch. Its versatility in a range of different sizes, colour combinations, quartz and automatic movements guarantees there is a model to suit all tastes.
 </TextDiscription>
-<ButtonDisc>Explore more</ButtonDisc>
+<ButtonDisc onClick={handleCentrix}>Explore more</ButtonDisc>
 </DetailText>
 
 <DetailImage as={"img"} src="https://www.rado.com/media/catalog/category/centrix.png?im=Resize=(1920,1280),aspect=fill;Crop=(0,0,1920,1280),gravity=Center"/>
@@ -370,7 +376,7 @@ function Collections() {
   <TextCaption>True Round</TextCaption>
   <TextDiscription>Reimagined for modern wearers, but reliably and distinctively Rado. Made of full high-tech ceramic, the True collection represents Rado’s true style and design substance.
 </TextDiscription>
-<ButtonDisc>Explore more</ButtonDisc>
+<ButtonDisc onClick={handleCentrix}>Explore more</ButtonDisc>
 </DetailText>
 </DetailBoxTwo>
 
@@ -381,7 +387,7 @@ function Collections() {
   <TextDiscription>DiaStar Original
 Incorporating the bold and ageless appeal of the first DiaStar, the Original bears the features and functions Rado enthusiasts know and the distinctive look they love.
 </TextDiscription>
-<ButtonDisc>Explore more</ButtonDisc>
+<ButtonDisc onClick={handleCentrix}>Explore more</ButtonDisc>
 </DetailText>
 
 <DetailImage as={"img"} src="https://www.rado.com/media/catalog/category/diastar-original.png?im=Resize=(1920,1280),aspect=fill;Crop=(0,0,1920,1280),gravity=Center"/>
@@ -395,7 +401,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>True Thinline</TextBottom>
   <TextBottom sx={{color:"grey"}}>The True Thinline could be considered the ultimate Rado timepiece. These stunning quartz watches are Rado’s slimmest and the first to feature the groundbreaking monobloc case.</TextBottom>
-<DetailButton >Explore collection{">"}</DetailButton>
+<DetailButton onClick={handleCentrix} >Explore collection{">"}</DetailButton>
 </DetailBottom>
   </InnerBox>
 
@@ -404,7 +410,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>HyperChrome</TextBottom>
   <TextBottom sx={{color:"grey"}}> The HyperChrome collection is full of ceramic watches, innovations and sleek design, delivering a groundbreaking Rado timepiece. A watch that delivers all the functions with the style you want.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
 
@@ -418,7 +424,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>HyperChrome Classic</TextBottom>
   <TextBottom sx={{color:"grey"}}>The HyperChrome Classic collection combines the past, present and future of Rado creating stylish women’s and men’s vintage watches. Sleek design, modern materials and breakthrough technology which give a unique look that is distinctively Rado.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
 
@@ -427,7 +433,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>Coupole</TextBottom>
   <TextBottom sx={{color:"grey"}}> The Coupole Classic takes the design of a traditional wristwatch and adds the distinctive Rado element of sapphire crystal. An elegant timepiece for men or women designed to stand the test of time.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
   
@@ -441,7 +447,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}> Florence</TextBottom>
   <TextBottom sx={{color:"grey"}}>The harmonious design of the Rado Florence calls to mind the elegant domes and towers of the city from which the collection takes its name.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
 
@@ -450,7 +456,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>Integral</TextBottom>
   <TextBottom sx={{color:"grey"}}> The iconic Integral has been redesigned to suit the contemporary needs and preferences of today’s wearers, remaining true to the original look and feel.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
   
@@ -462,7 +468,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}> Anatom</TextBottom>
   <TextBottom sx={{color:"grey"}}>The Anatom is an iconic expression of Rado’s brand identity. And now, forty years after its first appearance, the Rado Anatom returns.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
 
@@ -471,7 +477,7 @@ Incorporating the bold and ageless appeal of the first DiaStar, the Original bea
 <DetailBottom>
   <TextBottom sx={{fontSize:33}}>DiaMaster</TextBottom>
   <TextBottom sx={{color:"grey"}}> The elegant and subtle side of Rado’s ultra-durable watches, the DiaMaster family draws its inspiration from classic simplicity. Unveiled with a complete redesign, the collection is delightfully diverse.</TextBottom>
-<DetailButton>Explore collection</DetailButton>
+<DetailButton onClick={handleCentrix}>Explore collection</DetailButton>
 </DetailBottom>
   </InnerBox>
   
