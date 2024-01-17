@@ -165,6 +165,9 @@ function Wishlist() {
       naviagate('/account')
     }
 
+    const handleItem=(id)=>{
+      naviagate(`/detail/${id}`)
+    }
     useEffect(()=>{
      dispatch(getWishlist())
     },[])
@@ -194,7 +197,7 @@ function Wishlist() {
                     {wishlist.map((item)=>(
                         <WishData>
 
-                            <ImageBox as={"img"} src={item.images[0]}/>
+                            <ImageBox onClick={()=>handleItem(item.id)} as={"img"} src={item.images[0]}/>
                             <MapText>{item.name}</MapText>
                             <MapText sx={{fontWeight:700}}>₹{item.price}.00</MapText>
                             <CloseDiv>
