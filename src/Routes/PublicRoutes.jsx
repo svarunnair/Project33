@@ -30,11 +30,13 @@ function PublicRoutes() {
             <Route path='/square' element={<Square/>}/>
             <Route path='/centrix' element={<Centrix/>}/>
             <Route path='/collections' element={<Collections/>}/>
+
             <Route path='/detail/:id' element={<Detail/>}/>
             <Route path='/signin' element={<Signin/>}/>
             <Route path='/signup' element={<Signup/>}/>
             <Route path='/search' element={<Search/>}/>
-            <Route path='/info' element={<Info/>}/>
+            
+            <Route path='/info/:id' element={<Info/>}/>
             <Route path='/captain' element={<Captain/>}/>
             <Route path='/result/:id' element={<Result/>}/>
             <Route path='/account' element={<Account/>}/>

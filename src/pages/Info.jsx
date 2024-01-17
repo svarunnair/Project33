@@ -1,9 +1,9 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Typography, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteInfo, getInfo, postBooking } from '../Redux/data/action'
+import { deleteInfo, getData, getInfo, getInfodata, postBooking } from '../Redux/data/action'
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const OuterContainer = styled(Box)(({ theme }) => ({
   // border:'2px solid red',
@@ -236,11 +236,27 @@ function Info() {
   const [tele,setTele]=useState('')
   const [address,setAdress]=useState('')
   const [email,setEmail]=useState('')
+  const mainData=useSelector((store)=>store.data.getInfodataData)
+  const params=useParams()
+  const [data,setData]=useState('')
+
+  console.log("InfoMainDataa..........",mainData)
 
 
- const dataId=infoData.map((item)=>{return item.id})
+  console.log("params",params)
 
- console.log("idddd",dataId)
+  let dataId=params.id
+  console.log("dataIdParamsss",dataId)
+
+  useEffect(()=>{
+    dispatch(getInfodata(params.id))
+  },[])
+
+
+
+//  const dataId=infoData.map((item)=>{return item.id})
+
+//  console.log("idddd",dataId)
 
 const handleEmail=(e)=>{
   let value=e.target.value 
@@ -265,16 +281,20 @@ const handleEmail=(e)=>{
     }
 
 
-    let data = infoData[0]
-    data.info = info
+    // let data = infoData[0]
+    // data.info = info
+
+    let data= mainData
+    data.info=info
 
 
 
-console.log("infoData",data)
+console.log("dataaaaa,,,,,,,info",data)
+
 
     dispatch(postBooking(data))
-    // alert('Booking successfully completed, Thank you.')
-    // navigate(-1)
+    alert('Booking successfully completed, Thank you.')
+    navigate(-1)
   }
 
   const handleFirst=(e)=>{
@@ -294,13 +314,19 @@ console.log("infoData",data)
     setAdress(value)
   }
 
+  useEffect(()=>{
+    if(Object.keys(mainData).length>0){
+      setData(mainData.images)
+    }
+  },[mainData])
+
 
   console.log("inFo",infoData)
 
 
-  useEffect(()=>{
-    dispatch(getInfo())
-  },[])
+  // useEffect(()=>{
+  //   dispatch(getInfo())
+  // },[])
 
   return (
     <OuterContainer>
@@ -381,14 +407,14 @@ Complete your details and one of our associates will contact you about viewing y
 
           <SecondBox>
 
-            {infoData.map((item)=>(
+           
               <MapData>
-                <ImageBox as={"img"} src={item.images[0]}/>
-                <MapText sx={{fontSize:10,}}>{item.name}</MapText>
-                <MapText sx={{fontSize:10,}}>{item.price}</MapText>
-                <MapText sx={{fontSize:10,color:"grey"}}>{item.description}</MapText>
+                <ImageBox as={"img"} src={data[0]}/>
+                <MapText sx={{fontSize:10,}}>{mainData.name}</MapText>
+                <MapText sx={{fontSize:10,}}>₹{mainData.price}.00</MapText>
+                <MapText sx={{fontSize:10,color:"grey"}}>{mainData.description}</MapText>
               </MapData>
-            ))}
+      
 
           </SecondBox>
 

@@ -232,7 +232,7 @@ function Search() {
   console.log("show", show);
 
   const handleView = () => {
-    dispatch(postResult(search));
+    // dispatch(postResult(search));
     navigate(`/result/${searchValue}`);
   };
 

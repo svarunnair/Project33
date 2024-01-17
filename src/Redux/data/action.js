@@ -54,6 +54,10 @@ export const DELETE_WISHLIST_REQUIEST="DELETE_WISHLIST_REQUIEST"
 export const DELETE_WISHLIST_SUCCESS="DELETE_WISHLIST_SUCCESS"
 export const DELETE_WISHLIST_FAILURE="DELETE_WISHLIST_FAILURE"
 
+export const GET_INFODATA_REQUIEST="GET_INFODATA_REQUIEST"
+export const GET_INFODATA_SUCCESS="GET_INFODATA_SUCCESS"
+export const GET_INFODATA_FAILURE="GET_INFODATA_FAILURE"
+
 
 
 
@@ -71,6 +75,23 @@ const getDataSuccess=(data)=>{
 const getDataFailure=()=>{
     return({
         type:GET_DATA_FAILURE
+    })
+}
+
+const getInfodataRequiest=()=>{
+    return({
+        type:GET_INFODATA_REQUIEST
+    })
+}
+const getInfodataSuccess=(data)=>{
+    return({
+        type:GET_INFODATA_SUCCESS,
+        payload:data
+    })
+}
+const getInfodataFailure=()=>{
+    return({
+        type:GET_INFODATA_FAILURE
     })
 }
 
@@ -483,5 +504,20 @@ export const deleteWishlist=(id)=>(dispatch)=>{
     })
     .catch((error)=>{
         dispatch(deleteWishlistFailure())
+    })
+}
+
+export const getInfodata=(id)=>(dispatch)=>{
+    dispatch(getInfodataRequiest())
+    return axios({
+        url:`http://localhost:8000/data/${id}`,
+        method:"GET"
+    })
+    .then((res)=>{
+        dispatch(getInfodataSuccess(res.data))
+        console.log("getInfodata",res.data)
+    })
+    .catch((error)=>{
+        dispatch(getInfodataFailure())
     })
 }

@@ -258,9 +258,9 @@ const handleFav=(item)=>{
 
 
 
-    useEffect(()=>{
-     dispatch(getResult())
-    },[])
+    // useEffect(()=>{
+    //  dispatch(getResult())
+    // },[])
 
 
     useEffect(() => {

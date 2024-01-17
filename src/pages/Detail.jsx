@@ -358,9 +358,15 @@ const handlePrev=()=>{
 
 }
 
+console.log("detailss...........",detail)
+
+let dataId=detail.id
+
+console.log("dataID,,,,,,",dataId)
+
 const handleCall=()=>{
-  dispatch(postInfo(detail))
-  navigate('/info')
+  // dispatch(postInfo(detail))
+  navigate(`/info/${dataId}`)
 }
 
 const handleClick=()=>{
